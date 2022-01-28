@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ARIO³ &#8212; ARIO3  documentation</title>
+    
+    <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/pydata-sphinx-theme.css" />
+    
+    <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Welcome to ARIO3’s documentation!" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="index.html">
+<p class="title">ARIO3</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  ARIO³
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="installation.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="terminology.html">
+  Terminology
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="math.html">
+  Mathematical background
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="usage.html">
+  Detailled examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="development.html">
+  Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api_references.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-ario3">
+   What is ARIO³ ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-get-it">
+   Where to get it ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-ario3-work">
+   How does ARIO³ work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-of-use">
+   Example of use
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#record-files">
+     Record files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-description-to-come">
+   More description to come
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="ario3">
+<h1>ARIO³<a class="headerlink" href="#ario3" title="Permalink to this headline">¶</a></h1>
+<p>ARIO³ : Adaptative Regional Input Output Object-Oriented in python.</p>
+<section id="what-is-ario3">
+<h2>What is ARIO³ ?<a class="headerlink" href="#what-is-ario3" title="Permalink to this headline">¶</a></h2>
+<p>ARIO³, is an object-oriented python implementation project of the Adaptative Regional Input Output (ARIO) model [<a class="reference external" href="https://doi.org/10.1111/j.1539-6924.2008.01046.x">Hallegatte 2013</a>].</p>
+<p>Its objectives are to give an accessible and inter-operable implementation of ARIO, as well as tools to visualize and analyze simulation outputs and to
+evaluate the effects of many parameters of the model.</p>
+<p>This implementation would not have been possible without the <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/intro.html">Pymrio</a> module and amazing work of [<a class="reference external" href="https://openresearchsoftware.metajnl.com/articles/10.5334/jors.251/">Stadler 2021</a>] !</p>
+<p>It is still an ongoing project (in parallel of a PhD project).</p>
+</section>
+<section id="where-to-get-it">
+<h2>Where to get it ?<a class="headerlink" href="#where-to-get-it" title="Permalink to this headline">¶</a></h2>
+<p>The full source code is available on Github at: <a class="reference external" href="https://github.com/spjuhel/ario3">https://github.com/spjuhel/ario3</a></p>
+</section>
+<section id="how-does-ario3-work">
+<h2>How does ARIO³ work?<a class="headerlink" href="#how-does-ario3-work" title="Permalink to this headline">¶</a></h2>
+<p>In a nutshell, ARIO³ takes the following inputs :</p>
+<ul class="simple">
+<li><p>an IO table (such as EXIOBASE or EORA26) in the form of an <cite>IOSystem</cite> object (define by the <cite>pymrio</cite> package)</p></li>
+<li><p>simulation and mrio parameters (as json files or dictionaries), which govern the simulation,</p></li>
+<li><p>event(s) description(s) (as json files or dictionaries), which are used as the perturbation to analyse during the simulation</p></li>
+</ul>
+<p>in order to produce the following outputs:</p>
+<ul class="simple">
+<li><p>the step by step, sector by sector, region by region evolution of most of the variables involved in the simulation (production, demand, stocks, …)</p></li>
+<li><p>aggregated indicators for the whole simulation (shortages duration, aggregated impacts, …)</p></li>
+<li><p>more to come</p></li>
+</ul>
+</section>
+<section id="example-of-use">
+<h2>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline">¶</a></h2>
+<p>In this commented example, we run the model with one simple
+event using ‘usual’ parameters, and compute the aggregated indicators of the
+simulation. We suppose we run the following script from <code class="docutils literal notranslate"><span class="pre">~/ARIO3/</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We import the base of the model</span>
+<span class="kn">import</span> <span class="nn">ario3.simulation.base</span> <span class="k">as</span> <span class="nn">sim</span>
+<span class="c1"># We also import the indicators module</span>
+<span class="kn">from</span> <span class="nn">ario3.indicators.indicators</span> <span class="kn">import</span> <span class="n">Indicators</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="c1"># We instantiate a dictionary with the parameters</span>
+<span class="c1"># (it is also possible to use a json file)</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># The name of the working directory to use (relative to current wd)</span>
+    <span class="s2">&quot;storage_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;storage&quot;</span><span class="p">,</span>
+    <span class="c1"># The directory to use to store results (relative to storage_dir)</span>
+    <span class="c1"># i.e. here, the model will look for files in ~/ARIO3/storage/ and</span>
+    <span class="c1"># store results in ~/ARIO3/storage/results/</span>
+    <span class="s2">&quot;results_storage&quot;</span><span class="p">:</span> <span class="s2">&quot;results&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bool_run_detailled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># This tells the model to register the evolution of the stocks</span>
+    <span class="c1"># of every industry (the file can be quite large (2Gbytes+ for</span>
+    <span class="c1"># a 365 days simulation with exiobase))</span>
+    <span class="s2">&quot;register_stocks&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="c1"># Parameters of the model (we detail these in the documentation)</span>
+   <span class="s2">&quot;psi_param&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+   <span class="s2">&quot;model_time_step&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="s2">&quot;timestep_dividing_factor&quot;</span><span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
+   <span class="s2">&quot;inventory_restoration_time&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+   <span class="s2">&quot;alpha_base&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+   <span class="s2">&quot;alpha_max&quot;</span><span class="p">:</span> <span class="mf">1.25</span><span class="p">,</span>
+   <span class="s2">&quot;alpha_tau&quot;</span><span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
+   <span class="s2">&quot;rebuild_tau&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+   <span class="s2">&quot;n_timesteps&quot;</span><span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
+   <span class="s2">&quot;min_duration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">365</span> <span class="o">//</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">25</span><span class="p">,</span>
+   <span class="s2">&quot;impacted_region_base_production_toward_rebuilding&quot;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+   <span class="s2">&quot;row_base_production_toward_rebuilding&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+   <span class="s2">&quot;mrio_params_file&quot;</span><span class="p">:</span><span class="s2">&quot;mrio_params.json&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># Here we define the event perturbing the simulation</span>
+<span class="n">event</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># The list of affected regions (their index in the mrio table)</span>
+    <span class="c1"># Here we just have France</span>
+    <span class="s2">&quot;aff-regions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;FR&quot;</span><span class="p">],</span>
+    <span class="c1"># The list of affected sectors</span>
+    <span class="c1"># (here we specify that all sectors are impacted)</span>
+    <span class="s2">&quot;aff-sectors&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+    <span class="c1"># The shares of the damages distributed between regions</span>
+    <span class="c1"># (1 as we have only one region)</span>
+    <span class="s2">&quot;dmg-distrib-regions&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">],</span>
+    <span class="c1"># The type of distribution of damages for the sectors</span>
+    <span class="c1"># (more on that in the doc)</span>
+    <span class="s2">&quot;dmg-distrib-sectors-type&quot;</span><span class="p">:</span> <span class="s2">&quot;gdp&quot;</span><span class="p">,</span>
+    <span class="c1"># &#39;gdp&#39; distribution doesn&#39;t require this parameter to be set</span>
+    <span class="s2">&quot;dmg-distrib-sectors&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="c1"># The duration of the event (not implemented yet, so it has no effect)</span>
+    <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1"># A name for the event (usefull when simulating multiple events)</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="c1"># The step at which the event shall occur during the simulation</span>
+    <span class="s2">&quot;occur&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="c1"># The quantity of damages caused by the event (in IO table monetary)</span>
+    <span class="s2">&quot;q_dmg&quot;</span><span class="p">:</span><span class="mi">100000000</span><span class="p">,</span>
+    <span class="c1"># The sectors mobilised to answer the rebuilding demand</span>
+    <span class="c1"># and the share of the demand they answer</span>
+    <span class="s2">&quot;rebuilding-sectors&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Construction (45)&quot;</span><span class="p">:</span><span class="mf">0.15</span><span class="p">,</span>
+        <span class="s2">&quot;Manufacture of machinery and equipment n.e.c. (29)&quot;</span> <span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>
+        <span class="s2">&quot;Manufacture of furniture; manufacturing n.e.c. (36)&quot;</span> <span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>
+        <span class="s2">&quot;Manufacture of office machinery and computers (30)&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># We load the mrio table from a pickle file (created with the help of the</span>
+<span class="c1"># pymrio module, more on that in the doc)</span>
+<span class="n">mrio_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;storage_dir&#39;</span><span class="p">])</span><span class="o">/</span><span class="s2">&quot;mrio.pkl&quot;</span>
+
+<span class="c1"># We initiate a model instance ...</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">mrio_path</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+
+<span class="c1"># ... add the list of events (just one here) to the model ...</span>
+<span class="n">model</span><span class="o">.</span><span class="n">read_events_from_list</span><span class="p">([</span><span class="n">event</span><span class="p">])</span>
+
+<span class="c1"># ... and launch the simulation with :</span>
+<span class="n">model</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+
+<span class="c1"># Once the simulation is over we can compute some indicators :</span>
+<span class="n">indic</span> <span class="o">=</span> <span class="n">Indicators</span><span class="o">.</span><span class="n">from_storage_path</span><span class="p">(</span>
+                                     <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">sim_params</span><span class="p">[</span><span class="s1">&#39;storage_dir&#39;</span><span class="p">]),</span>
+                                     <span class="n">params</span><span class="o">=</span><span class="n">sim_params</span>
+<span class="p">)</span>
+<span class="n">indic</span><span class="o">.</span><span class="n">update_indicators</span><span class="p">()</span>
+<span class="n">indic</span><span class="o">.</span><span class="n">write_indicators</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This script will produce files in <code class="docutils literal notranslate"><span class="pre">~/ARIO3/storage/results/</span></code> :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">simulated_events.json</span></code> : A json record of the events that were simulated
+during the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indicators.json</span></code> : A json record (produced by <a class="reference internal" href="api-doc/ario3.html#ario3.indicators.Indicators.write_indicators" title="ario3.indicators.Indicators.write_indicators"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Indicators.write_indicators()</span></code></a>)
+of the computed indicators.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record</span></code> files. These are <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.memmap.html#numpy.memmap" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.memmap</span></code></a>:
+of the different recorded variables.</p></li>
+</ul>
+</div></blockquote>
+<section id="record-files">
+<h3>Record files<a class="headerlink" href="#record-files" title="Permalink to this headline">¶</a></h3>
+<p>You may read these directly into a numpy array with :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="s2">&quot;results/+record_name+_record&quot;</span><span class="p">,</span>
+           <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r+&#39;</span><span class="p">,</span>
+           <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span>
+           <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">n_sectors</span><span class="o">*</span><span class="n">n_regions</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">shape</span></code> is the shape mentioned afterward.</p>
+<blockquote>
+<div><p>1. <code class="docutils literal notranslate"><span class="pre">classic_demand</span></code> : the sum of intermediate and final demand addressed to
+each industries. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>2. <code class="docutils literal notranslate"><span class="pre">iotable_XVA</span></code> : the realised production of each industry. Its shape is
+<code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>3. <code class="docutils literal notranslate"><span class="pre">iotable_X_max</span></code> : the production capacity of each industry. Its shape is
+<code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>4. <code class="docutils literal notranslate"><span class="pre">overprod_vector</span></code> : the overproduction scaling of each industry. Its
+shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>5. <code class="docutils literal notranslate"><span class="pre">rebuild_demand</span></code> : the additional direct demand created by the event
+for rebuilding, for each industry.
+Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>6. <code class="docutils literal notranslate"><span class="pre">rebuild_prod</span></code> : the part of production attributed to rebuilding, for each
+industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>7. <code class="docutils literal notranslate"><span class="pre">final_demand_unmet</span></code> : the final demand that was not met due to rationing,
+for each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
+<p>8. <code class="docutils literal notranslate"><span class="pre">stocks</span></code> : the stocks of each input for each industry.
+Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps*n_sectors,</span> <span class="pre">n_sectors*n_regions)</span></code>.
+Note that this file is not created if <code class="docutils literal notranslate"><span class="pre">register_stocks</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>
+in the simulation parameters.</p>
+<p>9. <code class="docutils literal notranslate"><span class="pre">limiting_stocks</span></code> : a boolean matrix, telling for each input and for each
+industry if the stock is limiting for production.
+Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps*n_sectors,</span> <span class="pre">n_sectors*n_regions)</span></code>.
+Reading this array directly require to change the dtype
+to ‘bool’ in the above command.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="more-description-to-come">
+<h2>More description to come<a class="headerlink" href="#more-description-to-come" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to ARIO3’s documentation!</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="installation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Samuel Juhel.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
