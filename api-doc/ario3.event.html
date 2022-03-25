@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>ario3.test package &#8212; ARIO3  documentation</title>
+    <title>ario3.event module &#8212; ARIO3  documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,18 +23,19 @@
       
   
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ario3.indicators module" href="ario3.indicators.html" />
     <link rel="prev" title="ario3 package" href="ario3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -165,17 +166,32 @@
     <ul class="current">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       ario3.test package
+       ario3.event module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.indicators.html">
+       ario3.indicators module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.logging_conf.html">
+       ario3.logging_conf module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.mriosystem.html">
+       ario3.mriosystem module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.simulation.html">
+       ario3.simulation module
       </a>
      </li>
     </ul>
    </li>
   </ul>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   ario3.test package
-  </a>
  </li>
 </ul>
 
@@ -194,29 +210,9 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submodules">
-   Submodules
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ario3-test-test-mrio-sys-module">
-   ario3.test.test_mrio_sys module
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-ario3.test">
-   Module contents
-  </a>
- </li>
-</ul>
-
+    
 </nav>
               </div>
               
@@ -236,17 +232,19 @@
               
               <div>
                 
-  <section id="ario3-test-package">
-<h1>ario3.test package<a class="headerlink" href="#ario3-test-package" title="Permalink to this headline">¶</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="ario3-test-test-mrio-sys-module">
-<h2>ario3.test.test_mrio_sys module<a class="headerlink" href="#ario3-test-test-mrio-sys-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="module-ario3.test">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ario3.test" title="Permalink to this headline">¶</a></h2>
-</section>
+  <section id="module-ario3.event">
+<span id="ario3-event-module"></span><h1>ario3.event module<a class="headerlink" href="#module-ario3.event" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="ario3.event.Event">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.event.Event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="ario3.event.Event.check_values">
+<code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.event.Event.check_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -261,6 +259,13 @@
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">ario3 package</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="ario3.indicators.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ario3.indicators module</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
               
@@ -282,7 +287,7 @@
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
 </p>
     </div>
     

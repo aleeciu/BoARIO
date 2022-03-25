@@ -23,19 +23,19 @@
       
   
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ario3.test package" href="ario3.test.html" />
+    <link rel="next" title="ario3.event module" href="ario3.event.html" />
     <link rel="prev" title="ario3" href="modules.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -165,18 +165,33 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="ario3.test.html">
-       ario3.test package
+      <a class="reference internal" href="ario3.event.html">
+       ario3.event module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.indicators.html">
+       ario3.indicators module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.logging_conf.html">
+       ario3.logging_conf module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.mriosystem.html">
+       ario3.mriosystem module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ario3.simulation.html">
+       ario3.simulation module
       </a>
      </li>
     </ul>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ario3.test.html">
-   ario3.test package
-  </a>
  </li>
 </ul>
 
@@ -202,33 +217,8 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#subpackages">
-   Subpackages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submodules">
    Submodules
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-ario3.event">
-   ario3.event module
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-ario3.indicators">
-   ario3.indicators module
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-ario3.mriosystem">
-   ario3.mriosystem module
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-ario3.simulation">
-   ario3.simulation module
   </a>
  </li>
 </ul>
@@ -252,363 +242,19 @@
               
               <div>
                 
-  <section id="ario3-package">
-<h1>ario3 package<a class="headerlink" href="#ario3-package" title="Permalink to this headline">¶</a></h1>
-<section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ario3.test.html">ario3.test package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ario3.test.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ario3.test.html#ario3-test-test-mrio-sys-module">ario3.test.test_mrio_sys module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ario3.test.html#module-ario3.test">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
+  <section id="module-ario3">
+<span id="ario3-package"></span><h1>ario3 package<a class="headerlink" href="#module-ario3" title="Permalink to this headline">¶</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="module-ario3.event">
-<span id="ario3-event-module"></span><h2>ario3.event module<a class="headerlink" href="#module-ario3.event" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ario3.event.Event">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.event.Event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.event.Event.check_values">
-<span class="sig-name descname"><span class="pre">check_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.event.Event.check_values" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ario3.indicators">
-<span id="ario3-indicators-module"></span><h2>ario3.indicators module<a class="headerlink" href="#module-ario3.indicators" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Indicators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_aff_fd_unmet">
-<span class="sig-name descname"><span class="pre">calc_aff_fd_unmet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_aff_fd_unmet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_general_shortage">
-<span class="sig-name descname"><span class="pre">calc_general_shortage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_general_shortage" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_rebuild_durations">
-<span class="sig-name descname"><span class="pre">calc_rebuild_durations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_rebuild_durations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_recovery_duration">
-<span class="sig-name descname"><span class="pre">calc_recovery_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_recovery_duration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_shortage_extent">
-<span class="sig-name descname"><span class="pre">calc_shortage_extent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_shortage_extent" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_tot_fd_unmet">
-<span class="sig-name descname"><span class="pre">calc_tot_fd_unmet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_tot_fd_unmet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.calc_tot_prod_change">
-<span class="sig-name descname"><span class="pre">calc_tot_prod_change</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.calc_tot_prod_change" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.dict_from_storage_path">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">dict_from_storage_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.dict_from_storage_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.from_model">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ario3.simulation.Simulation" title="ario3.simulation.Simulation"><span class="pre">ario3.simulation.Simulation</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.from_model" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.from_storage_path">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_storage_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.from_storage_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.save_dfs">
-<span class="sig-name descname"><span class="pre">save_dfs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.save_dfs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.update_indicators">
-<span class="sig-name descname"><span class="pre">update_indicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.update_indicators" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.indicators.Indicators.write_indicators">
-<span class="sig-name descname"><span class="pre">write_indicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.indicators.Indicators.write_indicators" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ario3.mriosystem">
-<span id="ario3-mriosystem-module"></span><h2>ario3.mriosystem module<a class="headerlink" href="#module-ario3.mriosystem" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">MrioSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pym_mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pymrio.core.mriosystem.IOSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_storage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.aggregate_rebuild_demand">
-<span class="sig-name descname"><span class="pre">aggregate_rebuild_demand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.aggregate_rebuild_demand" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.calc_orders">
-<span class="sig-name descname"><span class="pre">calc_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stocks_constraints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.calc_orders" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stocks_constraints</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.calc_overproduction">
-<span class="sig-name descname"><span class="pre">calc_overproduction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.calc_overproduction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.calc_prod_reqby_demand">
-<span class="sig-name descname"><span class="pre">calc_prod_reqby_demand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.calc_prod_reqby_demand" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.calc_production">
-<span class="sig-name descname"><span class="pre">calc_production</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.calc_production" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.calc_production_cap">
-<span class="sig-name descname"><span class="pre">calc_production_cap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.calc_production_cap" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.calc_rebuilding_production">
-<span class="sig-name descname"><span class="pre">calc_rebuilding_production</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.calc_rebuilding_production" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.check_crash">
-<span class="sig-name descname"><span class="pre">check_crash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prod_threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.check_crash" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.check_equilibrium">
-<span class="sig-name descname"><span class="pre">check_equilibrium</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.check_equilibrium" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.check_stock_increasing">
-<span class="sig-name descname"><span class="pre">check_stock_increasing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.check_stock_increasing" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.distribute_production">
-<span class="sig-name descname"><span class="pre">distribute_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'proportional'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.distribute_production" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.reset_module">
-<span class="sig-name descname"><span class="pre">reset_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_storage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.reset_module" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.update_kapital_lost">
-<span class="sig-name descname"><span class="pre">update_kapital_lost</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.update_kapital_lost" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.update_params">
-<span class="sig-name descname"><span class="pre">update_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.update_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_classic_demand">
-<span class="sig-name descname"><span class="pre">write_classic_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_classic_demand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_final_demand_unmet">
-<span class="sig-name descname"><span class="pre">write_final_demand_unmet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_demand_unmet</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_final_demand_unmet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_index">
-<span class="sig-name descname"><span class="pre">write_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_limiting_stocks">
-<span class="sig-name descname"><span class="pre">write_limiting_stocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">limiting_stock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_limiting_stocks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_overproduction">
-<span class="sig-name descname"><span class="pre">write_overproduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_overproduction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_production">
-<span class="sig-name descname"><span class="pre">write_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_production" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_production_max">
-<span class="sig-name descname"><span class="pre">write_production_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_production_max" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_rebuild_demand">
-<span class="sig-name descname"><span class="pre">write_rebuild_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_rebuild_demand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_rebuild_prod">
-<span class="sig-name descname"><span class="pre">write_rebuild_prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rebuild_prod_agg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_rebuild_prod" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.mriosystem.MrioSystem.write_stocks">
-<span class="sig-name descname"><span class="pre">write_stocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.mriosystem.MrioSystem.write_stocks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ario3.simulation">
-<span id="ario3-simulation-module"></span><h2>ario3.simulation module<a class="headerlink" href="#module-ario3.simulation" title="Permalink to this headline">¶</a></h2>
-<p>Simulation module</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Simulation instance</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.loop">
-<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Launch the simulation loop.</p>
-<p>This method launch the simulation for the number of steps to simulate
-described by the attribute self.n_timpesteps_to_sim, calling the
-next_step() method in a for loop. For convenience, it dumps the
-parameters used in the log just before running the loop. Once the loop
-is completed, it flushes the different memmaps generated by the mrio
-subsystem.</p>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.next_step">
-<span class="sig-name descname"><span class="pre">next_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.next_step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Advance the model run by one step.</p>
-<p>This method wraps all computations and logging to proceed to the next
-step of the simulation run. First it checks if an event is planned to
-occur at the current step and if so, shock the model with the
-corresponding event. Then it 1) computes the production capacity vector
-of the current step (using calc_production_cap()) 2) Computes the
-actual production vector for the step. 3) Distribute the actual
-production towards the different demands (intermediate, final,
-rebuilding) and the changes in the stocks matrix. 4) Computes the
-orders matrix for the next step. 5) Computes the new overproduction
-vector for the next step. 6) If at least a fifth of the simulation
-steps was run, it checks for a possible crash of the economy in the
-model (a crash being defined by more than a third of all industries
-having close to null production)</p>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.read_events">
-<span class="sig-name descname"><span class="pre">read_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.read_events_from_list">
-<span class="sig-name descname"><span class="pre">read_events_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.reset_sim_full">
-<span class="sig-name descname"><span class="pre">reset_sim_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.reset_sim_with_same_events">
-<span class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.shock">
-<span class="sig-name descname"><span class="pre">shock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_to_add</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.shock" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the rebuilding demand and the share of production allocated toward it in the mrio system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>event</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.update_params">
-<span class="sig-name descname"><span class="pre">update_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ario3.simulation.Simulation.write_index">
-<span class="sig-name descname"><span class="pre">write_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.write_index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ario3.event.html">ario3.event module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ario3.indicators.html">ario3.indicators module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ario3.logging_conf.html">ario3.logging_conf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ario3.mriosystem.html">ario3.mriosystem module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ario3.simulation.html">ario3.simulation module</a></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -625,10 +271,10 @@ having close to null production)</p>
             <p class="prev-next-title">ario3</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ario3.test.html" title="next page">
+    <a class='right-next' id="next-link" href="ario3.event.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ario3.test package</p>
+        <p class="prev-next-title">ario3.event module</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -652,7 +298,7 @@ having close to null production)</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
 </p>
     </div>
     
