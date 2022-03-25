@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>ario3.simulation module &#8212; ARIO3  documentation</title>
+    <title>boario.simulation module &#8212; BoARIO  documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,7 +35,7 @@
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="ario3.mriosystem module" href="ario3.mriosystem.html" />
+    <link rel="prev" title="boario.mriosystem module" href="boario.mriosystem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -54,7 +54,7 @@
     
     
 <a class="navbar-brand" href="../index.html">
-<p class="title">ARIO3</p>
+<p class="title">BoARIO</p>
 </a>
 
     
@@ -145,7 +145,7 @@
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="modules.html">
-   ario3
+   boario
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -154,8 +154,8 @@
   </label>
   <ul class="current">
    <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="ario3.html">
-     ario3 package
+    <a class="reference internal" href="boario.html">
+     boario package
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -164,28 +164,28 @@
     </label>
     <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="ario3.event.html">
-       ario3.event module
+      <a class="reference internal" href="boario.event.html">
+       boario.event module
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="ario3.indicators.html">
-       ario3.indicators module
+      <a class="reference internal" href="boario.indicators.html">
+       boario.indicators module
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="ario3.logging_conf.html">
-       ario3.logging_conf module
+      <a class="reference internal" href="boario.logging_conf.html">
+       boario.logging_conf module
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="ario3.mriosystem.html">
-       ario3.mriosystem module
+      <a class="reference internal" href="boario.mriosystem.html">
+       boario.mriosystem module
       </a>
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       ario3.simulation module
+       boario.simulation module
       </a>
      </li>
     </ul>
@@ -231,17 +231,17 @@
               
               <div>
                 
-  <section id="module-ario3.simulation">
-<span id="ario3-simulation-module"></span><h1>ario3.simulation module<a class="headerlink" href="#module-ario3.simulation" title="Permalink to this headline">¶</a></h1>
+  <section id="module-boario.simulation">
+<span id="boario-simulation-module"></span><h1>boario.simulation module<a class="headerlink" href="#module-boario.simulation" title="Permalink to this headline">¶</a></h1>
 <p>Simulation module</p>
 <dl class="py class">
-<dt id="ario3.simulation.Simulation">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Simulation instance</p>
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.loop">
-<code class="sig-name descname"><span class="pre">loop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.loop" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.loop">
+<code class="sig-name descname"><span class="pre">loop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the simulation loop.</p>
 <p>This method launch the simulation for the number of steps to simulate
 described by the attribute self.n_timpesteps_to_sim, calling the
@@ -259,8 +259,8 @@ subsystem.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.next_step">
-<code class="sig-name descname"><span class="pre">next_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_steps_check</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_failing_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.next_step" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.next_step">
+<code class="sig-name descname"><span class="pre">next_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_steps_check</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_failing_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.next_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Advance the model run by one step.</p>
 <p>This method wraps all computations and logging to proceed to the next
 step of the simulation run. First it checks if an event is planned to
@@ -272,15 +272,15 @@ corresponding event. Then it :</p>
 <li><p>Distribute the actual production towards the different demands (intermediate, final, rebuilding) and the changes in the stocks matrix.</p></li>
 <li><p>Computes the orders matrix for the next step.</p></li>
 <li><p>Computes the new overproduction vector for the next step.</p></li>
-<li><p>If at least min_steps_check steps of the simulation were run, it checks for a possible crash of the economy in the model (a crash being defined by more than a third of all industries having close to null production) or an equilibrium (see <a class="reference internal" href="ario3.mriosystem.html#ario3.mriosystem.MrioSystem.check_crash" title="ario3.mriosystem.MrioSystem.check_crash"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code></a> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ario3.mriosystem:MrioSystem.check_production_eq_soft()</span></code>).</p></li>
+<li><p>If at least min_steps_check steps of the simulation were run, it checks for a possible crash of the economy in the model (a crash being defined by more than a third of all industries having close to null production) or an equilibrium (see <code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ario3.mriosystem:MrioSystem.check_production_eq_soft()</span></code>).</p></li>
 </ol>
-<p>See <a class="reference internal" href="../math.html#ario3-math"><span class="std std-ref">Mathematical background</span></a> section for more in depth information.</p>
+<p>See <a class="reference internal" href="../math.html#boario-math"><span class="std std-ref">Mathematical background</span></a> section for more in depth information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>check_period</strong> (<em>int, default: 10</em>) – Number of steps between each crash/equilibrium checking.</p></li>
 <li><p><strong>min_steps_check</strong> (<em>int, default: None</em>) – Minimum number of steps before checking for crash/equilibrium. If none, it is set to a fifth of the number of steps to simulate.</p></li>
-<li><p><strong>min_failing_regions</strong> (<em>int, default: None</em>) – Minimum number of ‘failing regions’ required to consider the economy has ‘crashed’ (see <a class="reference internal" href="ario3.mriosystem.html#ario3.mriosystem.MrioSystem.check_crash" title="ario3.mriosystem.MrioSystem.check_crash"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code></a>:).</p></li>
+<li><p><strong>min_failing_regions</strong> (<em>int, default: None</em>) – Minimum number of ‘failing regions’ required to consider the economy has ‘crashed’ (see <code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code>:).</p></li>
 </ul>
 </dd>
 </dl>
@@ -289,8 +289,8 @@ corresponding event. Then it :</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.read_events">
-<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.read_events">
+<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read events from a json file.</p>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version Method: </span>wasn’t checked recently.</p>
@@ -308,8 +308,8 @@ corresponding event. Then it :</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.read_events_from_list">
-<code class="sig-name descname"><span class="pre">read_events_from_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.read_events_from_list">
+<code class="sig-name descname"><span class="pre">read_events_from_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Import a list of events (as dicts) into the model.</p>
 <p>Imports a list of events (as dictionnaries) into th model. Also does
 various checks on the events to avoid badly written events.</p>
@@ -323,24 +323,24 @@ various checks on the events to avoid badly written events.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.reset_sim_full">
-<code class="sig-name descname"><span class="pre">reset_sim_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.reset_sim_full">
+<code class="sig-name descname"><span class="pre">reset_sim_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the model to its initial status and remove all events.</p>
 <p class="rubric">Examples</p>
 <p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.reset_sim_with_same_events">
-<code class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.reset_sim_with_same_events">
+<code class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the model to its initial status (without removing the events).</p>
 <p class="rubric">Examples</p>
 <p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.shock">
-<code class="sig-name descname"><span class="pre">shock</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_to_add</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.shock" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.shock">
+<code class="sig-name descname"><span class="pre">shock</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_to_add</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.shock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shocks the model with an event.</p>
 <p>Sets the rebuilding demand and the share of production allocated toward
 it in the mrio system.</p>
@@ -358,8 +358,8 @@ it in the mrio system.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.update_params">
-<code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.update_params">
+<code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the parameters of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -371,8 +371,8 @@ it in the mrio system.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ario3.simulation.Simulation.write_index">
-<code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ario3.simulation.Simulation.write_index" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.simulation.Simulation.write_index">
+<code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#boario.simulation.Simulation.write_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the index of the dataframes in a json file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -393,11 +393,11 @@ it in the mrio system.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ario3.mriosystem.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="boario.mriosystem.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">ario3.mriosystem module</p>
+            <p class="prev-next-title">boario.mriosystem module</p>
         </div>
     </a>
 </div>
