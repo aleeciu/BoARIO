@@ -193,9 +193,46 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indicators">
+   Indicators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-scripts">
+   Useful scripts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-description-to-come">
    More description to come
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#credits">
+   Credits
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#associated-phd-project">
+     Associated PhD project
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development">
+     Development
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contributions">
+     Contributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acknowledgements">
+     Acknowledgements
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -220,7 +257,7 @@
                 
   <section id="boario">
 <h1>BoARIO<a class="headerlink" href="#boario" title="Permalink to this headline">¶</a></h1>
-<p>BoARIO : Adaptative Regional Input Output python.</p>
+<p>BoARIO : The Adaptative Regional Input Output model in python.</p>
 <section id="what-is-boario">
 <h2>What is BoARIO ?<a class="headerlink" href="#what-is-boario" title="Permalink to this headline">¶</a></h2>
 <p>BoARIO, is a python implementation project of the Adaptative Regional Input Output (ARIO) model [<a class="reference external" href="https://doi.org/10.1111/j.1539-6924.2008.01046.x">Hallegatte 2013</a>].</p>
@@ -228,6 +265,8 @@
 evaluate the effects of many parameters of the model.</p>
 <p>This implementation would not have been possible without the <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/intro.html">Pymrio</a> module and amazing work of [<a class="reference external" href="https://openresearchsoftware.metajnl.com/articles/10.5334/jors.251/">Stadler 2021</a>] !</p>
 <p>It is still an ongoing project (in parallel of a PhD project).</p>
+<p>Here is a non-exhaustive chronology of academic works with or about the ARIO model :</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/chronology.svg?sanitize=true"><img alt="ADEME Logo" src="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/chronology.svg?sanitize=true" style="width: 900px;" /></a>
 </section>
 <section id="where-to-get-it">
 <h2>Where to get it ?<a class="headerlink" href="#where-to-get-it" title="Permalink to this headline">¶</a></h2>
@@ -237,7 +276,7 @@ evaluate the effects of many parameters of the model.</p>
 <h2>How does BoARIO work?<a class="headerlink" href="#how-does-boario-work" title="Permalink to this headline">¶</a></h2>
 <p>In a nutshell, BoARIO takes the following inputs :</p>
 <ul class="simple">
-<li><p>an IO table (such as EXIOBASE or EORA26) in the form of an <cite>IOSystem</cite> object (define by the <cite>pymrio</cite> package)</p></li>
+<li><p>an IO table (such as EXIOBASE3 or EORA26) in the form of an <cite>IOSystem</cite> object (define by the <cite>pymrio</cite> package)</p></li>
 <li><p>simulation and mrio parameters (as json files or dictionaries), which govern the simulation,</p></li>
 <li><p>event(s) description(s) (as json files or dictionaries), which are used as the perturbation to analyse during the simulation</p></li>
 </ul>
@@ -279,14 +318,14 @@ simulation. We suppose we run the following script from <code class="docutils li
     <span class="c1"># a 365 days simulation with exiobase))</span>
     <span class="s2">&quot;register_stocks&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="c1"># Parameters of the model (we detail these in the documentation)</span>
-   <span class="s2">&quot;psi_param&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+   <span class="s2">&quot;psi_param&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
    <span class="s2">&quot;model_time_step&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
    <span class="s2">&quot;timestep_dividing_factor&quot;</span><span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
-   <span class="s2">&quot;inventory_restoration_time&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+   <span class="s2">&quot;inventory_restoration_time&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
    <span class="s2">&quot;alpha_base&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
    <span class="s2">&quot;alpha_max&quot;</span><span class="p">:</span> <span class="mf">1.25</span><span class="p">,</span>
    <span class="s2">&quot;alpha_tau&quot;</span><span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
-   <span class="s2">&quot;rebuild_tau&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+   <span class="s2">&quot;rebuild_tau&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
    <span class="s2">&quot;n_timesteps&quot;</span><span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
    <span class="s2">&quot;min_duration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">365</span> <span class="o">//</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">25</span><span class="p">,</span>
    <span class="s2">&quot;impacted_region_base_production_toward_rebuilding&quot;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
@@ -310,7 +349,7 @@ simulation. We suppose we run the following script from <code class="docutils li
     <span class="s2">&quot;dmg-distrib-sectors-type&quot;</span><span class="p">:</span> <span class="s2">&quot;gdp&quot;</span><span class="p">,</span>
     <span class="c1"># &#39;gdp&#39; distribution doesn&#39;t require this parameter to be set</span>
     <span class="s2">&quot;dmg-distrib-sectors&quot;</span><span class="p">:</span> <span class="p">[],</span>
-    <span class="c1"># The duration of the event (not implemented yet, so it has no effect)</span>
+    <span class="c1"># The duration of the event.</span>
     <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="c1"># A name for the event (usefull when simulating multiple events)</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
@@ -351,16 +390,11 @@ simulation. We suppose we run the following script from <code class="docutils li
 </pre></div>
 </div>
 <p>This script will produce files in <code class="docutils literal notranslate"><span class="pre">~/boario/storage/results/</span></code> :</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">simulated_events.json</span></code> : A json record of the events that were simulated
-during the loop.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">indicators.json</span></code> : A json record (produced by <a class="reference internal" href="api-doc/boario.indicators.html#boario.indicators.Indicators.write_indicators" title="boario.indicators.Indicators.write_indicators"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_indicators()</span></code></a>)
-of the computed indicators.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">record</span></code> files. These are <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.memmap.html#numpy.memmap" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.memmap</span></code></a>:
-of the different recorded variables.</p></li>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">simulated_events.json</span></code> : A json record of the events that were simulated during the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indicators.json</span></code> : A json record (produced by <a class="reference internal" href="api-doc/boario.indicators.html#boario.indicators.Indicators.write_indicators" title="boario.indicators.Indicators.write_indicators"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_indicators()</span></code></a>) of the computed indicators.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record</span></code> files. These are <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.memmap.html#numpy.memmap" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.memmap</span></code></a> of the different recorded variables.</p></li>
 </ul>
-</div></blockquote>
 <section id="record-files">
 <h3>Record files<a class="headerlink" href="#record-files" title="Permalink to this headline">¶</a></h3>
 <p>You may read these directly into a numpy array with :</p>
@@ -372,36 +406,90 @@ of the different recorded variables.</p></li>
 </pre></div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">shape</span></code> is the shape mentioned afterward.</p>
-<blockquote>
-<div><p>1. <code class="docutils literal notranslate"><span class="pre">classic_demand</span></code> : the sum of intermediate and final demand addressed to
-each industries. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>2. <code class="docutils literal notranslate"><span class="pre">iotable_XVA</span></code> : the realised production of each industry. Its shape is
-<code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>3. <code class="docutils literal notranslate"><span class="pre">iotable_X_max</span></code> : the production capacity of each industry. Its shape is
-<code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>4. <code class="docutils literal notranslate"><span class="pre">overprod_vector</span></code> : the overproduction scaling of each industry. Its
-shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>5. <code class="docutils literal notranslate"><span class="pre">rebuild_demand</span></code> : the additional direct demand created by the event
-for rebuilding, for each industry.
-Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>6. <code class="docutils literal notranslate"><span class="pre">rebuild_prod</span></code> : the part of production attributed to rebuilding, for each
-industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>7. <code class="docutils literal notranslate"><span class="pre">final_demand_unmet</span></code> : the final demand that was not met due to rationing,
-for each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p>
-<p>8. <code class="docutils literal notranslate"><span class="pre">stocks</span></code> : the stocks of each input for each industry.
-Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps*n_sectors,</span> <span class="pre">n_sectors*n_regions)</span></code>.
-Note that this file is not created if <code class="docutils literal notranslate"><span class="pre">register_stocks</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>
-in the simulation parameters.</p>
-<p>9. <code class="docutils literal notranslate"><span class="pre">limiting_stocks</span></code> : a boolean matrix, telling for each input and for each
-industry if the stock is limiting for production.
-Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps*n_sectors,</span> <span class="pre">n_sectors*n_regions)</span></code>.
-Reading this array directly require to change the dtype
-to ‘bool’ in the above command.</p>
-</div></blockquote>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">classic_demand</span></code> : the sum of intermediate and final demand addressed to each industries. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iotable_XVA</span></code> : the realised production of each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iotable_X_max</span></code> : the production capacity of each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">overprod_vector</span></code> : the overproduction scaling of each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rebuild_demand</span></code> : the additional direct demand created by the event for rebuilding, for each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rebuild_prod</span></code> : the part of production attributed to rebuilding, for each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">final_demand_unmet</span></code> : the final demand that was not met due to rationing, for each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps,</span> <span class="pre">n_sectors*n_regions)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stocks</span></code> : the stocks of each input for each industry. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps*n_sectors,</span> <span class="pre">n_sectors*n_regions)</span></code>. Note that this file is not created if <code class="docutils literal notranslate"><span class="pre">register_stocks</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> in the simulation parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limiting_stocks</span></code> : a boolean matrix, telling for each input and for each industry if the stock is limiting for production. Its shape is <code class="docutils literal notranslate"><span class="pre">(n_timesteps*n_sectors,</span> <span class="pre">n_sectors*n_regions)</span></code>. Reading this array directly require to change the dtype to ‘bool’ in the above command.</p></li>
+</ol>
 </section>
+</section>
+<section id="indicators">
+<h2>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">¶</a></h2>
+<p>Invoking</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">indic</span> <span class="o">=</span> <span class="n">Indicators</span><span class="o">.</span><span class="n">from_storage_path</span><span class="p">(</span>
+                         <span class="s2">&quot;path/to/results/folder&quot;</span><span class="p">,</span>
+                         <span class="n">param</span><span class="o">=</span><span class="n">simulation_params_dictionary</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>creates an Indicators object containing mostly all results from the simulation in dataframe. For instance <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">prod_df</span></span></code> is a dataframe of the production of each sector of each region for every timestep. Note that some dataframes are in wide format while other are in long format, for treatment purpose. Also note that some of these dataframes are saved in the result folder as <a class="reference external" href="https://parquet.apache.org/">parquet</a> files. They are simply the memmaps <code class="docutils literal notranslate"><span class="pre">records</span></code> with the indexes.</p>
+<p>Calling <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">update_indicators</span></span><span class="punctuation"><span class="pre">()</span></span></code> fills the <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">indicators</span></span></code> dictionary with the following indicators:</p>
+<ul class="simple">
+<li><p>The total (whole world, all sectors) final consumption not met during the simulation <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘tot_fd_unmet’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
+<li><p>The final consumption not met in the region(s) affected by the shock <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘aff_fd_unmet’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
+<li><p>The rebuild duration (ie the number of step during which rebuild demand is not zero) <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘rebuild_durations’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
+<li><p>If there was a shortage (<code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘shortage_b’</span></span><span class="punctuation"><span class="pre">]</span></span></code>), its start and end dates <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘shortage_date_start’</span></span><span class="punctuation"><span class="pre">]</span></span></code> and <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘shortage_date_end’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
+<li><p>The top five <cite>(region,sectors)</cite> tuples where there was the biggest absolute change of production compared to a no shock scenario.</p></li>
+</ul>
+<p>It also produce dataframes indicators :</p>
+<ul class="simple">
+<li><p>The production change by region over the simulation (<code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">prod_chg_region</span></span></code>) giving for each region the total gain or loss in production during the simulation.</p></li>
+<li><p>The final consumption not met by region over the simulation (<code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">df_loss_region</span></span></code>) giving for each region the total loss in consumption during the simulation.</p></li>
+</ul>
+<p>These two dataframe are also saved in json format.</p>
+</section>
+<section id="useful-scripts">
+<h2>Useful scripts<a class="headerlink" href="#useful-scripts" title="Permalink to this headline">¶</a></h2>
+<p>The github repository contains a variety of <a class="reference external" href="https://github.com/spjuhel/BoARIO/tree/master/scripts">useful scripts</a> to ease the generation of input data, run simulations, produce indicators, etc. such as :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">aggreg_exio3.py</span> <span class="pre">exio_path.zip</span> <span class="pre">aggreg_path.ods</span> <span class="pre">sector_names.json</span> <span class="pre">[region_aggreg.json]</span> <span class="pre">-o</span> <span class="pre">output</span></code> :</p></li>
+</ol>
+<p>This script takes an EXIOBASE3 MRIO zip file, the <code class="docutils literal notranslate"><span class="pre">input</span></code> sheet of a libreoffice spreadsheet, a json file for sector renaming and optionally a json file for region aggregation (see examples of such files in the git repo, <a class="reference external" href="https://github.com/spjuhel/BoARIO/tree/master/other">here</a>) and produce a pickle file (python format) of the corresponding MRIO tables directly usable by the model. <code class="docutils literal notranslate"><span class="pre">region_aggreg.json</span></code> must have the following form :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;aggregates&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;original region&quot;</span><span class="p">:</span> <span class="s2">&quot;new region&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;original region&quot;</span><span class="p">:</span> <span class="s2">&quot;new region&quot;</span><span class="p">,</span>
+       <span class="p">},</span>
+<span class="nt">&quot;missing&quot;</span><span class="p">:</span> <span class="s2">&quot;name for all region not named before&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These scripts are mainly thought to be used for my PhD project and with the <a class="reference external" href="https://github.com/spjuhel/BoARIO/tree/master/workflow">Snakemake workflow</a> also available on the repository. (Description of this process soon !)</p>
 </section>
 <section id="more-description-to-come">
 <h2>More description to come<a class="headerlink" href="#more-description-to-come" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<section id="associated-phd-project">
+<h3>Associated PhD project<a class="headerlink" href="#associated-phd-project" title="Permalink to this headline">¶</a></h3>
+<p>This model is part of my PhD on the indirect impact of extreme events.
+This work was supported by the French Environment and Energy Management Agency
+(<a class="reference external" href="https://www.ademe.fr/">ADEME</a>).</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/Logo_ADEME.svg?sanitize=true"><img alt="ADEME Logo" src="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/Logo_ADEME.svg?sanitize=true" style="width: 400px;" /></a>
+</section>
+<section id="development">
+<h3>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Samuel Juhel</p></li>
+</ul>
+</section>
+<section id="contributions">
+<h3>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Be the first <a class="reference external" href="https://spjuhel.github.io/BoARIO/development.html">contributor</a> !</p></li>
+</ul>
+</section>
+<section id="acknowledgements">
+<h3>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h3>
+<p>I would like to thank Vincent Viguie, Fabio D’Andrea my PhD supervisors as well as Célian Colon for their inputs during the model implementaiton.</p>
+</section>
 </section>
 </section>
 
