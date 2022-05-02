@@ -32,7 +32,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -285,15 +284,9 @@ model.</p>
 <p class="rubric">Examples</p>
 <p>FIXME: Add docs.</p>
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.aggregate_rebuild_demand">
-<code class="sig-name descname"><span class="pre">aggregate_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.aggregate_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.aggregate_rebuild_demand" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="boario.mriosystem.MrioSystem.update_system_from_events">
+<code class="sig-name descname"><span class="pre">update_system_from_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.update_system_from_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.update_system_from_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_local_demand">
@@ -301,23 +294,83 @@ model.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_orders">
-<code class="sig-name descname"><span class="pre">calc_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_orders" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
+<dt id="boario.mriosystem.MrioSystem.calc_rebuild_house_demand">
+<code class="sig-name descname"><span class="pre">calc_rebuild_house_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_rebuild_house_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_rebuild_house_demand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute rebuild demand for final demand</p>
+<p>Compute and return rebuilding final demand for the given list of events
+by summing the final_demand_rebuild member of each event. Only events
+tagged as rebuildable are accounted for. The shape of the array
+returned is the same as the final demand member (Y_0) of the calling
+MrioSystem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stocks_constraints</strong> – </p>
+<dd class="field-odd"><p><strong>events</strong> (<em>‘list[Event]’</em>) – A list of Event objects</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>An array of same shape as Y_0, containing the sum of all currently
+rebuildable final demand stock from all events in the given list.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Currently the model wasn’t tested with such a rebuilding demand. Only intermediate demand is considered.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.calc_rebuild_firm_demand">
+<code class="sig-name descname"><span class="pre">calc_rebuild_firm_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_rebuild_firm_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_rebuild_firm_demand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute rebuild demand for intermediate demand</p>
+<p>Compute and return rebuilding intermediate demand for the given list of events
+by summing the industry_rebuild member of each event. Only events
+tagged as rebuildable are accounted for. The shape of the array
+returned is the same as the intermediate demand member (Z_0) of the calling
+MrioSystem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>events</strong> (<em>‘list[Event]’</em>) – A list of Event objects</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of same shape as Z_0, containing the sum of all currently
+rebuildable intermediate demand stock from all events in the given list.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_overproduction">
-<code class="sig-name descname"><span class="pre">calc_overproduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_overproduction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="boario.mriosystem.MrioSystem.calc_tot_rebuild_demand">
+<code class="sig-name descname"><span class="pre">calc_tot_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_tot_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_tot_rebuild_demand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute and update total rebuild demand.</p>
+<p>Compute and update total rebuilding demand for the given list of events. Only events
+tagged as rebuildable are accounted for. If separate_rebuilding is not True, apply the rebuilding characteristic time before updating.</p>
+<p>TODO: ADD MATH</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>events</strong> (<em>‘list[Event]’</em>) – A list of Event objects</p></li>
+<li><p><strong>separate_rebuilding</strong> (<em>‘bool’</em>) – A boolean specifying if demand should be treated as a whole (true) or under the characteristic time/proportional scheme strategy.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.calc_production_cap">
+<code class="sig-name descname"><span class="pre">calc_production_cap</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_production_cap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_production_cap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute and update production capacity.</p>
+<p>Compute and update production capacity from possible kapital damage and overproduction.</p>
+<div class="math">
+<p><img src="../_images/math/27e83ec1e4af91c1afcdfe25c7bb086d9b4f8837.png" alt="x^{Cap}_{f}(t) = \alpha_{f}(t) (1 - \Delta_{f}(t)) x_{f}(t)"/></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – Raised if any industry has negative production (probably from kapital loss too high)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_prod_reqby_demand">
@@ -342,42 +395,88 @@ model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_production_cap">
-<code class="sig-name descname"><span class="pre">calc_production_cap</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_production_cap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_production_cap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute and update production capacity.</p>
-<p>Compute and update production capacity from possible kapital damage and overproduction.</p>
-<div class="math notranslate nohighlight">
-\[X(e^{j\omega } ) = x(n)e^{ - j\omega n} * 6\]</div>
-<dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – Raised if any industry has negative production (probably from kapital loss too high)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_rebuild_firm_demand">
-<code class="sig-name descname"><span class="pre">calc_rebuild_firm_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_rebuild_firm_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_rebuild_firm_demand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_rebuild_house_demand">
-<code class="sig-name descname"><span class="pre">calc_rebuild_house_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_rebuild_house_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_rebuild_house_demand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_rebuilding_production">
 <code class="sig-name descname"><span class="pre">calc_rebuilding_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rebuild_prod_ceil</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_rebuilding_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_rebuilding_production" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_tot_rebuild_demand">
-<code class="sig-name descname"><span class="pre">calc_tot_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_tot_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_tot_rebuild_demand" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.mriosystem.MrioSystem.distribute_production">
+<code class="sig-name descname"><span class="pre">distribute_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.distribute_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.distribute_production" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.change_inv_duration">
-<code class="sig-name descname"><span class="pre">change_inv_duration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_dur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_dur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.change_inv_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.change_inv_duration" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.mriosystem.MrioSystem.calc_orders">
+<code class="sig-name descname"><span class="pre">calc_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO describe function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stocks_constraints</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.aggregate_rebuild_demand">
+<code class="sig-name descname"><span class="pre">aggregate_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.aggregate_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.aggregate_rebuild_demand" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO describe function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.update_kapital_lost">
+<code class="sig-name descname"><span class="pre">update_kapital_lost</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.update_kapital_lost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.update_kapital_lost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.calc_overproduction">
+<code class="sig-name descname"><span class="pre">calc_overproduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_overproduction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_stock_increasing">
+<code class="sig-name descname"><span class="pre">check_stock_increasing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_stock_increasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_stock_increasing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_production_eq_strict">
+<code class="sig-name descname"><span class="pre">check_production_eq_strict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_production_eq_strict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_production_eq_strict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_production_eq_soft">
+<code class="sig-name descname"><span class="pre">check_production_eq_soft</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_production_eq_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_production_eq_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_stocks_monotony">
+<code class="sig-name descname"><span class="pre">check_stocks_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_stocks_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_stocks_monotony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_initial_equilibrium">
+<code class="sig-name descname"><span class="pre">check_initial_equilibrium</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_initial_equilibrium"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_initial_equilibrium" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_equilibrium_soft">
+<code class="sig-name descname"><span class="pre">check_equilibrium_soft</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_equilibrium_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_equilibrium_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_equilibrium_monotony">
+<code class="sig-name descname"><span class="pre">check_equilibrium_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_equilibrium_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_equilibrium_monotony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.check_monotony">
+<code class="sig-name descname"><span class="pre">check_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_monotony" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -397,63 +496,8 @@ production.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_equilibrium_monotony">
-<code class="sig-name descname"><span class="pre">check_equilibrium_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_equilibrium_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_equilibrium_monotony" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_equilibrium_soft">
-<code class="sig-name descname"><span class="pre">check_equilibrium_soft</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_equilibrium_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_equilibrium_soft" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_initial_equilibrium">
-<code class="sig-name descname"><span class="pre">check_initial_equilibrium</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_initial_equilibrium"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_initial_equilibrium" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_monotony">
-<code class="sig-name descname"><span class="pre">check_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_monotony" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_production_eq_soft">
-<code class="sig-name descname"><span class="pre">check_production_eq_soft</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_production_eq_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_production_eq_soft" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_production_eq_strict">
-<code class="sig-name descname"><span class="pre">check_production_eq_strict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_production_eq_strict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_production_eq_strict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_stock_increasing">
-<code class="sig-name descname"><span class="pre">check_stock_increasing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_stock_increasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_stock_increasing" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.check_stocks_monotony">
-<code class="sig-name descname"><span class="pre">check_stocks_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.check_stocks_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.check_stocks_monotony" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.distribute_production">
-<code class="sig-name descname"><span class="pre">distribute_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.distribute_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.distribute_production" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.reset_module">
 <code class="sig-name descname"><span class="pre">reset_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.reset_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.reset_module" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.reset_record_files">
-<code class="sig-name descname"><span class="pre">reset_record_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_stocks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.reset_record_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.reset_record_files" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.update_kapital_lost">
-<code class="sig-name descname"><span class="pre">update_kapital_lost</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.update_kapital_lost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.update_kapital_lost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -462,33 +506,8 @@ production.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.update_system_from_events">
-<code class="sig-name descname"><span class="pre">update_system_from_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.update_system_from_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.update_system_from_events" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.write_classic_demand">
-<code class="sig-name descname"><span class="pre">write_classic_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_classic_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_classic_demand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.write_final_demand_unmet">
-<code class="sig-name descname"><span class="pre">write_final_demand_unmet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_demand_unmet</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_final_demand_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_final_demand_unmet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.write_index">
-<code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.write_limiting_stocks">
-<code class="sig-name descname"><span class="pre">write_limiting_stocks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">limiting_stock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_limiting_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_limiting_stocks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.write_overproduction">
-<code class="sig-name descname"><span class="pre">write_overproduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_overproduction" title="Permalink to this definition">¶</a></dt>
+<dt id="boario.mriosystem.MrioSystem.reset_record_files">
+<code class="sig-name descname"><span class="pre">reset_record_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_stocks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.reset_record_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.reset_record_files" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -502,6 +521,11 @@ production.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.write_classic_demand">
+<code class="sig-name descname"><span class="pre">write_classic_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_classic_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_classic_demand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.write_rebuild_demand">
 <code class="sig-name descname"><span class="pre">write_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_rebuild_demand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -512,8 +536,33 @@ production.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.write_overproduction">
+<code class="sig-name descname"><span class="pre">write_overproduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_overproduction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.write_final_demand_unmet">
+<code class="sig-name descname"><span class="pre">write_final_demand_unmet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_demand_unmet</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_final_demand_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_final_demand_unmet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.write_stocks">
 <code class="sig-name descname"><span class="pre">write_stocks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_stocks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.write_limiting_stocks">
+<code class="sig-name descname"><span class="pre">write_limiting_stocks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">limiting_stock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_limiting_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_limiting_stocks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.write_index">
+<code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.write_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="boario.mriosystem.MrioSystem.change_inv_duration">
+<code class="sig-name descname"><span class="pre">change_inv_duration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_dur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_dur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.change_inv_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.change_inv_duration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -289,23 +289,9 @@ corresponding event. Then it :</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.read_events">
-<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read events from a json file.</p>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version Method: </span>wasn’t checked recently.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>events_file</strong> – path to a json file</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.10)"><strong>FileNotFoundError</strong></a> – If file does not exist</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
-</dd></dl>
+<dt id="boario.simulation.Simulation.update_events">
+<code class="sig-name descname"><span class="pre">update_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.read_events_from_list">
@@ -323,17 +309,20 @@ various checks on the events to avoid badly written events.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.reset_sim_full">
-<code class="sig-name descname"><span class="pre">reset_sim_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_full"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the model to its initial status and remove all events.</p>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="boario.simulation.Simulation.reset_sim_with_same_events">
-<code class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_with_same_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets the model to its initial status (without removing the events).</p>
+<dt id="boario.simulation.Simulation.read_events">
+<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read events from a json file.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Method: </span>wasn’t checked recently.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>events_file</strong> – path to a json file</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.10)"><strong>FileNotFoundError</strong></a> – If file does not exist</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <p>FIXME: Add docs.</p>
 </dd></dl>
@@ -358,9 +347,20 @@ it in the mrio system.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.update_events">
-<code class="sig-name descname"><span class="pre">update_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_events" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="boario.simulation.Simulation.reset_sim_with_same_events">
+<code class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_with_same_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the model to its initial status (without removing the events).</p>
+<p class="rubric">Examples</p>
+<p>FIXME: Add docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="boario.simulation.Simulation.reset_sim_full">
+<code class="sig-name descname"><span class="pre">reset_sim_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_full"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the model to its initial status and remove all events.</p>
+<p class="rubric">Examples</p>
+<p>FIXME: Add docs.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.update_params">

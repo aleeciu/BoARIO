@@ -438,6 +438,31 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">local_demand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_demand</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">macro_effect</span></div>
 
 <div class="viewcode-block" id="MrioSystem.calc_rebuild_house_demand"><a class="viewcode-back" href="../../api-doc/boario.mriosystem.html#boario.mriosystem.MrioSystem.calc_rebuild_house_demand">[docs]</a>    <span class="k">def</span> <span class="nf">calc_rebuild_house_demand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">:</span><span class="s1">&#39;list[Event]&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Compute rebuild demand for final demand</span>
+
+<span class="sd">        Compute and return rebuilding final demand for the given list of events</span>
+<span class="sd">        by summing the final_demand_rebuild member of each event. Only events</span>
+<span class="sd">        tagged as rebuildable are accounted for. The shape of the array</span>
+<span class="sd">        returned is the same as the final demand member (Y_0) of the calling</span>
+<span class="sd">        MrioSystem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        events : &#39;list[Event]&#39;</span>
+<span class="sd">            A list of Event objects</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            An array of same shape as Y_0, containing the sum of all currently</span>
+<span class="sd">            rebuildable final demand stock from all events in the given list.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        Currently the model wasn&#39;t tested with such a rebuilding demand. Only intermediate demand is considered.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">rebuildable_events</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">final_demand_rebuild</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">events</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">rebuildable_events</span> <span class="o">==</span> <span class="p">[]:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_0</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -445,6 +470,25 @@
         <span class="k">return</span> <span class="n">ret</span></div>
 
 <div class="viewcode-block" id="MrioSystem.calc_rebuild_firm_demand"><a class="viewcode-back" href="../../api-doc/boario.mriosystem.html#boario.mriosystem.MrioSystem.calc_rebuild_firm_demand">[docs]</a>    <span class="k">def</span> <span class="nf">calc_rebuild_firm_demand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">:</span><span class="s1">&#39;list[Event]&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Compute rebuild demand for intermediate demand</span>
+
+<span class="sd">        Compute and return rebuilding intermediate demand for the given list of events</span>
+<span class="sd">        by summing the industry_rebuild member of each event. Only events</span>
+<span class="sd">        tagged as rebuildable are accounted for. The shape of the array</span>
+<span class="sd">        returned is the same as the intermediate demand member (Z_0) of the calling</span>
+<span class="sd">        MrioSystem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        events : &#39;list[Event]&#39;</span>
+<span class="sd">            A list of Event objects</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            An array of same shape as Z_0, containing the sum of all currently</span>
+<span class="sd">            rebuildable intermediate demand stock from all events in the given list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rebuildable_events</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">industry_rebuild</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">events</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">rebuildable_events</span> <span class="o">==</span> <span class="p">[]:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z_0</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -452,6 +496,21 @@
         <span class="k">return</span> <span class="n">ret</span></div>
 
 <div class="viewcode-block" id="MrioSystem.calc_tot_rebuild_demand"><a class="viewcode-back" href="../../api-doc/boario.mriosystem.html#boario.mriosystem.MrioSystem.calc_tot_rebuild_demand">[docs]</a>    <span class="k">def</span> <span class="nf">calc_tot_rebuild_demand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">:</span><span class="s1">&#39;list[Event]&#39;</span><span class="p">,</span> <span class="n">separate_rebuilding</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Compute and update total rebuild demand.</span>
+
+<span class="sd">        Compute and update total rebuilding demand for the given list of events. Only events</span>
+<span class="sd">        tagged as rebuildable are accounted for. If separate_rebuilding is not True, apply the rebuilding characteristic time before updating.</span>
+
+<span class="sd">        TODO: ADD MATH</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        events : &#39;list[Event]&#39;</span>
+<span class="sd">            A list of Event objects</span>
+
+<span class="sd">        separate_rebuilding: &#39;bool&#39;</span>
+<span class="sd">            A boolean specifying if demand should be treated as a whole (true) or under the characteristic time/proportional scheme strategy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ret</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">calc_rebuild_house_demand</span><span class="p">(</span><span class="n">events</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">calc_rebuild_firm_demand</span><span class="p">(</span><span class="n">events</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">separate_rebuilding</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rebuild_tau</span>
@@ -463,7 +522,8 @@
 <span class="sd">        Compute and update production capacity from possible kapital damage and overproduction.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            X(e^{j\omega } ) = x(n)e^{ - j\omega n} * 6</span>
+
+<span class="sd">            x^{Cap}_{f}(t) = \\alpha_{f}(t) (1 - \Delta_{f}(t)) x_{f}(t)</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
