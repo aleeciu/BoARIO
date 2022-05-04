@@ -123,6 +123,12 @@
       </ul>
       </div>
       
+      <div class="navbar-end-item">
+        <p class="last-updated">
+Last updated on May 04, 2022.<br>
+</p>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -290,12 +296,13 @@
             <span class="s2">&quot;shortage_date_max&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;shortage_ind_max&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;shortage_ind_mean&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;10_first_shortages&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;10_first_shortages_(step,region,sector,stock_of)&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;prod_gain_tot&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;prod_lost_tot&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;prod_gain_unaff&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;prod_lost_unaff&quot;</span><span class="p">:</span> <span class="s2">&quot;unset&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;inv_tau&quot;</span> <span class="p">:</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="s1">&#39;psi_param&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;psi&quot;</span> <span class="p">:</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="s1">&#39;psi_param&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;inv_tau&quot;</span> <span class="p">:</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="s1">&#39;inventory_restoration_time&#39;</span><span class="p">],</span>
             <span class="s2">&quot;n_timesteps&quot;</span> <span class="p">:</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;n_timesteps_simulated&#39;</span><span class="p">],</span>
             <span class="s2">&quot;has_crashed&quot;</span> <span class="p">:</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;has_crashed&#39;</span><span class="p">],</span>
         <span class="p">}</span>
@@ -477,7 +484,7 @@
         <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1">#type:ignore</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">indicators</span><span class="p">[</span><span class="s1">&#39;10_first_shortages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indicators</span><span class="p">[</span><span class="s1">&#39;10_first_shortages_(step,region,sector,stock_of)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="Indicators.calc_tot_prod_change"><a class="viewcode-back" href="../../api-doc/boario.indicators.html#boario.indicators.Indicators.calc_tot_prod_change">[docs]</a>    <span class="k">def</span> <span class="nf">calc_tot_prod_change</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">df2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prod_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>

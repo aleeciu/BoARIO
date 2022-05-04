@@ -123,6 +123,12 @@
       </ul>
       </div>
       
+      <div class="navbar-end-item">
+        <p class="last-updated">
+Last updated on May 04, 2022.<br>
+</p>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -431,6 +437,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">results_storage</span><span class="o">/</span><span class="s2">&quot;indexes.json&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="MrioSystem.update_system_from_events"><a class="viewcode-back" href="../../api-doc/boario.mriosystem.html#boario.mriosystem.MrioSystem.update_system_from_events">[docs]</a>    <span class="k">def</span> <span class="nf">update_system_from_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">:</span> <span class="s1">&#39;list[Event]&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+
         <span class="bp">self</span><span class="o">.</span><span class="n">update_kapital_lost</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">calc_tot_rebuild_demand</span><span class="p">(</span><span class="n">events</span><span class="p">)</span></div>
 
@@ -535,6 +543,9 @@
         <span class="n">k_stock</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">VA_0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">kstock_ratio_to_VA</span><span class="p">)</span>
         <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kapital_lost</span><span class="p">,</span> <span class="n">k_stock</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">productivity_loss</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">k_stock</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">productivity_loss</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">productivity_loss</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">productivity_loss</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">productivity_loss</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Productivity loss factor was found greater than 1.0 on at least on industry (meaning more kapital damage than kapital stock)&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">production_cap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">production_cap</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">productivity_loss</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">overprod</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">production_cap</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">overprod</span>
