@@ -125,7 +125,7 @@
       
       <div class="navbar-end-item">
         <p class="last-updated">
-Last updated on May 04, 2022.<br>
+Last updated on Jun 20, 2022.<br>
 </p>
       </div>
       
@@ -171,7 +171,23 @@ Last updated on May 04, 2022.<br>
               <div>
                 
   <h1>Source code for boario.simulation</h1><div class="highlight"><pre>
-<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span></span><span class="c1"># BoARIO : The Adaptative Regional Input Output model in python.</span>
+<span class="c1"># Copyright (C) 2022  Samuel Juhel</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Simulation module</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -443,15 +459,17 @@ Last updated on May 04, 2022.<br>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span> <span class="o">!=</span> <span class="p">[]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update_events</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">update_system_from_events</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;register_stocks&#39;</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_stocks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_prod_reqby_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_overproduction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_overproduction</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_overproduction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_rebuild_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_classic_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_production_cap</span><span class="p">()</span>
-        <span class="n">constraints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+        <span class="n">constraints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_limiting_stocks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_production_max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
@@ -473,8 +491,7 @@ Last updated on May 04, 2022.<br>
 
 <div class="viewcode-block" id="Simulation.update_events"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.update_events">[docs]</a>    <span class="k">def</span> <span class="nf">update_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">:</span>
-            <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">update_system_from_events</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span></div>
+            <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span></div>
 
 <div class="viewcode-block" id="Simulation.read_events_from_list"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.read_events_from_list">[docs]</a>    <span class="k">def</span> <span class="nf">read_events_from_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events_list</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Import a list of events (as dicts) into the model.</span>
@@ -604,6 +621,8 @@ Last updated on May 04, 2022.<br>
         <span class="c1"># DAMAGE DISTRIBUTION ACROSS SECTORS</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors_type</span> <span class="o">==</span> <span class="s2">&quot;gdp&quot;</span><span class="p">:</span>
             <span class="n">shares</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">gdp_share_sector</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The sum of the affected sectors value added is 0 (meaning they probably don&#39;t exist in this regions)&quot;</span><span class="p">)</span>
             <span class="n">q_dmg_regions_sectors</span> <span class="o">=</span> <span class="n">q_dmg_regions</span> <span class="o">*</span> <span class="p">(</span><span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">/</span><span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">q_dmg_regions_sectors</span> <span class="o">=</span> <span class="n">q_dmg_regions</span>

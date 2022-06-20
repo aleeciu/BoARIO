@@ -128,7 +128,7 @@
       
       <div class="navbar-end-item">
         <p class="last-updated">
-Last updated on May 04, 2022.<br>
+Last updated on Jun 20, 2022.<br>
 </p>
       </div>
       
@@ -287,17 +287,20 @@ model.</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.update_system_from_events">
 <code class="sig-name descname"><span class="pre">update_system_from_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.update_system_from_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.update_system_from_events" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_local_demand">
-<code class="sig-name descname"><span class="pre">calc_local_demand</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_local_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_local_demand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Update MrioSystem variables according to given list of events</p>
+<p>Compute kapital loss for each industry affected as the sum of their total rebuilding demand (to each rebuilding sectors and for each events). This information is stored as a 1D array <code class="docutils literal notranslate"><span class="pre">kapital_lost</span></code> of size (n_sectors *  n_regions).
+Also compute the total rebuilding demand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>events</strong> (<em>‘list[Event]’</em>) – List of events (as Event objects) to consider.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>FIXME: Add docs.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_rebuild_house_demand">
@@ -349,10 +352,10 @@ rebuildable intermediate demand stock from all events in the given list.</p>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_tot_rebuild_demand">
-<code class="sig-name descname"><span class="pre">calc_tot_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_tot_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_tot_rebuild_demand" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">calc_tot_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_tot_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_tot_rebuild_demand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute and update total rebuild demand.</p>
 <p>Compute and update total rebuilding demand for the given list of events. Only events
-tagged as rebuildable are accounted for. If separate_rebuilding is not True, apply the rebuilding characteristic time before updating.</p>
+tagged as rebuildable are accounted for.</p>
 <p>TODO: ADD MATH</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -380,35 +383,139 @@ tagged as rebuildable are accounted for. If separate_rebuilding is not True, app
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_prod_reqby_demand">
-<code class="sig-name descname"><span class="pre">calc_prod_reqby_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_prod_reqby_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_prod_reqby_demand" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
+<code class="sig-name descname"><span class="pre">calc_prod_reqby_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_prod_reqby_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_prod_reqby_demand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes and updates total demand</p>
+<p>Update total rebuild demand (and apply rebuilding characteristic time
+if <code class="docutils literal notranslate"><span class="pre">separate_rebuilding</span></code> is False, then sum/reduce rebuilding, orders
+and final demand together and accordingly update vector of total
+demand.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>events</strong> (<em>‘list[Event]’</em>) – List of Event to consider for rebuilding demand.</p></li>
+<li><p><strong>separate_rebuilding</strong> (<em>bool</em>) – A boolean specifying if rebuilding demand should be treated as a whole (true) or under the characteristic time/proportional scheme strategy.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)">None</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_production">
-<code class="sig-name descname"><span class="pre">calc_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_step</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_production" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
+<code class="sig-name descname"><span class="pre">calc_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_step</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_production" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute and update actual production</p>
+<ol class="arabic simple">
+<li><p>Compute <code class="docutils literal notranslate"><span class="pre">production_opt</span></code> and <code class="docutils literal notranslate"><span class="pre">inventory_constraints</span></code> as :</p></li>
+</ol>
+<div class="math">
+<p><img src="../_images/math/dfdc4f104e3feab0a514ba9327890d3798bb581d.png" alt="\begin{alignat*}{4}
+           \iox^{\textrm{Opt}}(t) &amp;= (x^{\textrm{Opt}}_{f}(t))_{f \in \firmsset} &amp;&amp;= \left ( \min \left ( d^{\textrm{Tot}}_{f}(t), x^{\textrm{Cap}}_{f}(t) \right ) \right )_{f \in \firmsset} &amp;&amp; \text{Optimal production}\\
+           \mathbf{\ioinv}^{\textrm{Cons}}(t) &amp;= (\omega^{\textrm{Cons},f}_p(t))_{\substack{p \in \sectorsset\\f \in \firmsset}} &amp;&amp;=
+         \begin{bmatrix}
+             \tau^{1}_1 &amp; \hdots &amp; \tau^{p}_1 \\
+             \vdots &amp; \ddots &amp; \vdots\\
+             \tau^1_n &amp; \hdots &amp; \tau^{p}_n
+         \end{bmatrix}
+         \odot \begin{bmatrix} \iox^{\textrm{Opt}}(t)\\ \vdots\\ \iox^{\textrm{Opt}}(t) \end{bmatrix} \odot \ioa^{\sectorsset} &amp;&amp; \text{Inventory constraints} \\
+         &amp;&amp;&amp;= \begin{bmatrix}
+             \tau^{1}_1 x^{\textrm{Opt}}_{1}(t) a_{11} &amp; \hdots &amp; \tau^{p}_1 x^{\textrm{Opt}}_{p}(t) a_{1p}\\
+             \vdots &amp; \ddots &amp; \vdots\\
+             \tau^1_n x^{\textrm{Opt}}_{1}(t) a_{n1} &amp; \hdots &amp; \tau^{p}_n x^{\textrm{Opt}}_{p}(t) a_{np}
+         \end{bmatrix} \cdot \psi &amp;&amp; \\
+     \end{alignat*}"/></p>
+</div><ol class="arabic simple" start="2">
+<li><p>If stocks do not meet inventory_constraints for any inputs -&gt; Decrease production accordingly :</p></li>
+</ol>
+<div class="math">
+<p><img src="../_images/math/77a494ed10564d87de7a15f355bbde3156c896bb.png" alt="\begin{alignat*}{4}
+         \iox^{a}(t) &amp;= (x^{a}_{f}(t))_{f \in \firmsset} &amp;&amp;= \left \{ \begin{aligned}
+                                                &amp; x^{\textrm{Opt}}_{f}(t) &amp; \text{if $\omega_{p}^f(t) \geq \omega^{\textrm{Cons},f}_p(t)$}\\
+                                                &amp; x^{\textrm{Opt}}_{f}(t) \cdot \min_{p \in \sectorsset} \left ( \frac{\omega^s_{p}(t)}{\omega^{\textrm{Cons,f}}_p(t)} \right ) &amp; \text{if $\omega_{p}^f(t) &lt; \omega^{\textrm{Cons},f}_p(t)$}
+                                                \end{aligned} \right. \quad &amp;&amp;
+     \end{alignat*}"/></p>
+</div><p>Also warns in log if such shortage happens.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>current_step</strong> (<em>int</em>) – current step number</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A boolean NDArray <cite>stock_constraint</cite> of the same shape as <cite>matrix_sock</cite> (ie <cite>(n_sectors,n_regions*n_sectors)</cite>), with True for any input not meeting the inventory constraints.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.calc_rebuilding_production">
-<code class="sig-name descname"><span class="pre">calc_rebuilding_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rebuild_prod_ceil</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_rebuilding_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_rebuilding_production" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.distribute_production">
-<code class="sig-name descname"><span class="pre">distribute_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.distribute_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.distribute_production" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname"><span class="pre">distribute_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.distribute_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.distribute_production" title="Permalink to this definition">¶</a></dt>
+<dd><p>Production distribution module</p>
+<ol class="arabic">
+<li><p>Computes rebuilding demand for each rebuildable events (applying the <cite>rebuild_tau</cite> characteristic time)</p></li>
+<li><p>Creates/Computes total demand matrix (Intermediate + Final + Rebuild)</p></li>
+<li><p>Assesses if total demand is greater than realized production, hence requiring rationning</p></li>
+<li><p>Distributes production proportionally to demand such that :</p>
+<blockquote>
+<div><div class="math">
+<p><img src="../_images/math/07d39d2945a51798cb5d93336d877d695996a2a4.png" alt="\begin{alignat*}{4}
+        &amp;\ioorders^{\textrm{Received}}(t) &amp;&amp;= \left (\frac{o_{ff'}(t)}{d^{\textrm{Tot}}_f(t)} \cdot x^a_f(t) \right )_{f,f'\in \firmsset}\\
+        &amp;\ioy^{\textrm{Received}}(t) &amp;&amp;= \left ( \frac{y_{f,c}}{d^{\textrm{Tot}}_f(t)}\cdot x^a_f(t) \right )_{f\in \firmsset, c \in \catfdset}\\
+        &amp;\Damage^{\textrm{Repaired}}(t) &amp;&amp;= \left ( \frac{\gamma_{f,c}}{d^{\textrm{Tot}}_f(t)} \cdot x^a_f(t) \right )_{f\in \firmsset, c \in \catfdset}\\
+    \end{alignat*}"/></p>
+</div><p>Where :</p>
+<ul class="simple">
+<li><p><img class="math" src="../_images/math/dfcb0273269fdf11da87cf456f73433369af0db9.png" alt="\ioorders^{\textrm{Received}}(t)"/> is the received orders matrix,</p></li>
+<li><p><img class="math" src="../_images/math/f9ad17fea20e6ed926f0256da34c4c1ec7abd92c.png" alt="\ioy^{\textrm{Received}}(t)"/> is the final demand received matrix,</p></li>
+<li><p><img class="math" src="../_images/math/5f188fe22430e256f90b99fbfb3877154a8595b9.png" alt="\Damage^{\textrm{Repared}}(t)"/> is the rebuilding/repair achieved matrix,</p></li>
+<li><p><img class="math" src="../_images/math/be0af0cbad2601f4ff32fac099d3b0d67f74a19d.png" alt="d^{\textrm{Tot}}_f(t)"/> is the total demand to industry <img class="math" src="../_images/math/4fea0e06b92b35a91c5a54910ea1c1f7bf6a8789.png" alt="f"/>,</p></li>
+<li><p><img class="math" src="../_images/math/8d158d1562050c15f1b830e4402b841a84921eef.png" alt="x^a_f(t)"/> is <img class="math" src="../_images/math/4fea0e06b92b35a91c5a54910ea1c1f7bf6a8789.png" alt="f"/>’s realized production,</p></li>
+<li><p><img class="math" src="../_images/math/35da5fac75842c8fd0d5b64d1ea18b8aee80dee5.png" alt="o_{ff'}(t)"/> is the quantity of product ordered by industry <img class="math" src="../_images/math/41a89af48f6bd7b9fe99cc7f6cb86087d470f797.png" alt="f'"/> to industry <img class="math" src="../_images/math/4fea0e06b92b35a91c5a54910ea1c1f7bf6a8789.png" alt="f"/>,</p></li>
+<li><p><img class="math" src="../_images/math/0ca5d821b3be4664bfaa733862ea9b258634ba98.png" alt="y_{fc}(t)"/> is the quantity of product ordered by household <img class="math" src="../_images/math/03bb0348ea8e6a6d332202be820ce2d065265410.png" alt="c"/> to industry <img class="math" src="../_images/math/4fea0e06b92b35a91c5a54910ea1c1f7bf6a8789.png" alt="f"/>,</p></li>
+<li><p><img class="math" src="../_images/math/789e82a9bd428376104f3edd07b71cf6740c13b0.png" alt="\gamma_{fc}(t)"/> is the repaired/rebuilding demand ordered to <img class="math" src="../_images/math/4fea0e06b92b35a91c5a54910ea1c1f7bf6a8789.png" alt="f"/>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Updates stocks matrix. (Only if <cite>np.allclose(stock_add, stock_use).all()</cite> is false)</p>
+<blockquote>
+<div><div class="math">
+<p><img src="../_images/math/ae179de8059a184757caeacfedfcf0e1a210516e.png" alt="\begin{alignat*}{4}
+        &amp;\ioinv(t+1) &amp;&amp;= \ioinv(t) + \left ( \mathbf{I}_{\textrm{sum}} \cdot \ioorders^{\textrm{Received}}(t) \right ) - \left ( \colvec{\iox^{\textrm{a}}(t)}{\iox^{\textrm{a}}(t)} \odot \ioa^{\sectorsset} \right )\\
+    \end{alignat*}"/></p>
+</div><p>Where :</p>
+<ul class="simple">
+<li><p><img class="math" src="../_images/math/66ec3f8155ee924b8c33663507c50e3dc9cb1490.png" alt="\ioinv"/> is the inventory matrix,</p></li>
+<li><p><img class="math" src="../_images/math/849a694787cd36aebe0d6096e9ceb02042a18719.png" alt="\mathbf{I}_{\textrm{sum}}"/> is a row summation matrix,</p></li>
+<li><p><img class="math" src="../_images/math/78d5d5232104581dcca3f6b7a426a600149ab9b2.png" alt="\ioa^{\sectorsset}"/> is the (input not specific to region) technical coefficients matrix.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Computes final demand not met due to rationing and write it.</p></li>
+<li><p>Updates rebuilding demand for each event (by substracting distributed production)</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>int</em>) – Current timestep (required to write the final demand not met)</p></li>
+<li><p><strong>events</strong> (<em>‘list[Event]’</em>) – Simulation events list</p></li>
+<li><p><strong>scheme</strong> (<em>str</em>) – Placeholder for future distribution scheme</p></li>
+<li><p><strong>separate_rebuilding</strong> (<em>bool</em>) – If False, include the rebuilding in the proportional distribution
+scheme (with a characteristic time) else,</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – If negative values are found in places there’s should not be any</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – If an attempt to run an unimplemented distribution scheme is tried</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_orders">
@@ -425,24 +532,13 @@ tagged as rebuildable are accounted for. If separate_rebuilding is not True, app
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.mriosystem.MrioSystem.aggregate_rebuild_demand">
-<code class="sig-name descname"><span class="pre">aggregate_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.aggregate_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.aggregate_rebuild_demand" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO describe function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.update_kapital_lost">
 <code class="sig-name descname"><span class="pre">update_kapital_lost</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.update_kapital_lost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.update_kapital_lost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="boario.mriosystem.MrioSystem.calc_overproduction">
-<code class="sig-name descname"><span class="pre">calc_overproduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_overproduction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">calc_overproduction</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/mriosystem.html#MrioSystem.calc_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.mriosystem.MrioSystem.calc_overproduction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
