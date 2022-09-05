@@ -105,6 +105,12 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="boario-events.html">
+  How to define Events
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="api_references.html">
   API Reference
  </a>
@@ -174,7 +180,8 @@ Last updated on Sep 05, 2022.<br>
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#B"><strong>B</strong></a>
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
@@ -190,6 +197,18 @@ Last updated on Sep 05, 2022.<br>
  | <a href="#W"><strong>W</strong></a>
  
 </div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel">ARIOBaseModel (class in boario.model_base)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-doc/boario.extended_models.html#boario.extended_models.ARIOModelPsi">ARIOModelPsi (class in boario.extended_models)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -208,19 +227,26 @@ Last updated on Sep 05, 2022.<br>
 </li>
       </ul></li>
       <li>
+    boario.extended_models
+
+      <ul>
+        <li><a href="api-doc/boario.extended_models.html#module-boario.extended_models">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
     boario.indicators
 
       <ul>
         <li><a href="api-doc/boario.indicators.html#module-boario.indicators">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    boario.logging_conf
+    boario.model_base
 
       <ul>
-        <li><a href="api-doc/boario.logging_conf.html#module-boario.logging_conf">module</a>
+        <li><a href="api-doc/boario.model_base.html#module-boario.model_base">module</a>
 </li>
       </ul></li>
       <li>
@@ -244,7 +270,31 @@ Last updated on Sep 05, 2022.<br>
 </li>
       <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.calc_general_shortage">calc_general_shortage() (Indicators method)</a>
 </li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_inventory_constraints">calc_inventory_constraints() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_orders">calc_orders() (ARIOBaseModel method)</a>
+
+      <ul>
+        <li><a href="api-doc/boario.extended_models.html#boario.extended_models.ARIOModelPsi.calc_orders">(ARIOModelPsi method)</a>
+</li>
+      </ul></li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_overproduction">calc_overproduction() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_prod_reqby_demand">calc_prod_reqby_demand() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_production">calc_production() (ARIOBaseModel method)</a>
+
+      <ul>
+        <li><a href="api-doc/boario.extended_models.html#boario.extended_models.ARIOModelPsi.calc_production">(ARIOModelPsi method)</a>
+</li>
+      </ul></li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_production_cap">calc_production_cap() (ARIOBaseModel method)</a>
+</li>
       <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.calc_rebuild_durations">calc_rebuild_durations() (Indicators method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_rebuild_firm_demand">calc_rebuild_firm_demand() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_rebuild_house_demand">calc_rebuild_house_demand() (ARIOBaseModel method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -256,6 +306,28 @@ Last updated on Sep 05, 2022.<br>
 </li>
       <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.calc_tot_prod_change">calc_tot_prod_change() (Indicators method)</a>
 </li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.calc_tot_rebuild_demand">calc_tot_rebuild_demand() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.change_inv_duration">change_inv_duration() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_crash">check_crash() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_equilibrium_monotony">check_equilibrium_monotony() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_equilibrium_soft">check_equilibrium_soft() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_initial_equilibrium">check_initial_equilibrium() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_monotony">check_monotony() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_production_eq_soft">check_production_eq_soft() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_production_eq_strict">check_production_eq_strict() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_stock_increasing">check_stock_increasing() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.check_stocks_monotony">check_stocks_monotony() (ARIOBaseModel method)</a>
+</li>
       <li><a href="api-doc/boario.event.html#boario.event.Event.check_values">check_values() (Event method)</a>
 </li>
   </ul></td>
@@ -264,11 +336,11 @@ Last updated on Sep 05, 2022.<br>
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-doc/boario.logging_conf.html#boario.logging_conf.DEBUGFORMATTER">DEBUGFORMATTER (in module boario.logging_conf)</a>
+      <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.dict_from_storage_path">dict_from_storage_path() (Indicators class method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.dict_from_storage_path">dict_from_storage_path() (Indicators class method)</a>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.distribute_production">distribute_production() (ARIOBaseModel method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -301,14 +373,14 @@ Last updated on Sep 05, 2022.<br>
       <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators">Indicators (class in boario.indicators)</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-doc/boario.logging_conf.html#boario.logging_conf.INFOFORMATTER">INFOFORMATTER (in module boario.logging_conf)</a>
-</li>
-  </ul></td>
 </tr></table>
 
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.lexico_reindex">lexico_reindex() (in module boario.model_base)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.loop">loop() (Simulation method)</a>
 </li>
@@ -326,9 +398,11 @@ Last updated on Sep 05, 2022.<br>
 </li>
         <li><a href="api-doc/boario.event.html#module-boario.event">boario.event</a>
 </li>
+        <li><a href="api-doc/boario.extended_models.html#module-boario.extended_models">boario.extended_models</a>
+</li>
         <li><a href="api-doc/boario.indicators.html#module-boario.indicators">boario.indicators</a>
 </li>
-        <li><a href="api-doc/boario.logging_conf.html#module-boario.logging_conf">boario.logging_conf</a>
+        <li><a href="api-doc/boario.model_base.html#module-boario.model_base">boario.model_base</a>
 </li>
         <li><a href="api-doc/boario.simulation.html#module-boario.simulation">boario.simulation</a>
 </li>
@@ -359,9 +433,13 @@ Last updated on Sep 05, 2022.<br>
 </li>
       <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.read_events_from_list">read_events_from_list() (Simulation method)</a>
 </li>
+      <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.record_files_list">record_files_list (Indicators attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.record_files_list">record_files_list (Indicators attribute)</a>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.reset_module">reset_module() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.reset_record_files">reset_record_files() (ARIOBaseModel method)</a>
 </li>
       <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.reset_sim_full">reset_sim_full() (Simulation method)</a>
 </li>
@@ -389,11 +467,21 @@ Last updated on Sep 05, 2022.<br>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.update_events">update_events() (Simulation method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.update_indicators">update_indicators() (Indicators method)</a>
 </li>
-      <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.update_params">update_params() (Simulation method)</a>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.update_kapital_lost">update_kapital_lost() (ARIOBaseModel method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.update_params">update_params() (ARIOBaseModel method)</a>
+
+      <ul>
+        <li><a href="api-doc/boario.extended_models.html#boario.extended_models.ARIOModelPsi.update_params">(ARIOModelPsi method)</a>
+</li>
+        <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.update_params">(Simulation method)</a>
+</li>
+      </ul></li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.update_system_from_events">update_system_from_events() (ARIOBaseModel method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -401,11 +489,33 @@ Last updated on Sep 05, 2022.<br>
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.write_index">write_index() (Simulation method)</a>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_classic_demand">write_classic_demand() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_final_demand_unmet">write_final_demand_unmet() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_index">write_index() (ARIOBaseModel method)</a>
+
+      <ul>
+        <li><a href="api-doc/boario.simulation.html#boario.simulation.Simulation.write_index">(Simulation method)</a>
+</li>
+      </ul></li>
+      <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.write_indicators">write_indicators() (Indicators method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_limiting_stocks">write_limiting_stocks() (ARIOBaseModel method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-doc/boario.indicators.html#boario.indicators.Indicators.write_indicators">write_indicators() (Indicators method)</a>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_overproduction">write_overproduction() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_production">write_production() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_production_max">write_production_max() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_rebuild_demand">write_rebuild_demand() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_rebuild_prod">write_rebuild_prod() (ARIOBaseModel method)</a>
+</li>
+      <li><a href="api-doc/boario.model_base.html#boario.model_base.ARIOBaseModel.write_stocks">write_stocks() (ARIOBaseModel method)</a>
 </li>
   </ul></td>
 </tr></table>

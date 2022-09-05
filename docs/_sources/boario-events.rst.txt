@@ -1,0 +1,7 @@
+.. _boario-events:
+
+########################
+How to define Events
+########################
+
+Soon !

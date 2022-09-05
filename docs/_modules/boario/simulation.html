@@ -105,6 +105,12 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../boario-events.html">
+  How to define Events
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../api_references.html">
   API Reference
  </a>
@@ -530,61 +536,9 @@ Last updated on Sep 05, 2022.<br>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; import sys</span>
-<span class="sd">        # Add boario module to python path</span>
-<span class="sd">        &gt;&gt;&gt; sys.path.insert(1, &#39;../ARIO3/&#39;)</span>
 
-<span class="sd">        &gt;&gt;&gt; import boario.simulation as sim</span>
-<span class="sd">        &gt;&gt;&gt; import pathlib</span>
+<span class="sd">        .. include:: ../../../../api-examples/simulation/example-read_events_from_list.rstinc</span>
 
-<span class="sd">        # load up model</span>
-<span class="sd">        &gt;&gt;&gt; mrio_path = pathlib.Path(&quot;path/to/mrio_file.pkl&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; with pathlib.Path(&quot;path/to/model_params.json&quot;).open(&quot;r&quot;) as f:</span>
-<span class="sd">        &gt;&gt;&gt;     params = json.load(f)</span>
-<span class="sd">        &gt;&gt;&gt; model = sim.Simulation(params, mrio_path, modeltype=&quot;BaseARIO&quot;)</span>
-<span class="sd">        14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 77] - Initializing new simulation instance</span>
-<span class="sd">        14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 93] - Loading simulation parameters from dict</span>
-<span class="sd">        14:59:05 [DEBUG] - [model_base.py &gt; __init__() &gt; 156] - Initiating new ARIOBaseModel instance</span>
-<span class="sd">        14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 160] - IO system metadata :</span>
-<span class="sd">        &gt;IO Table Metadata here&lt;</span>
-<span class="sd">        14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 161] - Simulation parameters:</span>
-<span class="sd">        &gt;Simulation parameters here&lt;</span>
-<span class="sd">        14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 167] - Results storage is: path/to/results/</span>
-<span class="sd">        14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 182] - Monetary unit from params is: 1000000</span>
-<span class="sd">        14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 183] - Monetary unit from loaded mrio is: M.EUR</span>
-<span class="sd">        14:59:06 [INFO] - [simulation.py &gt; __init__() &gt; 159] - Initialized !</span>
-
-<span class="sd">        # Define list of events (most often this list should be generated from a JSON file</span>
-<span class="sd">        &gt;&gt;&gt; events = [</span>
-<span class="sd">        &gt;&gt;&gt;    {</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;name&quot;: &quot;Event 1&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;aff-regions&quot;: [</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;region_1&quot;</span>
-<span class="sd">        &gt;&gt;&gt;        ],</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;dmg-distrib-regions&quot;: [</span>
-<span class="sd">        &gt;&gt;&gt;        1</span>
-<span class="sd">        &gt;&gt;&gt;        ],</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;dmg-distrib-sectors-type&quot;: &quot;gdp&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;dmg-distrib-sectors&quot;: [],</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;duration&quot;: 5,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;occur&quot;: 7,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;q_dmg&quot;: 5000000,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;aff-sectors&quot;: [</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;sector_1&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;sector_4&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;sector_6&quot;</span>
-<span class="sd">        &gt;&gt;&gt;        ],</span>
-<span class="sd">        &gt;&gt;&gt;        &quot;rebuilding-sectors&quot;: {</span>
-<span class="sd">        &gt;&gt;&gt;            &#39;Construction (45)&#39;: 0.30,</span>
-<span class="sd">        &gt;&gt;&gt;            &#39;Cultivation in general&#39;: 0.005,</span>
-<span class="sd">        &gt;&gt;&gt;            &#39;Financial intermediation, insurance and pension funding (65)&#39;: 0.005,</span>
-<span class="sd">        &gt;&gt;&gt;            &#39;Manufacture of ceramic goods&#39;: 0.09,</span>
-<span class="sd">        &gt;&gt;&gt;            &#39;Manufacture of construction products and cement&#39;: 0.60</span>
-<span class="sd">        &gt;&gt;&gt;        }</span>
-<span class="sd">        &gt;&gt;&gt;    }</span>
-<span class="sd">        &gt;&gt;&gt; ]</span>
-<span class="sd">        &gt;&gt;&gt; model.read_events_from_list(events)</span>
-<span class="sd">        15:00:25 [INFO] - [simulation.py &gt; read_events_from_list() &gt; 417] - Reading events from given list and adding them to the model</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Reading events from given list and adding them to the model&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">ev_dic</span> <span class="ow">in</span> <span class="n">events_list</span><span class="p">:</span>
@@ -761,17 +715,18 @@ Last updated on Sep 05, 2022.<br>
 <div class="viewcode-block" id="Simulation.update_params"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.update_params">[docs]</a>    <span class="k">def</span> <span class="nf">update_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_params</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update the parameters of the model.</span>
 
+<span class="sd">        Replace the `params` attribute with `new_params` and logs the update.</span>
+<span class="sd">        This method also checks if the directory specified to save the results exists and create it otherwise.</span>
+
+<span class="sd">        .. warning::</span>
+<span class="sd">            Be aware this method calls :meth:`~boario.model_base.update_params`, which resets the memmap files located in the results directory !</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        new_params : dict</span>
 <span class="sd">            New dictionnary of parameters to use.</span>
 
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Updating model parameters&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">new_params</span>
         <span class="n">results_storage</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;output_dir&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;results_storage&#39;</span><span class="p">])</span>
@@ -780,16 +735,14 @@ Last updated on Sep 05, 2022.<br>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">update_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Simulation.write_index"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.write_index">[docs]</a>    <span class="k">def</span> <span class="nf">write_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index_file</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Write the index of the dataframes in a json file.</span>
+        <span class="sd">&quot;&quot;&quot;Write the index of the dataframes used in the model in a json file.</span>
+
+<span class="sd">        See :meth:`~boario.model_base.ARIOBaseModel.write_index` for a more detailed documentation.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        index_file : Union[str, pathlib.Path]</span>
 <span class="sd">            name of the file to save the indexes to.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 

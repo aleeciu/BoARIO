@@ -35,7 +35,7 @@
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="boario.mriosystem module" href="boario.mriosystem.html" />
+    <link rel="prev" title="boario.model_base module" href="boario.model_base.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -103,6 +103,12 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../development.html">
   Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../boario-events.html">
+  How to define Events
  </a>
 </li>
 
@@ -175,18 +181,18 @@ Last updated on Sep 05, 2022.<br>
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="boario.extended_models.html">
+       boario.extended_models module
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="boario.indicators.html">
        boario.indicators module
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="boario.logging_conf.html">
-       boario.logging_conf module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.mriosystem.html">
-       boario.mriosystem module
+      <a class="reference internal" href="boario.model_base.html">
+       boario.model_base module
       </a>
      </li>
      <li class="toctree-l3 current active">
@@ -308,7 +314,7 @@ An event is considered rebuildable if its <cite>duration</cite> is over. This me
 <code class="sig-name descname"><span class="pre">read_events_from_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events_from_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Import a list of events (as a list of dictionnaries) into the model.</p>
 <p>Also performs various checks on the events to avoid badly written events.
-See <span class="xref std std-ref">How to define Events</span> to understand how to write events dictionnaries or JSON files.</p>
+See <a class="reference internal" href="../boario-events.html#boario-events"><span class="std std-ref">How to define Events</span></a> to understand how to write events dictionnaries or JSON files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>events_list</strong> – List of events as dictionnaries.</p>
@@ -316,61 +322,60 @@ See <span class="xref std std-ref">How to define Events</span> to understand how
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="go"># Add boario module to python path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Add boario module to python path</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;../ARIO3/&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">boario.simulation</span> <span class="k">as</span> <span class="nn">sim</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">boario.simulation</span> <span class="k">as</span> <span class="nn">sim</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># load up model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mrio_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;path/to/mrio_file.pkl&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;path/to/model_params.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">params</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">mrio_path</span><span class="p">,</span> <span class="n">modeltype</span><span class="o">=</span><span class="s2">&quot;BaseARIO&quot;</span><span class="p">)</span>
+<span class="go">14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 77] - Initializing new simulation instance</span>
+<span class="go">14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 93] - Loading simulation parameters from dict</span>
+<span class="go">14:59:05 [DEBUG] - [model_base.py &gt; __init__() &gt; 156] - Initiating new ARIOBaseModel instance</span>
+<span class="go">14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 160] - IO system metadata :</span>
+<span class="go">&gt;IO Table Metadata here&lt;</span>
+<span class="go">14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 161] - Simulation parameters:</span>
+<span class="go">&gt;Simulation parameters here&lt;</span>
+<span class="go">14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 167] - Results storage is: path/to/results/</span>
+<span class="go">14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 182] - Monetary unit from params is: 1000000</span>
+<span class="go">14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 183] - Monetary unit from loaded mrio is: M.EUR</span>
+<span class="go">14:59:06 [INFO] - [simulation.py &gt; __init__() &gt; 159] - Initialized !</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Define list of events (most often this list should be generated from a JSON file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">events</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Event 1&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;aff-regions&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;region_1&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;dmg-distrib-regions&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;dmg-distrib-sectors-type&quot;</span><span class="p">:</span> <span class="s2">&quot;gdp&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;dmg-distrib-sectors&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;occur&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;q_dmg&quot;</span><span class="p">:</span> <span class="mi">5000000</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;aff-sectors&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;sector_1&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;sector_4&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;sector_6&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;rebuilding-sectors&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="s1">&#39;Construction (45)&#39;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="s1">&#39;Cultivation in general&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="s1">&#39;Financial intermediation, insurance and pension funding (65)&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="s1">&#39;Manufacture of ceramic goods&#39;</span><span class="p">:</span> <span class="mf">0.09</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="s1">&#39;Manufacture of construction products and cement&#39;</span><span class="p">:</span> <span class="mf">0.60</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">read_events_from_list</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+<span class="go">15:00:25 [INFO] - [simulation.py &gt; read_events_from_list() &gt; 417] - Reading events from given list and adding them to the model</span>
 </pre></div>
 </div>
-<p># load up model
-&gt;&gt;&gt; mrio_path = pathlib.Path(“path/to/mrio_file.pkl”)
-&gt;&gt;&gt; with pathlib.Path(“path/to/model_params.json”).open(“r”) as f:
-&gt;&gt;&gt;     params = json.load(f)
-&gt;&gt;&gt; model = sim.Simulation(params, mrio_path, modeltype=”BaseARIO”)
-14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 77] - Initializing new simulation instance
-14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 93] - Loading simulation parameters from dict
-14:59:05 [DEBUG] - [model_base.py &gt; __init__() &gt; 156] - Initiating new ARIOBaseModel instance
-14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 160] - IO system metadata :
-&gt;IO Table Metadata here&lt;
-14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 161] - Simulation parameters:
-&gt;Simulation parameters here&lt;
-14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 167] - Results storage is: path/to/results/
-14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 182] - Monetary unit from params is: 1000000
-14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 183] - Monetary unit from loaded mrio is: M.EUR
-14:59:06 [INFO] - [simulation.py &gt; __init__() &gt; 159] - Initialized !</p>
-<p># Define list of events (most often this list should be generated from a JSON file
-&gt;&gt;&gt; events = [
-&gt;&gt;&gt;    {
-&gt;&gt;&gt;        “name”: “Event 1”,
-&gt;&gt;&gt;        “aff-regions”: [
-&gt;&gt;&gt;        “region_1”
-&gt;&gt;&gt;        ],
-&gt;&gt;&gt;        “dmg-distrib-regions”: [
-&gt;&gt;&gt;        1
-&gt;&gt;&gt;        ],
-&gt;&gt;&gt;        “dmg-distrib-sectors-type”: “gdp”,
-&gt;&gt;&gt;        “dmg-distrib-sectors”: [],
-&gt;&gt;&gt;        “duration”: 5,
-&gt;&gt;&gt;        “occur”: 7,
-&gt;&gt;&gt;        “q_dmg”: 5000000,
-&gt;&gt;&gt;        “aff-sectors”: [
-&gt;&gt;&gt;        “sector_1”,
-&gt;&gt;&gt;        “sector_4”,
-&gt;&gt;&gt;        “sector_6”
-&gt;&gt;&gt;        ],
-&gt;&gt;&gt;        “rebuilding-sectors”: {
-&gt;&gt;&gt;            ‘Construction (45)’: 0.30,
-&gt;&gt;&gt;            ‘Cultivation in general’: 0.005,
-&gt;&gt;&gt;            ‘Financial intermediation, insurance and pension funding (65)’: 0.005,
-&gt;&gt;&gt;            ‘Manufacture of ceramic goods’: 0.09,
-&gt;&gt;&gt;            ‘Manufacture of construction products and cement’: 0.60
-&gt;&gt;&gt;        }
-&gt;&gt;&gt;    }
-&gt;&gt;&gt; ]
-&gt;&gt;&gt; model.read_events_from_list(events)
-15:00:25 [INFO] - [simulation.py &gt; read_events_from_list() &gt; 417] - Reading events from given list and adding them to the model</p>
 </dd></dl>
 
 <dl class="py method">
@@ -431,26 +436,29 @@ it in the mrio system.</p>
 <dt id="boario.simulation.Simulation.update_params">
 <code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the parameters of the model.</p>
+<p>Replace the <cite>params</cite> attribute with <cite>new_params</cite> and logs the update.
+This method also checks if the directory specified to save the results exists and create it otherwise.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be aware this method calls <code class="xref py py-meth docutils literal notranslate"><span class="pre">update_params()</span></code>, which resets the memmap files located in the results directory !</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>new_params</strong> (<em>dict</em>) – New dictionnary of parameters to use.</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.write_index">
 <code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.write_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the index of the dataframes in a json file.</p>
+<dd><p>Write the index of the dataframes used in the model in a json file.</p>
+<p>See <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.write_index" title="boario.model_base.ARIOBaseModel.write_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_index()</span></code></a> for a more detailed documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>index_file</strong> (<em>Union[str, pathlib.Path]</em>) – name of the file to save the indexes to.</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 </dd></dl>
@@ -463,11 +471,11 @@ it in the mrio system.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="boario.mriosystem.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="boario.model_base.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">boario.mriosystem module</p>
+            <p class="prev-next-title">boario.model_base module</p>
         </div>
     </a>
 </div>

@@ -35,7 +35,7 @@
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="boario.indicators module" href="boario.indicators.html" />
+    <link rel="next" title="boario.extended_models module" href="boario.extended_models.html" />
     <link rel="prev" title="boario package" href="boario.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -104,6 +104,12 @@
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../development.html">
   Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../boario-events.html">
+  How to define Events
  </a>
 </li>
 
@@ -176,18 +182,18 @@ Last updated on Sep 05, 2022.<br>
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="boario.extended_models.html">
+       boario.extended_models module
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="boario.indicators.html">
        boario.indicators module
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="boario.logging_conf.html">
-       boario.logging_conf module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.mriosystem.html">
-       boario.mriosystem module
+      <a class="reference internal" href="boario.model_base.html">
+       boario.model_base module
       </a>
      </li>
      <li class="toctree-l3">
@@ -242,7 +248,7 @@ Last updated on Sep 05, 2022.<br>
 <span id="boario-event-module"></span><h1>boario.event module<a class="headerlink" href="#module-boario.event" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="boario.event.Event">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">boario.model_base.ARIOBaseModel</span><span class="p"><span class="pre">,</span> </span><span class="pre">boario.extended_models.ARIOModelPsi</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/event.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.event.Event" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><span class="pre">boario.model_base.ARIOBaseModel</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="boario.extended_models.html#boario.extended_models.ARIOModelPsi" title="boario.extended_models.ARIOModelPsi"><span class="pre">boario.extended_models.ARIOModelPsi</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/event.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.event.Event" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="boario.event.Event.check_values">
@@ -266,10 +272,10 @@ Last updated on Sep 05, 2022.<br>
             <p class="prev-next-title">boario package</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="boario.indicators.html" title="next page">
+    <a class='right-next' id="next-link" href="boario.extended_models.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">boario.indicators module</p>
+        <p class="prev-next-title">boario.extended_models module</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
