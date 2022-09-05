@@ -127,7 +127,7 @@
       
       <div class="navbar-end-item">
         <p class="last-updated">
-Last updated on Jun 20, 2022.<br>
+Last updated on Sep 05, 2022.<br>
 </p>
       </div>
       
@@ -240,9 +240,10 @@ Last updated on Jun 20, 2022.<br>
   <section id="module-boario.simulation">
 <span id="boario-simulation-module"></span><h1>boario.simulation module<a class="headerlink" href="#module-boario.simulation" title="Permalink to this headline">¶</a></h1>
 <p>Simulation module</p>
+<p>This module defines the Simulation object, which represent a BoARIO simulation environnement.</p>
 <dl class="py class">
 <dt id="boario.simulation.Simulation">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeltype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'ARIOBase'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Simulation instance</p>
 <dl class="py method">
@@ -297,21 +298,79 @@ corresponding event. Then it :</p>
 <dl class="py method">
 <dt id="boario.simulation.Simulation.update_events">
 <code class="sig-name descname"><span class="pre">update_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_events" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Update events status</p>
+<p>This method cycles through the events defines in the <cite>current_events</cite> attribute and sets their <cite>rebuildable</cite> attribute.
+An event is considered rebuildable if its <cite>duration</cite> is over. This method also logs the moment an event starts rebuilding.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.read_events_from_list">
 <code class="sig-name descname"><span class="pre">read_events_from_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events_from_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Import a list of events (as dicts) into the model.</p>
-<p>Imports a list of events (as dictionnaries) into th model. Also does
-various checks on the events to avoid badly written events.</p>
+<dd><p>Import a list of events (as a list of dictionnaries) into the model.</p>
+<p>Also performs various checks on the events to avoid badly written events.
+See <span class="xref std std-ref">How to define Events</span> to understand how to write events dictionnaries or JSON files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>events_list</strong> – List of events as dictionnaries.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="go"># Add boario module to python path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;../ARIO3/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">boario.simulation</span> <span class="k">as</span> <span class="nn">sim</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+</pre></div>
+</div>
+<p># load up model
+&gt;&gt;&gt; mrio_path = pathlib.Path(“path/to/mrio_file.pkl”)
+&gt;&gt;&gt; with pathlib.Path(“path/to/model_params.json”).open(“r”) as f:
+&gt;&gt;&gt;     params = json.load(f)
+&gt;&gt;&gt; model = sim.Simulation(params, mrio_path, modeltype=”BaseARIO”)
+14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 77] - Initializing new simulation instance
+14:59:05 [INFO] - [simulation.py &gt; __init__() &gt; 93] - Loading simulation parameters from dict
+14:59:05 [DEBUG] - [model_base.py &gt; __init__() &gt; 156] - Initiating new ARIOBaseModel instance
+14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 160] - IO system metadata :
+&gt;IO Table Metadata here&lt;
+14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 161] - Simulation parameters:
+&gt;Simulation parameters here&lt;
+14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 167] - Results storage is: path/to/results/
+14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 182] - Monetary unit from params is: 1000000
+14:59:05 [INFO] - [model_base.py &gt; __init__() &gt; 183] - Monetary unit from loaded mrio is: M.EUR
+14:59:06 [INFO] - [simulation.py &gt; __init__() &gt; 159] - Initialized !</p>
+<p># Define list of events (most often this list should be generated from a JSON file
+&gt;&gt;&gt; events = [
+&gt;&gt;&gt;    {
+&gt;&gt;&gt;        “name”: “Event 1”,
+&gt;&gt;&gt;        “aff-regions”: [
+&gt;&gt;&gt;        “region_1”
+&gt;&gt;&gt;        ],
+&gt;&gt;&gt;        “dmg-distrib-regions”: [
+&gt;&gt;&gt;        1
+&gt;&gt;&gt;        ],
+&gt;&gt;&gt;        “dmg-distrib-sectors-type”: “gdp”,
+&gt;&gt;&gt;        “dmg-distrib-sectors”: [],
+&gt;&gt;&gt;        “duration”: 5,
+&gt;&gt;&gt;        “occur”: 7,
+&gt;&gt;&gt;        “q_dmg”: 5000000,
+&gt;&gt;&gt;        “aff-sectors”: [
+&gt;&gt;&gt;        “sector_1”,
+&gt;&gt;&gt;        “sector_4”,
+&gt;&gt;&gt;        “sector_6”
+&gt;&gt;&gt;        ],
+&gt;&gt;&gt;        “rebuilding-sectors”: {
+&gt;&gt;&gt;            ‘Construction (45)’: 0.30,
+&gt;&gt;&gt;            ‘Cultivation in general’: 0.005,
+&gt;&gt;&gt;            ‘Financial intermediation, insurance and pension funding (65)’: 0.005,
+&gt;&gt;&gt;            ‘Manufacture of ceramic goods’: 0.09,
+&gt;&gt;&gt;            ‘Manufacture of construction products and cement’: 0.60
+&gt;&gt;&gt;        }
+&gt;&gt;&gt;    }
+&gt;&gt;&gt; ]
+&gt;&gt;&gt; model.read_events_from_list(events)
+15:00:25 [INFO] - [simulation.py &gt; read_events_from_list() &gt; 417] - Reading events from given list and adding them to the model</p>
 </dd></dl>
 
 <dl class="py method">
