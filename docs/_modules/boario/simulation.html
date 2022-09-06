@@ -131,7 +131,7 @@
       
       <div class="navbar-end-item">
         <p class="last-updated">
-Last updated on Sep 05, 2022.<br>
+Last updated on Sep 06, 2022.<br>
 </p>
       </div>
       
@@ -196,8 +196,10 @@ Last updated on Sep 05, 2022.<br>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Simulation module</span>
 
-<span class="sd">This module defines the Simulation object, which represent a BoARIO simulation environnement.</span>
+<span class="sd">This module defines the Simulation object, which represent a BoARIO simulation environment.</span>
+
 <span class="sd">&#39;&#39;&#39;</span>
+
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">redirect_stdout</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
@@ -219,13 +221,49 @@ Last updated on Sep 05, 2022.<br>
 <span class="n">__all__</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Simulation&#39;</span><span class="p">]</span>
 
 <div class="viewcode-block" id="Simulation"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation">[docs]</a><span class="k">class</span> <span class="nc">Simulation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Simulation instance&#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span> <span class="n">mrio_system</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">IOSystem</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">modeltype</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ARIOBase&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Initiate a simulation object with given parameters and IOSystem</span>
+    <span class="sd">&quot;&quot;&quot;This class defines a simulation object with a set of parameters and an IOSystem.</span>
 
-<span class="sd">        This Class wraps a MRIO System, simulation and execution parameters as</span>
-<span class="sd">        well as events perturbing the model in the perspective of running a</span>
-<span class="sd">        full ARIO simulation.</span>
+<span class="sd">    This Class wraps an :class:`~boario.model_base.ARIOBaseModel` or :class:`~boario.extended_models.ARIOModelPsi`, and create the context for</span>
+<span class="sd">    simulations using this model. It stores execution parameters as well as events perturbing</span>
+<span class="sd">    the model.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    params : dict</span>
+<span class="sd">        Parameters to run the simulation with. If str or Path, it must lead</span>
+<span class="sd">        to a json file containing a dictionary of the parameters.</span>
+
+<span class="sd">    results_storage : pathlib.Path</span>
+<span class="sd">        Path to store the results to.</span>
+
+<span class="sd">    model : Union[ARIOBaseModel, ARIOModelPsi]</span>
+<span class="sd">        The model to run the simulation with.</span>
+
+<span class="sd">    current_day : int</span>
+<span class="sd">        Tracks the number of `days` elapsed since simulation start.</span>
+<span class="sd">        This may differs from the number of `steps` if the parameter `model_time_step` differs from 1 day as `current_day` is actually `step` * `model_time_step`.</span>
+
+<span class="sd">    n_days_to_sim : int</span>
+<span class="sd">        The total number of `days` to simulate.</span>
+
+<span class="sd">    events : list[Event]</span>
+<span class="sd">        The list of events to shock the model with during the simulation.</span>
+
+<span class="sd">    current_events : list[Event]</span>
+<span class="sd">        The list of events that</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TypeError</span>
+<span class="sd">        This error is raised when parameters files (for either the simulation or the mrio table) is not of a correct type.</span>
+
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        This error is raised when one of the required file to initialize</span>
+<span class="sd">        the simulation was not found and should print out which one.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">],</span> <span class="n">mrio_system</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">IOSystem</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">modeltype</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ARIOBase&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initialisation of a Simulation object uses these parameters</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -233,25 +271,13 @@ Last updated on Sep 05, 2022.<br>
 <span class="sd">            Parameters to run the simulation with. If str or Path, it must lead</span>
 <span class="sd">            to a json file containing a dictionary of the parameters.</span>
 <span class="sd">        mrio_system : Union[IOSystem, str, pathlib.Path, None], default: None</span>
-<span class="sd">            pymrio.IOSystem to run the simulation with. If str or Path, it must</span>
-<span class="sd">            lead to either 1) a pickle file of an IOSystem that was previously</span>
+<span class="sd">            ``pymrio.IOSystem`` to run the simulation with. If str or Path, it must</span>
+<span class="sd">            lead to either :</span>
+
+<span class="sd">            1) a pickle file of an IOSystem that was previously</span>
 <span class="sd">            generated with the pymrio package (be careful that such files are</span>
-<span class="sd">            not cross-system compatible) or 2) a directory loadable with</span>
-<span class="sd">            pymrio.load_all().</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TypeError</span>
-
-<span class="sd">        FileNotFoundError</span>
-<span class="sd">            This error is raised when one of the required file to initialize</span>
-<span class="sd">            the simulation was not found.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
-
+<span class="sd">            not cross-system compatible) or,</span>
+<span class="sd">            2) a directory loadable with ``pymrio.load_all`` (see `Loading, saving and exporting pymrio data &lt;https://pymrio.readthedocs.io/en/latest/notebooks/load_save_export.html&gt;`_).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initializing new simulation instance&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -319,9 +345,9 @@ Last updated on Sep 05, 2022.<br>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">results_storage</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
             <span class="n">results_storage</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">modeltype</span> <span class="o">==</span> <span class="s2">&quot;ARIOBase&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span> <span class="o">=</span> <span class="n">ARIOBaseModel</span><span class="p">(</span><span class="n">mrio</span><span class="p">,</span> <span class="n">mrio_params</span><span class="p">,</span> <span class="n">simulation_params</span><span class="p">,</span> <span class="n">results_storage</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">ARIOBaseModel</span><span class="p">(</span><span class="n">mrio</span><span class="p">,</span> <span class="n">mrio_params</span><span class="p">,</span> <span class="n">simulation_params</span><span class="p">,</span> <span class="n">results_storage</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">modeltype</span> <span class="o">==</span> <span class="s2">&quot;ARIOPsi&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span> <span class="o">=</span> <span class="n">ARIOModelPsi</span><span class="p">(</span><span class="n">mrio</span><span class="p">,</span> <span class="n">mrio_params</span><span class="p">,</span> <span class="n">simulation_params</span><span class="p">,</span> <span class="n">results_storage</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">ARIOModelPsi</span><span class="p">(</span><span class="n">mrio</span><span class="p">,</span> <span class="n">mrio_params</span><span class="p">,</span> <span class="n">simulation_params</span><span class="p">,</span> <span class="n">results_storage</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;This model type is not implemented : </span><span class="si">{}</span><span class="s2"></span>
 <span class="s2">Available types are </span><span class="si">{}</span><span class="s2"></span>
@@ -329,8 +355,8 @@ Last updated on Sep 05, 2022.<br>
         <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">events_timings</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_timesteps_to_sim</span> <span class="o">=</span> <span class="n">simulation_params</span><span class="p">[</span><span class="s1">&#39;n_timesteps&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_days_to_sim</span> <span class="o">=</span> <span class="n">simulation_params</span><span class="p">[</span><span class="s1">&#39;n_timesteps&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scheme</span> <span class="o">=</span> <span class="s1">&#39;proportional&#39;</span>
@@ -341,25 +367,19 @@ Last updated on Sep 05, 2022.<br>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Launch the simulation loop.</span>
 
 <span class="sd">        This method launch the simulation for the number of steps to simulate</span>
-<span class="sd">        described by the attribute self.n_timpesteps_to_sim, calling the</span>
-<span class="sd">        next_step() method in a for loop. For convenience, it dumps the</span>
-<span class="sd">        parameters used in the log just before running the loop. Once the loop</span>
-<span class="sd">        is completed, it flushes the different memmaps generated by the mrio</span>
-<span class="sd">        subsystem.</span>
+<span class="sd">        described by the attribute ``n_days_to_sim``, calling the</span>
+<span class="sd">        :meth:`next_step` method. For convenience, it dumps the</span>
+<span class="sd">        parameters used in the logs just before running the loop. Once the loop</span>
+<span class="sd">        is completed, it flushes the different memmaps generated.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 
 <span class="sd">        progress: bool, default: True</span>
 <span class="sd">            If True show a progress bar of the loop in the console.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting model loop for at most </span><span class="si">{}</span><span class="s2"> steps&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_timesteps_to_sim</span><span class="o">//</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_days_by_step</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;One step is </span><span class="si">{}</span><span class="s2"> day(s)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_days_by_step</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting model loop for at most </span><span class="si">{}</span><span class="s2"> steps&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_days_to_sim</span><span class="o">//</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_days_by_step</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;One step is </span><span class="si">{}</span><span class="s2"> day(s)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_days_by_step</span><span class="p">))</span>
         <span class="n">tmp</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results_storage</span><span class="o">/</span><span class="s2">&quot;simulation.log&quot;</span><span class="p">)</span>
         <span class="n">tmp</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
         <span class="n">tmp</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">DEBUGFORMATTER</span><span class="p">)</span>
@@ -369,79 +389,79 @@ Last updated on Sep 05, 2022.<br>
                 <span class="s1">&#39;Processed: &#39;</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;Step: </span><span class="si">%(value)d</span><span class="s1">&#39;</span><span class="p">),</span> <span class="s1">&#39; ~ &#39;</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">Percentage</span><span class="p">(),</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">ETA</span><span class="p">(),</span>
             <span class="p">]</span>
             <span class="n">bar</span> <span class="o">=</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="n">widgets</span><span class="o">=</span><span class="n">widgets</span><span class="p">,</span> <span class="n">redirect_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_timesteps_to_sim</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">]))):</span>
-                <span class="c1">#assert self.current_t == t</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_days_to_sim</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">]))):</span>
+                <span class="c1">#assert self.current_day == t</span>
                 <span class="n">step_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_step</span><span class="p">()</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span>
                 <span class="k">if</span> <span class="n">step_res</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">has_crashed</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Economy seems to have crashed.</span>
-<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">                    &quot;&quot;&quot;</span>
                     <span class="p">)</span>
                     <span class="k">break</span>
                 <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Economy seems to have found an equilibrium</span>
-<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">                    &quot;&quot;&quot;</span>
                     <span class="p">)</span>
                     <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_timesteps_to_sim</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">])):</span>
-                <span class="c1">#assert self.current_t == t</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n_days_to_sim</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">])):</span>
+                <span class="c1">#assert self.current_day == t</span>
                 <span class="n">step_res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_step</span><span class="p">()</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span>
                 <span class="k">if</span> <span class="n">step_res</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">has_crashed</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Economy seems to have crashed.</span>
-<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">                    &quot;&quot;&quot;</span>
                     <span class="p">)</span>
                     <span class="k">break</span>
                 <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Economy seems to have found an equilibrium</span>
-<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    - At step : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">                    &quot;&quot;&quot;</span>
                     <span class="p">)</span>
                     <span class="k">break</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">rebuild_demand_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">final_demand_unmet_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">classic_demand_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">production_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">limiting_stocks_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">rebuild_production_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">rebuild_demand_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">final_demand_unmet_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">classic_demand_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">production_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">limiting_stocks_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">rebuild_production_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;register_stocks&#39;</span><span class="p">]:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">stocks_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">overproduction_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">production_cap_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">stocks_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">overproduction_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">production_cap_evolution</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;n_timesteps_simulated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;has_crashed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_crashed</span>
         <span class="k">with</span> <span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;output_dir&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;results_storage&#39;</span><span class="p">])</span><span class="o">/</span><span class="s2">&quot;simulated_params.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Loop complete&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">progress</span><span class="p">:</span>
-            <span class="n">bar</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span></div>
+            <span class="n">bar</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span> <span class="c1"># type: ignore (bar possibly unbound but actually not possible)</span></div>
 
 <div class="viewcode-block" id="Simulation.next_step"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.next_step">[docs]</a>    <span class="k">def</span> <span class="nf">next_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_period</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">min_steps_check</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_failing_regions</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Advance the model run by one step.</span>
 
 <span class="sd">        This method wraps all computations and logging to proceed to the next</span>
 <span class="sd">        step of the simulation run. First it checks if an event is planned to</span>
-<span class="sd">        occur at the current step and if so, shock the model with the</span>
+<span class="sd">        occur at the current step and if so, shocks the model with the</span>
 <span class="sd">        corresponding event. Then it :</span>
 
-<span class="sd">        1) Computes the production capacity vector of the current step (using calc_production_cap())</span>
+<span class="sd">        1) Computes the production required by demand (using :meth:`~boario.model_base.ARIOBaseModel.calc_prod_reqby_demand`)</span>
 
-<span class="sd">        2) Computes the actual production vector for the step.</span>
+<span class="sd">        2) Computes the production capacity vector of the current step (using :meth:`~boario.model_base.ARIOBaseModel.calc_production_cap`)</span>
 
-<span class="sd">        3) Distribute the actual production towards the different demands (intermediate, final, rebuilding) and the changes in the stocks matrix.</span>
+<span class="sd">        3) Computes the actual production vector for the step (using :meth:`~boario.model_base.ARIOBaseModel.calc_production`)</span>
 
-<span class="sd">        4) Computes the orders matrix for the next step.</span>
+<span class="sd">        4) Distribute the actual production towards the different demands (intermediate, final, rebuilding) and the changes in the stocks matrix (using :meth:`~boario.model_base.ARIOBaseModel.distribute_production`)</span>
 
-<span class="sd">        5) Computes the new overproduction vector for the next step.</span>
+<span class="sd">        5) Computes the orders matrix for the next step (using :meth:`~boario.model_base.ARIOBaseModel.calc_orders`)</span>
 
-<span class="sd">        6) If at least min_steps_check steps of the simulation were run, it checks for a possible crash of the economy in the model (a crash being defined by more than a third of all industries having close to null production) or an equilibrium (see :func:`~ario3.mriosystem.MrioSystem.check_crash` and :func:`ario3.mriosystem:MrioSystem.check_production_eq_soft`).</span>
+<span class="sd">        6) Computes the new overproduction vector for the next step (using :meth:`~boario.model_base.ARIOBaseModel.calc_overproduction`)</span>
 
 <span class="sd">        See :ref:`Mathematical background &lt;boario-math&gt;` section for more in depth information.</span>
 
@@ -449,26 +469,21 @@ Last updated on Sep 05, 2022.<br>
 <span class="sd">        ----------</span>
 
 <span class="sd">        check_period : int, default: 10</span>
-<span class="sd">            Number of steps between each crash/equilibrium checking.</span>
+<span class="sd">            [Deprecated] Number of steps between each crash/equilibrium checking.</span>
 
 <span class="sd">        min_steps_check : int, default: None</span>
-<span class="sd">            Minimum number of steps before checking for crash/equilibrium. If none, it is set to a fifth of the number of steps to simulate.</span>
+<span class="sd">            [Deprecated] Minimum number of steps before checking for crash/equilibrium. If none, it is set to a fifth of the number of steps to simulate.</span>
 
 <span class="sd">        min_failing_regions : int, default: None</span>
-<span class="sd">            Minimum number of &#39;failing regions&#39; required to consider the economy has &#39;crashed&#39; (see :func:`~ario3.mriosystem.MrioSystem.check_crash`:).</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
+<span class="sd">            [Deprecated] Minimum number of &#39;failing regions&#39; required to consider the economy has &#39;crashed&#39; (see :func:`~ario3.mriosystem.MrioSystem.check_crash`:).</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1">#print(self.current_t)</span>
         <span class="k">if</span> <span class="n">min_steps_check</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">min_steps_check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_timesteps_to_sim</span> <span class="o">//</span> <span class="mi">5</span>
+            <span class="n">min_steps_check</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_days_to_sim</span> <span class="o">//</span> <span class="mi">5</span>
         <span class="k">if</span> <span class="n">min_failing_regions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">min_failing_regions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_regions</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">//</span> <span class="mi">3</span>
+            <span class="n">min_failing_regions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_regions</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">//</span> <span class="mi">3</span>
 
-        <span class="n">new_events</span> <span class="o">=</span> <span class="p">[(</span><span class="n">e_id</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e_id</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)]</span>
+        <span class="n">new_events</span> <span class="o">=</span> <span class="p">[(</span><span class="n">e_id</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e_id</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)]</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">e_id</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="ow">in</span> <span class="n">new_events</span><span class="p">:</span>
             <span class="c1"># print(e)</span>
             <span class="k">if</span> <span class="n">e</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">:</span>
@@ -477,54 +492,57 @@ Last updated on Sep 05, 2022.<br>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span> <span class="o">!=</span> <span class="p">[]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update_events</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">update_system_from_events</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_system_from_events</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;register_stocks&#39;</span><span class="p">]:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_stocks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_prod_reqby_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_overproduction</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_overproduction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_rebuild_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_classic_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_production_cap</span><span class="p">()</span>
-        <span class="n">constraints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_limiting_stocks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_production_max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_stocks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">calc_prod_reqby_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">calc_overproduction</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_overproduction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_rebuild_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_classic_demand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">calc_production_cap</span><span class="p">()</span>
+        <span class="n">constraints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">calc_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_limiting_stocks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_production_max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">events_to_remove</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">distribute_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheme</span><span class="p">)</span>
+            <span class="n">events_to_remove</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">distribute_production</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheme</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;This exception happened:&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
             <span class="k">return</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">events_to_remove</span> <span class="o">!=</span> <span class="p">[]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span> <span class="k">if</span> <span class="n">e</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">events_to_remove</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">events_to_remove</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Day : </span><span class="si">{}</span><span class="s2"> ~ Event named </span><span class="si">{}</span><span class="s2"> that occured at </span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2"> for </span><span class="si">{}</span><span class="s2"> damages is completely rebuilt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">q_damages</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">calc_orders</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">&gt;</span> <span class="n">min_steps_check</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">%</span> <span class="n">check_period</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">check_crash</span><span class="p">()</span> <span class="o">&gt;</span>  <span class="n">min_failing_regions</span><span class="p">:</span>
-                <span class="k">return</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;min_duration&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">rebuilding_demand</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">check_production_eq_soft</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">check_period</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">+=</span><span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">]</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Day : </span><span class="si">{}</span><span class="s2"> ~ Event named </span><span class="si">{}</span><span class="s2"> that occured at </span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2"> for </span><span class="si">{}</span><span class="s2"> damages is completely rebuilt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">q_damages</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">calc_orders</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">)</span>
+        <span class="c1"># TODO : Redo this properly</span>
+        <span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span> <span class="o">&gt;</span> <span class="n">min_steps_check</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span> <span class="o">%</span> <span class="n">check_period</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">check_crash</span><span class="p">()</span> <span class="o">&gt;</span>  <span class="n">min_failing_regions</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;min_duration&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">rebuilding_demand</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">check_production_eq_soft</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">check_period</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">+=</span><span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;model_time_step&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="Simulation.update_events"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.update_events">[docs]</a>    <span class="k">def</span> <span class="nf">update_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update events status</span>
 
-<span class="sd">        This method cycles through the events defines in the `current_events` attribute and sets their `rebuildable` attribute.</span>
-<span class="sd">        An event is considered rebuildable if its `duration` is over. This method also logs the moment an event starts rebuilding.</span>
+<span class="sd">        This method cycles through the events defines in the ``current_events`` attribute and sets their ``rebuildable`` attribute.</span>
+<span class="sd">        An event is considered rebuildable if its ``duration`` is over (i.e. the number of days elapsed since it shocked the model is greater than ``occurence_time`` + ``duration``).</span>
+<span class="sd">        This method also logs the moment an event starts rebuilding.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_events</span><span class="p">:</span>
             <span class="n">already_rebuilding</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span>
-            <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span>
             <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">rebuildable</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">already_rebuilding</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Day : </span><span class="si">{}</span><span class="s2"> ~ Event named </span><span class="si">{}</span><span class="s2"> that occured at </span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2"> for </span><span class="si">{}</span><span class="s2"> damages has started rebuilding&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">q_damages</span><span class="p">))</span></div>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Day : </span><span class="si">{}</span><span class="s2"> ~ Event named </span><span class="si">{}</span><span class="s2"> that occured at </span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2"> for </span><span class="si">{}</span><span class="s2"> damages has started rebuilding&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">occurence_time</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">q_damages</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Simulation.read_events_from_list"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.read_events_from_list">[docs]</a>    <span class="k">def</span> <span class="nf">read_events_from_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events_list</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Import a list of events (as a list of dictionnaries) into the model.</span>
+        <span class="sd">&quot;&quot;&quot;Import a list of events (as a list of dictionaries) into the model.</span>
 
 <span class="sd">        Also performs various checks on the events to avoid badly written events.</span>
 <span class="sd">        See :ref:`How to define Events &lt;boario-events&gt;` to understand how to write events dictionnaries or JSON files.</span>
@@ -543,74 +561,43 @@ Last updated on Sep 05, 2022.<br>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Reading events from given list and adding them to the model&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">ev_dic</span> <span class="ow">in</span> <span class="n">events_list</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">ev_dic</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
-                <span class="n">ev_dic</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">sectors</span><span class="p">)</span>
-            <span class="n">ev</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">ev_dic</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="p">)</span>
+                <span class="n">ev_dic</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sectors</span><span class="p">)</span>
+            <span class="n">ev</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">ev_dic</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
             <span class="n">ev</span><span class="o">.</span><span class="n">check_values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">events_timings</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ev_dic</span><span class="p">[</span><span class="s1">&#39;occur&#39;</span><span class="p">])</span>
         <span class="k">with</span> <span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;output_dir&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;results_storage&#39;</span><span class="p">])</span><span class="o">/</span><span class="s2">&quot;simulated_events.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">events_list</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Simulation.read_events"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.read_events">[docs]</a>    <span class="k">def</span> <span class="nf">read_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events_file</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Read events from a json file.</span>
-
-<span class="sd">        .. deprecated::</span>
-<span class="sd">            Method wasn&#39;t checked recently.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        events_file :</span>
-<span class="sd">            path to a json file</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        FileNotFoundError</span>
-<span class="sd">            If file does not exist</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Reading events from </span><span class="si">{}</span><span class="s2"> and adding them to the model&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">events_file</span><span class="p">))</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">events_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;This file does not exist: &quot;</span><span class="p">,</span><span class="n">events_file</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">with</span> <span class="n">events_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">events</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">events</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]:</span>
-            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
-                    <span class="n">event</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">sectors</span>
-                <span class="n">ev</span><span class="o">=</span><span class="n">Event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="p">)</span>
-                <span class="n">ev</span><span class="o">.</span><span class="n">check_values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">events_timings</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;occur&#39;</span><span class="p">])</span></div>
-
 <div class="viewcode-block" id="Simulation.shock"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.shock">[docs]</a>    <span class="k">def</span> <span class="nf">shock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_to_add_id</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Shocks the model with an event.</span>
 
 <span class="sd">        Sets the rebuilding demand and the share of production allocated toward</span>
-<span class="sd">        it in the mrio system.</span>
+<span class="sd">        it in the model.</span>
+
+<span class="sd">        First, if multiple regions are affected, it computes the vector of how damages are distributed across these,</span>
+<span class="sd">        using the ``dmg_distrib_across_regions`` attribute of the :class:`~boario.event.Event` object.</span>
+<span class="sd">        Then it computes the vector of how regional damages are distributed across affected sectors using</span>
+<span class="sd">        the ``dmg_distrib_across_sector`` and ``dmg_distrib_across_sector_type`` attributes.</span>
+<span class="sd">        This ``n_regions`` * ``n_sectors`` sized vector hence stores the damage (i.e. capital destroyed) for all industries.</span>
+
+<span class="sd">        This method also computes the `rebuilding demand` matrix, the demand addressed to the rebuilding</span>
+<span class="sd">        industries consequent to the shock, and sets the initial vector of production share dedicated to rebuilding.</span>
+
+<span class="sd">        See :ref:`How to define Events &lt;boario-events&gt;` for further detail on how to parameter these distribution.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        event_to_add : Event</span>
-<span class="sd">            The event to shock the model with.</span>
+<span class="sd">        event_to_add_id : int</span>
+<span class="sd">            The id (rank it the ``events`` list) of the event to shock the model with.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            Raised if the production share allocated to rebuilding (in either</span>
 <span class="sd">            the impacted regions or the others) is not in [0,1].</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Day : </span><span class="si">{}</span><span class="s2"> ~ Shocking model with new event&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_t</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Day : </span><span class="si">{}</span><span class="s2"> ~ Shocking model with new event&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_day</span><span class="p">))</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Affected regions are : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">))</span>
         <span class="n">impacted_region_prod_share</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;impacted_region_base_production_toward_rebuilding&#39;</span><span class="p">]</span>
         <span class="n">RoW_prod_share</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;row_base_production_toward_rebuilding&#39;</span><span class="p">]</span>
@@ -619,14 +606,14 @@ Last updated on Sep 05, 2022.<br>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Impacted production share should be in [0.0,1.0], (</span><span class="si">%f</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">impacted_region_prod_share</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">RoW_prod_share</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">RoW_prod_share</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;RoW production share should be in [0.0,1.0], (</span><span class="si">%f</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">RoW_prod_share</span><span class="p">)</span>
-        <span class="n">regions_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-        <span class="n">aff_regions_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">regions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">)</span>
+        <span class="n">regions_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">aff_regions_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">regions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">aff_regions</span><span class="p">)</span>
         <span class="n">n_regions_aff</span> <span class="o">=</span> <span class="n">aff_regions_idx</span><span class="o">.</span><span class="n">size</span>
-        <span class="n">aff_sectors_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">sectors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">aff_sectors</span><span class="p">)</span>
+        <span class="n">aff_sectors_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sectors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">aff_sectors</span><span class="p">)</span>
         <span class="n">n_sectors_aff</span> <span class="o">=</span> <span class="n">aff_sectors_idx</span><span class="o">.</span><span class="n">size</span>
-        <span class="n">aff_industries_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">*</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">si</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">aff_regions_idx</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">aff_sectors_idx</span><span class="p">])</span>
-        <span class="n">q_dmg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">q_damages</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">monetary_unit</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Damages are </span><span class="si">{}</span><span class="s2"> times </span><span class="si">{}</span><span class="s2"> [unit (ie $/€/£)]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q_dmg</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">monetary_unit</span><span class="p">))</span>
+        <span class="n">aff_industries_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">*</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">si</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">aff_regions_idx</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">aff_sectors_idx</span><span class="p">])</span> <span class="c1"># type: ignore (aff_regions_idx not considered as array)</span>
+        <span class="n">q_dmg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">q_damages</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">monetary_unit</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Damages are </span><span class="si">{}</span><span class="s2"> times </span><span class="si">{}</span><span class="s2"> [unit (ie $/€/£)]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q_dmg</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">monetary_unit</span><span class="p">))</span>
         <span class="c1"># print(f&#39;&#39;&#39;</span>
         <span class="c1"># regions_idx = {regions_idx},</span>
         <span class="c1"># aff_regions_idx = {aff_regions_idx}</span>
@@ -650,7 +637,7 @@ Last updated on Sep 05, 2022.<br>
 
         <span class="c1"># DAMAGE DISTRIBUTION ACROSS SECTORS</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors_type</span> <span class="o">==</span> <span class="s2">&quot;gdp&quot;</span><span class="p">:</span>
-            <span class="n">shares</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">gdp_share_sector</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span><span class="p">))</span>
+            <span class="n">shares</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">gdp_share_sector</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_sectors</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The sum of the affected sectors value added is 0 (meaning they probably don&#39;t exist in this regions)&quot;</span><span class="p">)</span>
             <span class="n">q_dmg_regions_sectors</span> <span class="o">=</span> <span class="n">q_dmg_regions</span> <span class="o">*</span> <span class="p">(</span><span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">/</span><span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
@@ -659,52 +646,42 @@ Last updated on Sep 05, 2022.<br>
         <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
             <span class="n">q_dmg_regions_sectors</span> <span class="o">=</span> <span class="n">q_dmg_regions</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors</span> <span class="o">==</span> <span class="s1">&#39;GDP&#39;</span><span class="p">:</span>
-            <span class="n">shares</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">gdp_share_sector</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span><span class="p">))</span>
+            <span class="n">shares</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">gdp_share_sector</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_sectors</span><span class="p">))</span>
             <span class="n">q_dmg_regions_sectors</span> <span class="o">=</span> <span class="n">q_dmg_regions</span> <span class="o">*</span> <span class="p">(</span><span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">/</span><span class="n">shares</span><span class="p">[</span><span class="n">aff_regions_idx</span><span class="p">][:,</span><span class="n">aff_sectors_idx</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;damage &lt;-&gt; sectors distribution </span><span class="si">%s</span><span class="s2"> not implemented&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">dmg_distrib_across_sectors</span><span class="p">)</span>
 
-        <span class="n">rebuilding_sectors_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">sectors</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">rebuilding_sectors</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-        <span class="n">rebuilding_industries_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">*</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">si</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">aff_regions_idx</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">rebuilding_sectors_idx</span><span class="p">])</span>
-        <span class="n">rebuilding_industries_RoW_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">*</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">si</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">regions_idx</span> <span class="k">if</span> <span class="n">ri</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">aff_regions_idx</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">rebuilding_sectors_idx</span><span class="p">])</span>
+        <span class="n">rebuilding_sectors_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sectors</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">rebuilding_sectors</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="n">rebuilding_industries_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">*</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">si</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">aff_regions_idx</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">rebuilding_sectors_idx</span><span class="p">])</span> <span class="c1"># type: ignore (aff_regions_idx not considered as array)</span>
+        <span class="n">rebuilding_industries_RoW_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_sectors</span> <span class="o">*</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">si</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">regions_idx</span> <span class="k">if</span> <span class="n">ri</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">aff_regions_idx</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">rebuilding_sectors_idx</span><span class="p">])</span>
         <span class="n">rebuild_share</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">rebuilding_sectors</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">rebuilding_sectors</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
         <span class="n">rebuilding_demand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">rebuild_share</span><span class="p">,</span> <span class="n">q_dmg_regions_sectors</span><span class="p">)</span>
-        <span class="n">new_rebuilding_demand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">Z_0</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">new_rebuilding_demand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">Z_0</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
         <span class="c1"># build the mask of rebuilding sectors (worldwide)</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">union1d</span><span class="p">(</span><span class="n">rebuilding_industries_RoW_idx</span><span class="p">,</span> <span class="n">rebuilding_industries_idx</span><span class="p">),</span> <span class="n">aff_industries_idx</span><span class="p">)</span>
-        <span class="n">new_rebuilding_demand</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">Z_distrib</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">rebuilding_demand</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#np.full(self.mrio.Z_0.shape,0.0)</span>
+        <span class="n">new_rebuilding_demand</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">Z_distrib</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">rebuilding_demand</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">n_regions</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># type: ignore (strange __getitem__ warning)</span>
         <span class="c1">#new_rebuilding_demand[] = q_dmg_regions_sectors * rebuild_share.reshape(rebuilding_sectors_idx.size,1)</span>
-        <span class="n">new_prod_max_toward_rebuilding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">production</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">new_prod_max_toward_rebuilding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">production</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
         <span class="n">new_prod_max_toward_rebuilding</span><span class="p">[</span><span class="n">rebuilding_industries_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">impacted_region_prod_share</span>
         <span class="n">new_prod_max_toward_rebuilding</span><span class="p">[</span><span class="n">rebuilding_industries_RoW_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">RoW_prod_share</span>
         <span class="c1"># TODO : Differentiate industry losses and households losses</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">industry_rebuild</span> <span class="o">=</span> <span class="n">new_rebuilding_demand</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_to_add_id</span><span class="p">]</span><span class="o">.</span><span class="n">production_share_allocated</span> <span class="o">=</span> <span class="n">new_prod_max_toward_rebuilding</span></div>
-        <span class="c1">#self.mrio.update_kapital_lost()</span>
+        <span class="c1">#self.model.update_kapital_lost()</span>
 
 <div class="viewcode-block" id="Simulation.reset_sim_with_same_events"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.reset_sim_with_same_events">[docs]</a>    <span class="k">def</span> <span class="nf">reset_sim_with_same_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Resets the model to its initial status (without removing the events).</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Resetting model to initial status (with same events)&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_t</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_day</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_monotony_checker</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_simulated</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">has_crashed</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">reset_module</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reset_module</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Simulation.reset_sim_full"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.reset_sim_full">[docs]</a>    <span class="k">def</span> <span class="nf">reset_sim_full</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Resets the model to its initial status and remove all events.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        FIXME: Add docs.</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">reset_sim_with_same_events</span><span class="p">()</span>
@@ -715,11 +692,11 @@ Last updated on Sep 05, 2022.<br>
 <div class="viewcode-block" id="Simulation.update_params"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.update_params">[docs]</a>    <span class="k">def</span> <span class="nf">update_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_params</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update the parameters of the model.</span>
 
-<span class="sd">        Replace the `params` attribute with `new_params` and logs the update.</span>
+<span class="sd">        Replace the ``params`` attribute with ``new_params`` and logs the update.</span>
 <span class="sd">        This method also checks if the directory specified to save the results exists and create it otherwise.</span>
 
 <span class="sd">        .. warning::</span>
-<span class="sd">            Be aware this method calls :meth:`~boario.model_base.update_params`, which resets the memmap files located in the results directory !</span>
+<span class="sd">            Be aware this method calls :meth:`~boario.model_base.ARIOBaseModel.update_params`, which resets the memmap files located in the results directory !</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -732,7 +709,7 @@ Last updated on Sep 05, 2022.<br>
         <span class="n">results_storage</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;output_dir&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;results_storage&#39;</span><span class="p">])</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">results_storage</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
             <span class="n">results_storage</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">update_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Simulation.write_index"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.write_index">[docs]</a>    <span class="k">def</span> <span class="nf">write_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Write the index of the dataframes used in the model in a json file.</span>
@@ -746,7 +723,43 @@ Last updated on Sep 05, 2022.<br>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrio</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">index_file</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">write_index</span><span class="p">(</span><span class="n">index_file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Simulation.read_events"><a class="viewcode-back" href="../../api-doc/boario.simulation.html#boario.simulation.Simulation.read_events">[docs]</a>    <span class="k">def</span> <span class="nf">read_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Read events from a json file.</span>
+
+<span class="sd">        .. deprecated::</span>
+<span class="sd">            Method wasn&#39;t checked recently.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        events_file :</span>
+<span class="sd">            path to a json file</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        FileNotFoundError</span>
+<span class="sd">            If file does not exist</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        FIXME: Add docs.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Reading events from </span><span class="si">{}</span><span class="s2"> and adding them to the model&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">events_file</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">events_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;This file does not exist: &quot;</span><span class="p">,</span><span class="n">events_file</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">events_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">events</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">events</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+                    <span class="n">event</span><span class="p">[</span><span class="s1">&#39;aff-sectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">sectors</span>
+                <span class="n">ev</span><span class="o">=</span><span class="n">Event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+                <span class="n">ev</span><span class="o">.</span><span class="n">check_values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_timings</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;occur&#39;</span><span class="p">])</span></div></div>
 </pre></div>
 
               </div>

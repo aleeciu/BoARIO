@@ -133,7 +133,7 @@
       
       <div class="navbar-end-item">
         <p class="last-updated">
-Last updated on Sep 05, 2022.<br>
+Last updated on Sep 06, 2022.<br>
 </p>
       </div>
       
@@ -246,29 +246,67 @@ Last updated on Sep 05, 2022.<br>
   <section id="module-boario.simulation">
 <span id="boario-simulation-module"></span><h1>boario.simulation module<a class="headerlink" href="#module-boario.simulation" title="Permalink to this headline">¶</a></h1>
 <p>Simulation module</p>
-<p>This module defines the Simulation object, which represent a BoARIO simulation environnement.</p>
+<p>This module defines the Simulation object, which represent a BoARIO simulation environment.</p>
 <dl class="py class">
 <dt id="boario.simulation.Simulation">
 <em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeltype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'ARIOBase'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Simulation instance</p>
+<p>This class defines a simulation object with a set of parameters and an IOSystem.</p>
+<p>This Class wraps an <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ARIOBaseModel</span></code></a> or <a class="reference internal" href="boario.extended_models.html#boario.extended_models.ARIOModelPsi" title="boario.extended_models.ARIOModelPsi"><code class="xref py py-class docutils literal notranslate"><span class="pre">ARIOModelPsi</span></code></a>, and create the context for
+simulations using this model. It stores execution parameters as well as events perturbing
+the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Parameters to run the simulation with. If str or Path, it must lead
+to a json file containing a dictionary of the parameters.</p></li>
+<li><p><strong>results_storage</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><em>pathlib.Path</em></a>) – Path to store the results to.</p></li>
+<li><p><strong>model</strong> (<em>Union</em><em>[</em><a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><em>ARIOBaseModel</em></a><em>, </em><a class="reference internal" href="boario.extended_models.html#boario.extended_models.ARIOModelPsi" title="boario.extended_models.ARIOModelPsi"><em>ARIOModelPsi</em></a><em>]</em>) – The model to run the simulation with.</p></li>
+<li><p><strong>current_day</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Tracks the number of <cite>days</cite> elapsed since simulation start.
+This may differs from the number of <cite>steps</cite> if the parameter <cite>model_time_step</cite> differs from 1 day as <cite>current_day</cite> is actually <cite>step</cite> * <cite>model_time_step</cite>.</p></li>
+<li><p><strong>n_days_to_sim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The total number of <cite>days</cite> to simulate.</p></li>
+<li><p><strong>events</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><em>Event</em></a><em>]</em>) – The list of events to shock the model with during the simulation.</p></li>
+<li><p><strong>current_events</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><em>Event</em></a><em>]</em>) – The list of events that</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.10)"><strong>TypeError</strong></a> – This error is raised when parameters files (for either the simulation or the mrio table) is not of a correct type.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.10)"><strong>FileNotFoundError</strong></a> – This error is raised when one of the required file to initialize
+    the simulation was not found and should print out which one.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initialisation of a Simulation object uses these parameters</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>params</strong> (<em>Union[dict, str, pathlib.Path]</em>) – Parameters to run the simulation with. If str or Path, it must lead
+to a json file containing a dictionary of the parameters.</p></li>
+<li><p><strong>mrio_system</strong> (<em>Union[IOSystem, str, pathlib.Path, None], default: None</em>) – <code class="docutils literal notranslate"><span class="pre">pymrio.IOSystem</span></code> to run the simulation with. If str or Path, it must
+lead to either :</p>
+<p>1) a pickle file of an IOSystem that was previously
+generated with the pymrio package (be careful that such files are
+not cross-system compatible) or,
+2) a directory loadable with <code class="docutils literal notranslate"><span class="pre">pymrio.load_all</span></code> (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/notebooks/load_save_export.html">Loading, saving and exporting pymrio data</a>).</p>
+</li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="boario.simulation.Simulation.loop">
 <code class="sig-name descname"><span class="pre">loop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the simulation loop.</p>
 <p>This method launch the simulation for the number of steps to simulate
-described by the attribute self.n_timpesteps_to_sim, calling the
-next_step() method in a for loop. For convenience, it dumps the
-parameters used in the log just before running the loop. Once the loop
-is completed, it flushes the different memmaps generated by the mrio
-subsystem.</p>
+described by the attribute <code class="docutils literal notranslate"><span class="pre">n_days_to_sim</span></code>, calling the
+<a class="reference internal" href="#boario.simulation.Simulation.next_step" title="boario.simulation.Simulation.next_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next_step()</span></code></a> method. For convenience, it dumps the
+parameters used in the logs just before running the loop. Once the loop
+is completed, it flushes the different memmaps generated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>progress</strong> (<em>bool, default: True</em>) – If True show a progress bar of the loop in the console.</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -277,42 +315,41 @@ subsystem.</p>
 <dd><p>Advance the model run by one step.</p>
 <p>This method wraps all computations and logging to proceed to the next
 step of the simulation run. First it checks if an event is planned to
-occur at the current step and if so, shock the model with the
+occur at the current step and if so, shocks the model with the
 corresponding event. Then it :</p>
 <ol class="arabic simple">
-<li><p>Computes the production capacity vector of the current step (using calc_production_cap())</p></li>
-<li><p>Computes the actual production vector for the step.</p></li>
-<li><p>Distribute the actual production towards the different demands (intermediate, final, rebuilding) and the changes in the stocks matrix.</p></li>
-<li><p>Computes the orders matrix for the next step.</p></li>
-<li><p>Computes the new overproduction vector for the next step.</p></li>
-<li><p>If at least min_steps_check steps of the simulation were run, it checks for a possible crash of the economy in the model (a crash being defined by more than a third of all industries having close to null production) or an equilibrium (see <code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ario3.mriosystem:MrioSystem.check_production_eq_soft()</span></code>).</p></li>
+<li><p>Computes the production required by demand (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_prod_reqby_demand" title="boario.model_base.ARIOBaseModel.calc_prod_reqby_demand"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_prod_reqby_demand()</span></code></a>)</p></li>
+<li><p>Computes the production capacity vector of the current step (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_production_cap" title="boario.model_base.ARIOBaseModel.calc_production_cap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_production_cap()</span></code></a>)</p></li>
+<li><p>Computes the actual production vector for the step (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_production" title="boario.model_base.ARIOBaseModel.calc_production"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_production()</span></code></a>)</p></li>
+<li><p>Distribute the actual production towards the different demands (intermediate, final, rebuilding) and the changes in the stocks matrix (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.distribute_production" title="boario.model_base.ARIOBaseModel.distribute_production"><code class="xref py py-meth docutils literal notranslate"><span class="pre">distribute_production()</span></code></a>)</p></li>
+<li><p>Computes the orders matrix for the next step (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_orders" title="boario.model_base.ARIOBaseModel.calc_orders"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_orders()</span></code></a>)</p></li>
+<li><p>Computes the new overproduction vector for the next step (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_overproduction" title="boario.model_base.ARIOBaseModel.calc_overproduction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_overproduction()</span></code></a>)</p></li>
 </ol>
 <p>See <a class="reference internal" href="../math.html#boario-math"><span class="std std-ref">Mathematical background</span></a> section for more in depth information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>check_period</strong> (<em>int, default: 10</em>) – Number of steps between each crash/equilibrium checking.</p></li>
-<li><p><strong>min_steps_check</strong> (<em>int, default: None</em>) – Minimum number of steps before checking for crash/equilibrium. If none, it is set to a fifth of the number of steps to simulate.</p></li>
-<li><p><strong>min_failing_regions</strong> (<em>int, default: None</em>) – Minimum number of ‘failing regions’ required to consider the economy has ‘crashed’ (see <code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code>:).</p></li>
+<li><p><strong>check_period</strong> (<em>int, default: 10</em>) – [Deprecated] Number of steps between each crash/equilibrium checking.</p></li>
+<li><p><strong>min_steps_check</strong> (<em>int, default: None</em>) – [Deprecated] Minimum number of steps before checking for crash/equilibrium. If none, it is set to a fifth of the number of steps to simulate.</p></li>
+<li><p><strong>min_failing_regions</strong> (<em>int, default: None</em>) – [Deprecated] Minimum number of ‘failing regions’ required to consider the economy has ‘crashed’ (see <code class="xref py py-func docutils literal notranslate"><span class="pre">check_crash()</span></code>:).</p></li>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.update_events">
 <code class="sig-name descname"><span class="pre">update_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update events status</p>
-<p>This method cycles through the events defines in the <cite>current_events</cite> attribute and sets their <cite>rebuildable</cite> attribute.
-An event is considered rebuildable if its <cite>duration</cite> is over. This method also logs the moment an event starts rebuilding.</p>
+<p>This method cycles through the events defines in the <code class="docutils literal notranslate"><span class="pre">current_events</span></code> attribute and sets their <code class="docutils literal notranslate"><span class="pre">rebuildable</span></code> attribute.
+An event is considered rebuildable if its <code class="docutils literal notranslate"><span class="pre">duration</span></code> is over (i.e. the number of days elapsed since it shocked the model is greater than <code class="docutils literal notranslate"><span class="pre">occurence_time</span></code> + <code class="docutils literal notranslate"><span class="pre">duration</span></code>).
+This method also logs the moment an event starts rebuilding.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.read_events_from_list">
 <code class="sig-name descname"><span class="pre">read_events_from_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events_from_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Import a list of events (as a list of dictionnaries) into the model.</p>
+<dd><p>Import a list of events (as a list of dictionaries) into the model.</p>
 <p>Also performs various checks on the events to avoid badly written events.
 See <a class="reference internal" href="../boario-events.html#boario-events"><span class="std std-ref">How to define Events</span></a> to understand how to write events dictionnaries or JSON files.</p>
 <dl class="field-list simple">
@@ -379,68 +416,51 @@ See <a class="reference internal" href="../boario-events.html#boario-events"><sp
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.read_events">
-<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read events from a json file.</p>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version Method: </span>wasn’t checked recently.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>events_file</strong> – path to a json file</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.10)"><strong>FileNotFoundError</strong></a> – If file does not exist</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="boario.simulation.Simulation.shock">
 <code class="sig-name descname"><span class="pre">shock</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_to_add_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.shock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.shock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shocks the model with an event.</p>
 <p>Sets the rebuilding demand and the share of production allocated toward
-it in the mrio system.</p>
+it in the model.</p>
+<p>First, if multiple regions are affected, it computes the vector of how damages are distributed across these,
+using the <code class="docutils literal notranslate"><span class="pre">dmg_distrib_across_regions</span></code> attribute of the <a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a> object.
+Then it computes the vector of how regional damages are distributed across affected sectors using
+the <code class="docutils literal notranslate"><span class="pre">dmg_distrib_across_sector</span></code> and <code class="docutils literal notranslate"><span class="pre">dmg_distrib_across_sector_type</span></code> attributes.
+This <code class="docutils literal notranslate"><span class="pre">n_regions</span></code> * <code class="docutils literal notranslate"><span class="pre">n_sectors</span></code> sized vector hence stores the damage (i.e. capital destroyed) for all industries.</p>
+<p>This method also computes the <cite>rebuilding demand</cite> matrix, the demand addressed to the rebuilding
+industries consequent to the shock, and sets the initial vector of production share dedicated to rebuilding.</p>
+<p>See <a class="reference internal" href="../boario-events.html#boario-events"><span class="std std-ref">How to define Events</span></a> for further detail on how to parameter these distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>event_to_add</strong> (<em>Event</em>) – The event to shock the model with.</p>
+<dd class="field-odd"><p><strong>event_to_add_id</strong> (<em>int</em>) – The id (rank it the <code class="docutils literal notranslate"><span class="pre">events</span></code> list) of the event to shock the model with.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – Raised if the production share allocated to rebuilding (in either
     the impacted regions or the others) is not in [0,1].</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.reset_sim_with_same_events">
 <code class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_with_same_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the model to its initial status (without removing the events).</p>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.reset_sim_full">
 <code class="sig-name descname"><span class="pre">reset_sim_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_full"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the model to its initial status and remove all events.</p>
-<p class="rubric">Examples</p>
-<p>FIXME: Add docs.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="boario.simulation.Simulation.update_params">
 <code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the parameters of the model.</p>
-<p>Replace the <cite>params</cite> attribute with <cite>new_params</cite> and logs the update.
+<p>Replace the <code class="docutils literal notranslate"><span class="pre">params</span></code> attribute with <code class="docutils literal notranslate"><span class="pre">new_params</span></code> and logs the update.
 This method also checks if the directory specified to save the results exists and create it otherwise.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Be aware this method calls <code class="xref py py-meth docutils literal notranslate"><span class="pre">update_params()</span></code>, which resets the memmap files located in the results directory !</p>
+<p>Be aware this method calls <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.update_params" title="boario.model_base.ARIOBaseModel.update_params"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update_params()</span></code></a>, which resets the memmap files located in the results directory !</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -459,6 +479,25 @@ This method also checks if the directory specified to save the results exists an
 <dd class="field-odd"><p><strong>index_file</strong> (<em>Union[str, pathlib.Path]</em>) – name of the file to save the indexes to.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="boario.simulation.Simulation.read_events">
+<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read events from a json file.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Method: </span>wasn’t checked recently.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>events_file</strong> – path to a json file</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.10)"><strong>FileNotFoundError</strong></a> – If file does not exist</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>FIXME: Add docs.</p>
 </dd></dl>
 
 </dd></dl>
