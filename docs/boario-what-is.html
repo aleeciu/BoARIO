@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,22 +23,23 @@
       
   
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/js/custom.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Welcome to BoARIO’s documentation!" href="index.html" />
+    <link rel="next" title="Installation" href="boario-installation.html" />
+    <link rel="prev" title="User guide" href="user-guide.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -72,32 +73,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  BoARIO
+ <a class="reference internal nav-link" href="user-guide.html">
+  User guide
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="usage.html">
-  Detailled examples
+ <a class="reference internal nav-link" href="api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -108,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="boario-mrio-params.html">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -167,7 +132,54 @@ Last updated on Sep 07, 2022.<br>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   BoARIO
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-quickstart.html">
+   Detailled examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-terminology.html">
+   Terminology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-math.html">
+   Mathematical background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-sim-params.html">
+   Set simulation parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-mrio-params.html">
+   Set the MRIO table parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-events.html">
+   How to define Events
+  </a>
+ </li>
+</ul>
+
   </div>
 </nav>
               </div>
@@ -280,10 +292,10 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="boario">
-<h1>BoARIO<a class="headerlink" href="#boario" title="Permalink to this headline">¶</a></h1>
+<h1>BoARIO<a class="headerlink" href="#boario" title="Permalink to this heading">¶</a></h1>
 <p>BoARIO : The Adaptative Regional Input Output model in python.</p>
 <section id="what-is-boario">
-<h2>What is BoARIO ?<a class="headerlink" href="#what-is-boario" title="Permalink to this headline">¶</a></h2>
+<h2>What is BoARIO ?<a class="headerlink" href="#what-is-boario" title="Permalink to this heading">¶</a></h2>
 <p>BoARIO, is a python implementation project of the Adaptative Regional Input Output (ARIO) model [<a class="reference external" href="https://doi.org/10.1111/j.1539-6924.2008.01046.x">Hallegatte 2013</a>].</p>
 <p>Its objectives are to give an accessible and inter-operable implementation of ARIO, as well as tools to visualize and analyze simulation outputs and to
 evaluate the effects of many parameters of the model.</p>
@@ -293,11 +305,11 @@ evaluate the effects of many parameters of the model.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/chronology.svg?sanitize=true"><img alt="ADEME Logo" src="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/chronology.svg?sanitize=true" style="width: 900px;" /></a>
 </section>
 <section id="where-to-get-it">
-<h2>Where to get it ?<a class="headerlink" href="#where-to-get-it" title="Permalink to this headline">¶</a></h2>
+<h2>Where to get it ?<a class="headerlink" href="#where-to-get-it" title="Permalink to this heading">¶</a></h2>
 <p>The full source code is available on Github at: <a class="reference external" href="https://github.com/spjuhel/BoARIO">https://github.com/spjuhel/BoARIO</a></p>
 </section>
 <section id="how-does-boario-work">
-<h2>How does BoARIO work?<a class="headerlink" href="#how-does-boario-work" title="Permalink to this headline">¶</a></h2>
+<h2>How does BoARIO work?<a class="headerlink" href="#how-does-boario-work" title="Permalink to this heading">¶</a></h2>
 <p>In a nutshell, BoARIO takes the following inputs :</p>
 <ul class="simple">
 <li><p>an IO table (such as EXIOBASE3 or EORA26) in the form of an <cite>IOSystem</cite> object (define by the <cite>pymrio</cite> package)</p></li>
@@ -312,7 +324,7 @@ evaluate the effects of many parameters of the model.</p>
 </ul>
 </section>
 <section id="example-of-use">
-<h2>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline">¶</a></h2>
+<h2>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this heading">¶</a></h2>
 <p>In this commented example, we run the model with one simple
 event using ‘usual’ parameters, and compute the aggregated indicators of the
 simulation. We suppose we run the following script from <code class="docutils literal notranslate"><span class="pre">~/boario/</span></code></p>
@@ -420,7 +432,7 @@ simulation. We suppose we run the following script from <code class="docutils li
 <li><p><code class="docutils literal notranslate"><span class="pre">record</span></code> files. These are <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.memmap.html#numpy.memmap" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.memmap</span></code></a> of the different recorded variables.</p></li>
 </ul>
 <section id="record-files">
-<h3>Record files<a class="headerlink" href="#record-files" title="Permalink to this headline">¶</a></h3>
+<h3>Record files<a class="headerlink" href="#record-files" title="Permalink to this heading">¶</a></h3>
 <p>You may read these directly into a numpy array with :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">(</span><span class="s2">&quot;results/+record_name+_record&quot;</span><span class="p">,</span>
            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r+&#39;</span><span class="p">,</span>
@@ -444,7 +456,7 @@ simulation. We suppose we run the following script from <code class="docutils li
 </section>
 </section>
 <section id="indicators">
-<h2>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">¶</a></h2>
+<h2>Indicators<a class="headerlink" href="#indicators" title="Permalink to this heading">¶</a></h2>
 <p>Invoking</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">indic</span> <span class="o">=</span> <span class="n">Indicators</span><span class="o">.</span><span class="n">from_storage_path</span><span class="p">(</span>
                          <span class="s2">&quot;path/to/results/folder&quot;</span><span class="p">,</span>
@@ -452,24 +464,24 @@ simulation. We suppose we run the following script from <code class="docutils li
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>creates an Indicators object containing mostly all results from the simulation in dataframe. For instance <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">prod_df</span></span></code> is a dataframe of the production of each sector of each region for every timestep. Note that some dataframes are in wide format while other are in long format, for treatment purpose. Also note that some of these dataframes are saved in the result folder as <a class="reference external" href="https://parquet.apache.org/">parquet</a> files. They are simply the memmaps <code class="docutils literal notranslate"><span class="pre">records</span></code> with the indexes.</p>
-<p>Calling <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">update_indicators</span></span><span class="punctuation"><span class="pre">()</span></span></code> fills the <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">indicators</span></span></code> dictionary with the following indicators:</p>
+<p>creates an Indicators object containing mostly all results from the simulation in dataframe. For instance <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indic</span><span class="o">.</span><span class="n">prod_df</span></code> is a dataframe of the production of each sector of each region for every timestep. Note that some dataframes are in wide format while other are in long format, for treatment purpose. Also note that some of these dataframes are saved in the result folder as <a class="reference external" href="https://parquet.apache.org/">parquet</a> files. They are simply the memmaps <code class="docutils literal notranslate"><span class="pre">records</span></code> with the indexes.</p>
+<p>Calling <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indic</span><span class="o">.</span><span class="n">update_indicators</span><span class="p">()</span></code> fills the <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indic</span><span class="o">.</span><span class="n">indicators</span></code> dictionary with the following indicators:</p>
 <ul class="simple">
-<li><p>The total (whole world, all sectors) final consumption not met during the simulation <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘tot_fd_unmet’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
-<li><p>The final consumption not met in the region(s) affected by the shock <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘aff_fd_unmet’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
-<li><p>The rebuild duration (ie the number of step during which rebuild demand is not zero) <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘rebuild_durations’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
-<li><p>If there was a shortage (<code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘shortage_b’</span></span><span class="punctuation"><span class="pre">]</span></span></code>), its start and end dates <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘shortage_date_start’</span></span><span class="punctuation"><span class="pre">]</span></span></code> and <code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indicator</span></span><span class="punctuation"><span class="pre">[</span></span><span class="literal string single"><span class="pre">‘shortage_date_end’</span></span><span class="punctuation"><span class="pre">]</span></span></code>.</p></li>
+<li><p>The total (whole world, all sectors) final consumption not met during the simulation <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indicator</span><span class="p">[</span><span class="s1">&#39;tot_fd_unmet&#39;</span><span class="p">]</span></code>.</p></li>
+<li><p>The final consumption not met in the region(s) affected by the shock <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indicator</span><span class="p">[</span><span class="s1">&#39;aff_fd_unmet&#39;</span><span class="p">]</span></code>.</p></li>
+<li><p>The rebuild duration (ie the number of step during which rebuild demand is not zero) <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indicator</span><span class="p">[</span><span class="s1">&#39;rebuild_durations&#39;</span><span class="p">]</span></code>.</p></li>
+<li><p>If there was a shortage (<code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indicator</span><span class="p">[</span><span class="s1">&#39;shortage_b&#39;</span><span class="p">]</span></code>), its start and end dates <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indicator</span><span class="p">[</span><span class="s1">&#39;shortage_date_start&#39;</span><span class="p">]</span></code> and <code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indicator</span><span class="p">[</span><span class="s1">&#39;shortage_date_end&#39;</span><span class="p">]</span></code>.</p></li>
 <li><p>The top five <cite>(region,sectors)</cite> tuples where there was the biggest absolute change of production compared to a no shock scenario.</p></li>
 </ul>
 <p>It also produce dataframes indicators :</p>
 <ul class="simple">
-<li><p>The production change by region over the simulation (<code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">prod_chg_region</span></span></code>) giving for each region the total gain or loss in production during the simulation.</p></li>
-<li><p>The final consumption not met by region over the simulation (<code class="code pythoncode python docutils literal notranslate"><span class="name"><span class="pre">indic</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">df_loss_region</span></span></code>) giving for each region the total loss in consumption during the simulation.</p></li>
+<li><p>The production change by region over the simulation (<code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indic</span><span class="o">.</span><span class="n">prod_chg_region</span></code>) giving for each region the total gain or loss in production during the simulation.</p></li>
+<li><p>The final consumption not met by region over the simulation (<code class="code highlight pythoncode python docutils literal highlight-python"><span class="n">indic</span><span class="o">.</span><span class="n">df_loss_region</span></code>) giving for each region the total loss in consumption during the simulation.</p></li>
 </ul>
 <p>These two dataframe are also saved in json format.</p>
 </section>
 <section id="useful-scripts">
-<h2>Useful scripts<a class="headerlink" href="#useful-scripts" title="Permalink to this headline">¶</a></h2>
+<h2>Useful scripts<a class="headerlink" href="#useful-scripts" title="Permalink to this heading">¶</a></h2>
 <p>The github repository contains a variety of <a class="reference external" href="https://github.com/spjuhel/BoARIO/tree/master/scripts">useful scripts</a> to ease the generation of input data, run simulations, produce indicators, etc. such as :</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">aggreg_exio3.py</span> <span class="pre">exio_path.zip</span> <span class="pre">aggreg_path.ods</span> <span class="pre">sector_names.json</span> <span class="pre">[region_aggreg.json]</span> <span class="pre">-o</span> <span class="pre">output</span></code> :</p></li>
@@ -487,31 +499,31 @@ simulation. We suppose we run the following script from <code class="docutils li
 <p>These scripts are mainly thought to be used for my PhD project and with the <a class="reference external" href="https://github.com/spjuhel/BoARIO/tree/master/workflow">Snakemake workflow</a> also available on the repository. (Description of this process soon !)</p>
 </section>
 <section id="more-description-to-come">
-<h2>More description to come<a class="headerlink" href="#more-description-to-come" title="Permalink to this headline">¶</a></h2>
+<h2>More description to come<a class="headerlink" href="#more-description-to-come" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">¶</a></h2>
 <section id="associated-phd-project">
-<h3>Associated PhD project<a class="headerlink" href="#associated-phd-project" title="Permalink to this headline">¶</a></h3>
+<h3>Associated PhD project<a class="headerlink" href="#associated-phd-project" title="Permalink to this heading">¶</a></h3>
 <p>This model is part of my PhD on the indirect impact of extreme events.
 This work was supported by the French Environment and Energy Management Agency
 (<a class="reference external" href="https://www.ademe.fr/">ADEME</a>).</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/Logo_ADEME.svg?sanitize=true"><img alt="ADEME Logo" src="https://raw.githubusercontent.com/spjuhel/BoARIO/master/imgs/Logo_ADEME.svg?sanitize=true" style="width: 400px;" /></a>
 </section>
 <section id="development">
-<h3>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h3>
+<h3>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Samuel Juhel</p></li>
 </ul>
 </section>
 <section id="contributions">
-<h3>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h3>
+<h3>Contributions<a class="headerlink" href="#contributions" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Be the first <a class="reference external" href="https://spjuhel.github.io/BoARIO/development.html">contributor</a> !</p></li>
 </ul>
 </section>
 <section id="acknowledgements">
-<h3>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h3>
+<h3>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">¶</a></h3>
 <p>I would like to thank Vincent Viguie, Fabio D’Andrea my PhD supervisors as well as Célian Colon for their inputs during the model implementaiton.</p>
 </section>
 </section>
@@ -523,14 +535,14 @@ This work was supported by the French Environment and Energy Management Agency
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="user-guide.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to BoARIO’s documentation!</p>
+            <p class="prev-next-title">User guide</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="installation.html" title="next page">
+    <a class='right-next' id="next-link" href="boario-installation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Installation</p>
@@ -557,7 +569,7 @@ This work was supported by the French Environment and Energy Management Agency
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     

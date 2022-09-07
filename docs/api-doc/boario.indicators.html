@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,14 +23,15 @@
       
   
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -38,7 +39,7 @@
     <link rel="next" title="boario.model_base module" href="boario.model_base.html" />
     <link rel="prev" title="boario.extended_models module" href="boario.extended_models.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -72,32 +73,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../intro.html">
-  BoARIO
+ <a class="reference internal nav-link" href="../user-guide.html">
+  User guide
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../usage.html">
-  Detailled examples
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -108,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-mrio-params.html">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="../release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -169,8 +134,8 @@ Last updated on Sep 07, 2022.<br>
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="modules.html">
-   boario
+  <a class="reference internal" href="boario.html">
+   boario package
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -178,42 +143,30 @@ Last updated on Sep 07, 2022.<br>
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="boario.html">
-     boario package
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.event.html">
+     boario.event module
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.event.html">
-       boario.event module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.extended_models.html">
-       boario.extended_models module
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       boario.indicators module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.model_base.html">
-       boario.model_base module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.simulation.html">
-       boario.simulation module
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.extended_models.html">
+     boario.extended_models module
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     boario.indicators module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.model_base.html">
+     boario.model_base module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.simulation.html">
+     boario.simulation module
+    </a>
    </li>
   </ul>
  </li>
@@ -257,99 +210,99 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="module-boario.indicators">
-<span id="boario-indicators-module"></span><h1>boario.indicators module<a class="headerlink" href="#module-boario.indicators" title="Permalink to this headline">¶</a></h1>
+<span id="boario-indicators-module"></span><h1>boario.indicators module<a class="headerlink" href="#module-boario.indicators" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
-<dt id="boario.indicators.Indicators">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Indicators</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Indicators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py attribute">
-<dt id="boario.indicators.Indicators.record_files_list">
-<code class="sig-name descname"><span class="pre">record_files_list</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['classic_demand_record',</span> <span class="pre">'final_demand_unmet_record',</span> <span class="pre">'iotable_X_max_record',</span> <span class="pre">'iotable_XVA_record',</span> <span class="pre">'limiting_stocks_record',</span> <span class="pre">'overprodvector_record',</span> <span class="pre">'rebuild_demand_record',</span> <span class="pre">'rebuild_prod_record']</span></em><a class="headerlink" href="#boario.indicators.Indicators.record_files_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.record_files_list">
+<span class="sig-name descname"><span class="pre">record_files_list</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['classic_demand_record',</span> <span class="pre">'final_demand_unmet_record',</span> <span class="pre">'iotable_X_max_record',</span> <span class="pre">'iotable_XVA_record',</span> <span class="pre">'limiting_stocks_record',</span> <span class="pre">'overprodvector_record',</span> <span class="pre">'rebuild_demand_record',</span> <span class="pre">'rebuild_prod_record']</span></em><a class="headerlink" href="#boario.indicators.Indicators.record_files_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="boario.indicators.Indicators.params_list">
-<code class="sig-name descname"><span class="pre">params_list</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['simulated_params',</span> <span class="pre">'simulated_events']</span></em><a class="headerlink" href="#boario.indicators.Indicators.params_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.params_list">
+<span class="sig-name descname"><span class="pre">params_list</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['simulated_params',</span> <span class="pre">'simulated_events']</span></em><a class="headerlink" href="#boario.indicators.Indicators.params_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.from_model">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="boario.simulation.html#boario.simulation.Simulation" title="boario.simulation.Simulation"><span class="pre">boario.simulation.Simulation</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.from_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.from_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.from_model">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="boario.simulation.html#boario.simulation.Simulation" title="boario.simulation.Simulation"><span class="pre">Simulation</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.from_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.from_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.from_storage_path">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_storage_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.from_storage_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.from_storage_path" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.from_storage_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_storage_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.from_storage_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.from_storage_path" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.from_folder">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_folder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexes_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.from_folder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.from_folder" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.from_folder">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexes_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_crash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.from_folder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.from_folder" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.dict_from_storage_path">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">dict_from_storage_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.dict_from_storage_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.dict_from_storage_path" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.dict_from_storage_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dict_from_storage_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.dict_from_storage_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.dict_from_storage_path" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_top_failing_sect">
-<code class="sig-name descname"><span class="pre">calc_top_failing_sect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_top_failing_sect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_top_failing_sect" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_top_failing_sect">
+<span class="sig-name descname"><span class="pre">calc_top_failing_sect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_top_failing_sect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_top_failing_sect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_tot_fd_unmet">
-<code class="sig-name descname"><span class="pre">calc_tot_fd_unmet</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_tot_fd_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_tot_fd_unmet" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_tot_fd_unmet">
+<span class="sig-name descname"><span class="pre">calc_tot_fd_unmet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_tot_fd_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_tot_fd_unmet" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_aff_fd_unmet">
-<code class="sig-name descname"><span class="pre">calc_aff_fd_unmet</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_aff_fd_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_aff_fd_unmet" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_aff_fd_unmet">
+<span class="sig-name descname"><span class="pre">calc_aff_fd_unmet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_aff_fd_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_aff_fd_unmet" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_rebuild_durations">
-<code class="sig-name descname"><span class="pre">calc_rebuild_durations</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_rebuild_durations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_rebuild_durations" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_rebuild_durations">
+<span class="sig-name descname"><span class="pre">calc_rebuild_durations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_rebuild_durations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_rebuild_durations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_recovery_duration">
-<code class="sig-name descname"><span class="pre">calc_recovery_duration</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_recovery_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_recovery_duration" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_recovery_duration">
+<span class="sig-name descname"><span class="pre">calc_recovery_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_recovery_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_recovery_duration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_general_shortage">
-<code class="sig-name descname"><span class="pre">calc_general_shortage</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_general_shortage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_general_shortage" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_general_shortage">
+<span class="sig-name descname"><span class="pre">calc_general_shortage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_general_shortage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_general_shortage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_first_shortages">
-<code class="sig-name descname"><span class="pre">calc_first_shortages</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_first_shortages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_first_shortages" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_first_shortages">
+<span class="sig-name descname"><span class="pre">calc_first_shortages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_first_shortages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_first_shortages" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_tot_prod_change">
-<code class="sig-name descname"><span class="pre">calc_tot_prod_change</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_tot_prod_change"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_tot_prod_change" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_tot_prod_change">
+<span class="sig-name descname"><span class="pre">calc_tot_prod_change</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_tot_prod_change"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_tot_prod_change" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.update_indicators">
-<code class="sig-name descname"><span class="pre">update_indicators</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.update_indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.update_indicators" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.update_indicators">
+<span class="sig-name descname"><span class="pre">update_indicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.update_indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.update_indicators" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.write_indicators">
-<code class="sig-name descname"><span class="pre">write_indicators</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.write_indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.write_indicators" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.write_indicators">
+<span class="sig-name descname"><span class="pre">write_indicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.write_indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.write_indicators" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.calc_fd_loss_region">
-<code class="sig-name descname"><span class="pre">calc_fd_loss_region</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_fd_loss_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_fd_loss_region" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.calc_fd_loss_region">
+<span class="sig-name descname"><span class="pre">calc_fd_loss_region</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.calc_fd_loss_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.calc_fd_loss_region" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.indicators.Indicators.save_dfs">
-<code class="sig-name descname"><span class="pre">save_dfs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.save_dfs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.save_dfs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.indicators.Indicators.save_dfs">
+<span class="sig-name descname"><span class="pre">save_dfs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/indicators.html#Indicators.save_dfs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.indicators.Indicators.save_dfs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -396,7 +349,7 @@ Last updated on Sep 07, 2022.<br>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     

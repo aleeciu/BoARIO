@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,21 +23,23 @@
       
   
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../development.html" />
     <link rel="prev" title="boario.model_base module" href="boario.model_base.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -71,32 +73,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../intro.html">
-  BoARIO
+ <a class="reference internal nav-link" href="../user-guide.html">
+  User guide
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../usage.html">
-  Detailled examples
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -107,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-mrio-params.html">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="../release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -168,8 +134,8 @@ Last updated on Sep 07, 2022.<br>
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="modules.html">
-   boario
+  <a class="reference internal" href="boario.html">
+   boario package
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -177,42 +143,30 @@ Last updated on Sep 07, 2022.<br>
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="boario.html">
-     boario package
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.event.html">
+     boario.event module
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.event.html">
-       boario.event module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.extended_models.html">
-       boario.extended_models module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.indicators.html">
-       boario.indicators module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.model_base.html">
-       boario.model_base module
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       boario.simulation module
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.extended_models.html">
+     boario.extended_models module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.indicators.html">
+     boario.indicators module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.model_base.html">
+     boario.model_base module
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     boario.simulation module
+    </a>
    </li>
   </ul>
  </li>
@@ -256,12 +210,12 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="module-boario.simulation">
-<span id="boario-simulation-module"></span><h1>boario.simulation module<a class="headerlink" href="#module-boario.simulation" title="Permalink to this headline">¶</a></h1>
+<span id="boario-simulation-module"></span><h1>boario.simulation module<a class="headerlink" href="#module-boario.simulation" title="Permalink to this heading">¶</a></h1>
 <p>Simulation module</p>
 <p>This module defines the Simulation object, which represent a BoARIO simulation environment.</p>
 <dl class="py class">
-<dt id="boario.simulation.Simulation">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymrio.core.mriosystem.IOSystem</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeltype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'ARIOBase'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><span class="pre">IOSystem</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeltype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ARIOBase'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class defines a simulation object with a set of parameters and an IOSystem.</p>
 <p>This Class wraps an <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ARIOBaseModel</span></code></a> or <a class="reference internal" href="boario.extended_models.html#boario.extended_models.ARIOModelPsi" title="boario.extended_models.ARIOModelPsi"><code class="xref py py-class docutils literal notranslate"><span class="pre">ARIOModelPsi</span></code></a>, and create the context for
@@ -306,8 +260,8 @@ not cross-system compatible) or,
 </dd>
 </dl>
 <dl class="py method">
-<dt id="boario.simulation.Simulation.loop">
-<code class="sig-name descname"><span class="pre">loop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.loop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.loop">
+<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the simulation loop.</p>
 <p>This method launch the simulation for the number of steps to simulate
 described by the attribute <code class="docutils literal notranslate"><span class="pre">n_days_to_sim</span></code>, calling the
@@ -322,8 +276,8 @@ is completed, it flushes the different memmaps generated.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.next_step">
-<code class="sig-name descname"><span class="pre">next_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_steps_check</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_failing_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.next_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.next_step" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.next_step">
+<span class="sig-name descname"><span class="pre">next_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_steps_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_failing_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.next_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.next_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Advance the model run by one step.</p>
 <p>This method wraps all computations and logging to proceed to the next
 step of the simulation run. First it checks if an event is planned to
@@ -337,7 +291,7 @@ corresponding event. Then it :</p>
 <li><p>Computes the orders matrix for the next step (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_orders" title="boario.model_base.ARIOBaseModel.calc_orders"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_orders()</span></code></a>)</p></li>
 <li><p>Computes the new overproduction vector for the next step (using <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.calc_overproduction" title="boario.model_base.ARIOBaseModel.calc_overproduction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_overproduction()</span></code></a>)</p></li>
 </ol>
-<p>See <a class="reference internal" href="../math.html#boario-math"><span class="std std-ref">Mathematical background</span></a> section for more in depth information.</p>
+<p>See <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a> section for more in depth information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -350,8 +304,8 @@ corresponding event. Then it :</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.update_events">
-<code class="sig-name descname"><span class="pre">update_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_events" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.update_events">
+<span class="sig-name descname"><span class="pre">update_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update events status</p>
 <p>This method cycles through the events defines in the <code class="docutils literal notranslate"><span class="pre">current_events</span></code> attribute and sets their <code class="docutils literal notranslate"><span class="pre">rebuildable</span></code> attribute.
 An event is considered rebuildable if its <code class="docutils literal notranslate"><span class="pre">duration</span></code> is over (i.e. the number of days elapsed since it shocked the model is greater than <code class="docutils literal notranslate"><span class="pre">occurence_time</span></code> + <code class="docutils literal notranslate"><span class="pre">duration</span></code>).
@@ -359,8 +313,8 @@ This method also logs the moment an event starts rebuilding.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.read_events_from_list">
-<code class="sig-name descname"><span class="pre">read_events_from_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events_from_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.read_events_from_list">
+<span class="sig-name descname"><span class="pre">read_events_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events_from_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events_from_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Import a list of events (as a list of dictionaries) into the model.</p>
 <p>Also performs various checks on the events to avoid badly written events.
 See <a class="reference internal" href="../boario-events.html#boario-events"><span class="std std-ref">How to define Events</span></a> to understand how to write events dictionnaries or JSON files.</p>
@@ -428,8 +382,8 @@ See <a class="reference internal" href="../boario-events.html#boario-events"><sp
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.shock">
-<code class="sig-name descname"><span class="pre">shock</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_to_add_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.shock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.shock" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.shock">
+<span class="sig-name descname"><span class="pre">shock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_to_add_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.shock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.shock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shocks the model with an event.</p>
 <p>Sets the rebuilding demand and the share of production allocated toward
 it in the model.</p>
@@ -453,20 +407,20 @@ industries consequent to the shock, and sets the initial vector of production sh
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.reset_sim_with_same_events">
-<code class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_with_same_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.reset_sim_with_same_events">
+<span class="sig-name descname"><span class="pre">reset_sim_with_same_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_with_same_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_with_same_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the model to its initial status (without removing the events).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.reset_sim_full">
-<code class="sig-name descname"><span class="pre">reset_sim_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_full"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.reset_sim_full">
+<span class="sig-name descname"><span class="pre">reset_sim_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.reset_sim_full"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.reset_sim_full" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the model to its initial status and remove all events.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.update_params">
-<code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.update_params">
+<span class="sig-name descname"><span class="pre">update_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.update_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the parameters of the model.</p>
 <p>Replace the <code class="docutils literal notranslate"><span class="pre">params</span></code> attribute with <code class="docutils literal notranslate"><span class="pre">new_params</span></code> and logs the update.
 This method also checks if the directory specified to save the results exists and create it otherwise.</p>
@@ -482,8 +436,8 @@ This method also checks if the directory specified to save the results exists an
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.write_index">
-<code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.write_index" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.write_index">
+<span class="sig-name descname"><span class="pre">write_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.write_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the index of the dataframes used in the model in a json file.</p>
 <p>See <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel.write_index" title="boario.model_base.ARIOBaseModel.write_index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_index()</span></code></a> for a more detailed documentation.</p>
 <dl class="field-list simple">
@@ -494,8 +448,8 @@ This method also checks if the directory specified to save the results exists an
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.simulation.Simulation.read_events">
-<code class="sig-name descname"><span class="pre">read_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.simulation.Simulation.read_events">
+<span class="sig-name descname"><span class="pre">read_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/simulation.html#Simulation.read_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.simulation.Simulation.read_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read events from a json file.</p>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version Method: </span>wasn’t checked recently.</p>
@@ -529,6 +483,13 @@ This method also checks if the directory specified to save the results exists an
             <p class="prev-next-title">boario.model_base module</p>
         </div>
     </a>
+    <a class='right-next' id="next-link" href="../development.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contributing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
               
           </main>
@@ -549,7 +510,7 @@ This method also checks if the directory specified to save the results exists an
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     

@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,14 +23,15 @@
       
   
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/js/custom.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -38,7 +39,7 @@
     <link rel="next" title="How to define Events" href="boario-events.html" />
     <link rel="prev" title="Set simulation parameters" href="boario-sim-params.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -71,33 +72,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="intro.html">
-  BoARIO
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="user-guide.html">
+  User guide
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="usage.html">
-  Detailled examples
+ <a class="reference internal nav-link" href="api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -108,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -167,7 +132,54 @@ Last updated on Sep 07, 2022.<br>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-what-is.html">
+   BoARIO
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-quickstart.html">
+   Detailled examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-terminology.html">
+   Terminology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-math.html">
+   Mathematical background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-sim-params.html">
+   Set simulation parameters
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Set the MRIO table parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boario-events.html">
+   How to define Events
+  </a>
+ </li>
+</ul>
+
   </div>
 </nav>
               </div>
@@ -216,9 +228,9 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="set-the-mrio-table-parameters">
-<span id="boario-mrio-params"></span><h1>Set the MRIO table parameters<a class="headerlink" href="#set-the-mrio-table-parameters" title="Permalink to this headline">¶</a></h1>
+<span id="boario-mrio-params"></span><h1>Set the MRIO table parameters<a class="headerlink" href="#set-the-mrio-table-parameters" title="Permalink to this heading">¶</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>Soon !</p>
 </section>
 </section>
@@ -263,7 +275,7 @@ Last updated on Sep 07, 2022.<br>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     

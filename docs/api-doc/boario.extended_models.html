@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,14 +23,15 @@
       
   
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -38,7 +39,7 @@
     <link rel="next" title="boario.indicators module" href="boario.indicators.html" />
     <link rel="prev" title="boario.event module" href="boario.event.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -72,32 +73,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../intro.html">
-  BoARIO
+ <a class="reference internal nav-link" href="../user-guide.html">
+  User guide
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../usage.html">
-  Detailled examples
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -108,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-mrio-params.html">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="../release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -169,8 +134,8 @@ Last updated on Sep 07, 2022.<br>
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="modules.html">
-   boario
+  <a class="reference internal" href="boario.html">
+   boario package
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -178,42 +143,30 @@ Last updated on Sep 07, 2022.<br>
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="boario.html">
-     boario package
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.event.html">
+     boario.event module
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.event.html">
-       boario.event module
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       boario.extended_models module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.indicators.html">
-       boario.indicators module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.model_base.html">
-       boario.model_base module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.simulation.html">
-       boario.simulation module
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     boario.extended_models module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.indicators.html">
+     boario.indicators module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.model_base.html">
+     boario.model_base module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.simulation.html">
+     boario.simulation module
+    </a>
    </li>
   </ul>
  </li>
@@ -257,18 +210,18 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="module-boario.extended_models">
-<span id="boario-extended-models-module"></span><h1>boario.extended_models module<a class="headerlink" href="#module-boario.extended_models" title="Permalink to this headline">¶</a></h1>
+<span id="boario-extended-models-module"></span><h1>boario.extended_models module<a class="headerlink" href="#module-boario.extended_models" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
-<dt id="boario.extended_models.ARIOModelPsi">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ARIOModelPsi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pym_mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pymrio.core.mriosystem.IOSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results_storage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">boario.model_base.ARIOBaseModel</span></code></a></p>
+<dt class="sig sig-object py" id="boario.extended_models.ARIOModelPsi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ARIOModelPsi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pym_mrio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IOSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results_storage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ARIOBaseModel</span></code></a></p>
 <p>An ARIO3 model with some additional features</p>
 <p>Added feature are parameter psi of production adjustment inventories constraint threshold, as well as a characteristic time of inventories resupplying and the alternative order module from Guan2020.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>psi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Value of the psi parameter. (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
-<li><p><strong>restoration_tau</strong> (<em>numpy.ndarray of int</em>) – Array of size <cite>n_sector</cite> setting for each inputs its characteristic restoration time with <cite>model_timestep</cite> days as unit. (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
+<li><p><strong>psi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Value of the psi parameter. (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
+<li><p><strong>restoration_tau</strong> (<em>numpy.ndarray of int</em>) – Array of size <cite>n_sector</cite> setting for each inputs its characteristic restoration time with <cite>model_timestep</cite> days as unit. (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -281,8 +234,8 @@ Last updated on Sep 07, 2022.<br>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="boario.extended_models.ARIOModelPsi.calc_production">
-<code class="sig-name descname"><span class="pre">calc_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_step</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi.calc_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi.calc_production" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.extended_models.ARIOModelPsi.calc_production">
+<span class="sig-name descname"><span class="pre">calc_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi.calc_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi.calc_production" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute and update actual production</p>
 <ol class="arabic simple">
 <li><p>Compute <code class="docutils literal notranslate"><span class="pre">production_opt</span></code> and <code class="docutils literal notranslate"><span class="pre">inventory_constraints</span></code> as :</p></li>
@@ -318,18 +271,15 @@ Last updated on Sep 07, 2022.<br>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>current_step</strong> (<em>int</em>) – current step number</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>A boolean NDArray <cite>stock_constraint</cite> of the same shape as <cite>matrix_sock</cite> (ie <cite>(n_sectors,n_regions*n_sectors)</cite>), with True for any input not meeting the inventory constraints.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A boolean NDArray <cite>stock_constraint</cite> of the same shape as <cite>matrix_sock</cite> (ie <cite>(n_sectors,n_regions*n_sectors)</cite>), with True for any input not meeting the inventory constraints.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.extended_models.ARIOModelPsi.calc_orders">
-<code class="sig-name descname"><span class="pre">calc_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi.calc_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi.calc_orders" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.extended_models.ARIOModelPsi.calc_orders">
+<span class="sig-name descname"><span class="pre">calc_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi.calc_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi.calc_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>TODO describe function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -342,8 +292,8 @@ Last updated on Sep 07, 2022.<br>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.extended_models.ARIOModelPsi.update_params">
-<code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi.update_params" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.extended_models.ARIOModelPsi.update_params">
+<span class="sig-name descname"><span class="pre">update_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/extended_models.html#ARIOModelPsi.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.extended_models.ARIOModelPsi.update_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the parameters of the model.</p>
 <p>Replace each parameters with given new ones.</p>
 <div class="admonition warning">
@@ -401,7 +351,7 @@ Last updated on Sep 07, 2022.<br>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     

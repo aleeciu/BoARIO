@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,14 +23,15 @@
       
   
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -38,7 +39,7 @@
     <link rel="next" title="boario.extended_models module" href="boario.extended_models.html" />
     <link rel="prev" title="boario package" href="boario.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -72,32 +73,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../intro.html">
-  BoARIO
+ <a class="reference internal nav-link" href="../user-guide.html">
+  User guide
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../usage.html">
-  Detailled examples
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -108,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-mrio-params.html">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="../release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -169,8 +134,8 @@ Last updated on Sep 07, 2022.<br>
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="modules.html">
-   boario
+  <a class="reference internal" href="boario.html">
+   boario package
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -178,42 +143,30 @@ Last updated on Sep 07, 2022.<br>
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="boario.html">
-     boario package
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     boario.event module
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       boario.event module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.extended_models.html">
-       boario.extended_models module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.indicators.html">
-       boario.indicators module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.model_base.html">
-       boario.model_base module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.simulation.html">
-       boario.simulation module
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.extended_models.html">
+     boario.extended_models module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.indicators.html">
+     boario.indicators module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.model_base.html">
+     boario.model_base module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.simulation.html">
+     boario.simulation module
+    </a>
    </li>
   </ul>
  </li>
@@ -257,14 +210,14 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="module-boario.event">
-<span id="boario-event-module"></span><h1>boario.event module<a class="headerlink" href="#module-boario.event" title="Permalink to this headline">¶</a></h1>
+<span id="boario-event-module"></span><h1>boario.event module<a class="headerlink" href="#module-boario.event" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
-<dt id="boario.event.Event">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><span class="pre">boario.model_base.ARIOBaseModel</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="boario.extended_models.html#boario.extended_models.ARIOModelPsi" title="boario.extended_models.ARIOModelPsi"><span class="pre">boario.extended_models.ARIOModelPsi</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/event.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.event.Event" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.event.Event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.model_base.html#boario.model_base.ARIOBaseModel" title="boario.model_base.ARIOBaseModel"><span class="pre">ARIOBaseModel</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="boario.extended_models.html#boario.extended_models.ARIOModelPsi" title="boario.extended_models.ARIOModelPsi"><span class="pre">ARIOModelPsi</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/event.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.event.Event" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
-<dt id="boario.event.Event.check_values">
-<code class="sig-name descname"><span class="pre">check_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/event.html#Event.check_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.event.Event.check_values" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.event.Event.check_values">
+<span class="sig-name descname"><span class="pre">check_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/event.html#Event.check_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.event.Event.check_values" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -311,7 +264,7 @@ Last updated on Sep 07, 2022.<br>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     

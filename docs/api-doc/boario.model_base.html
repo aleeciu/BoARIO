@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -23,14 +23,15 @@
       
   
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     
     <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
   
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -38,7 +39,7 @@
     <link rel="next" title="boario.simulation module" href="boario.simulation.html" />
     <link rel="prev" title="boario.indicators module" href="boario.indicators.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -72,32 +73,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../intro.html">
-  BoARIO
+ <a class="reference internal nav-link" href="../user-guide.html">
+  User guide
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../installation.html">
-  Installation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../terminology.html">
-  Terminology
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../math.html">
-  Mathematical background
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../usage.html">
-  Detailled examples
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api_references.html">
+  API Reference
  </a>
 </li>
 
@@ -108,26 +91,8 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-sim-params.html">
-  Set simulation parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-mrio-params.html">
-  Set the MRIO table parameters
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../boario-events.html">
-  How to define Events
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../api_references.html">
-  API Reference
+ <a class="reference internal nav-link" href="../release-note.html">
+  Release notes
  </a>
 </li>
 
@@ -169,8 +134,8 @@ Last updated on Sep 07, 2022.<br>
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="modules.html">
-   boario
+  <a class="reference internal" href="boario.html">
+   boario package
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -178,42 +143,30 @@ Last updated on Sep 07, 2022.<br>
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="boario.html">
-     boario package
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.event.html">
+     boario.event module
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.event.html">
-       boario.event module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.extended_models.html">
-       boario.extended_models module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.indicators.html">
-       boario.indicators module
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       boario.model_base module
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="boario.simulation.html">
-       boario.simulation module
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.extended_models.html">
+     boario.extended_models module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.indicators.html">
+     boario.indicators module
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     boario.model_base module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="boario.simulation.html">
+     boario.simulation module
+    </a>
    </li>
   </ul>
  </li>
@@ -257,10 +210,10 @@ Last updated on Sep 07, 2022.<br>
               <div>
                 
   <section id="module-boario.model_base">
-<span id="boario-model-base-module"></span><h1>boario.model_base module<a class="headerlink" href="#module-boario.model_base" title="Permalink to this headline">¶</a></h1>
+<span id="boario-model-base-module"></span><h1>boario.model_base module<a class="headerlink" href="#module-boario.model_base" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
-<dt id="boario.model_base.ARIOBaseModel">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ARIOBaseModel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pym_mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pymrio.core.mriosystem.IOSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results_storage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">pathlib.Path</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ARIOBaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pym_mrio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IOSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrio_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">results_storage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>The core of an ARIO3 model.  Handles the different arrays containing the mrio tables.</p>
 <p>A ARIOBaseModel wrap all the data and functions used in the core of the most basic version of the ARIO
@@ -276,17 +229,17 @@ model (based on Hallegatte2013 and Guan2020).</p>
 <li><p><strong>fd_cat</strong> (<em>numpy.ndarray of str</em>) – An array of the final demand categories of the model (<cite>[“Final demand”]</cite> if there is only one)</p></li>
 <li><p><strong>n_fd_cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The numbers of final demand categories.</p></li>
 <li><p><strong>monetary_unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – monetary unit prefix (i.e. if the tables unit is 10^6 € instead of 1 €, it should be set to 10^6).</p></li>
-<li><p><strong>psi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Value of the psi parameter. (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
+<li><p><strong>psi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Value of the psi parameter. (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
 <li><p><strong>model_timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of days between each step. (Current version of the model was not tested with other values than <cite>1</cite>).</p></li>
 <li><p><strong>timestep_dividing_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Kinda deprecated, should be equal to <cite>model_timestep</cite>.</p></li>
-<li><p><strong>rebuild_tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Value governing the rebuilding speed (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
+<li><p><strong>rebuild_tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Value governing the rebuilding speed (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
 <li><p><strong>overprod_max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Maximum factor of overproduction (default should be 1.25).</p></li>
 <li><p><strong>overprod_tau</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Characteristic time of overproduction in number of <cite>model_timestep</cite> (default should be 365).</p></li>
 <li><p><strong>overprod_base</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Base value of overproduction (Default to 0).</p></li>
-<li><p><strong>inv_duration</strong> (<em>numpy.ndarray of int</em>) – Array of size <cite>n_sectors</cite> setting for each inputs the initial number of <cite>model_timestep</cite> of stock for the input. (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
-<li><p><strong>restoration_tau</strong> (<em>numpy.ndarray of int</em>) – Array of size <cite>n_sector</cite> setting for each inputs its characteristic restoration time with <cite>model_timestep</cite> days as unit. (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
-<li><p><strong>Z_0</strong> (<em>numpy.ndarray of float</em>) – 2-dim array of size <cite>(n_sectors * n_regions,n_sectors * n_regions)</cite> representing the intermediate (transaction) matrix (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
-<li><p><strong>Z_C</strong> (<em>numpy.ndarray of float</em>) – 2-dim array of size <cite>(n_sectors, n_sectors * n_regions)</cite> representing the intermediate (transaction) matrix aggregated by inputs (see <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/math.html" title="(in pymrio v0.3.dev1)"><span>Mathematical background</span></a>).</p></li>
+<li><p><strong>inv_duration</strong> (<em>numpy.ndarray of int</em>) – Array of size <cite>n_sectors</cite> setting for each inputs the initial number of <cite>model_timestep</cite> of stock for the input. (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
+<li><p><strong>restoration_tau</strong> (<em>numpy.ndarray of int</em>) – Array of size <cite>n_sector</cite> setting for each inputs its characteristic restoration time with <cite>model_timestep</cite> days as unit. (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
+<li><p><strong>Z_0</strong> (<em>numpy.ndarray of float</em>) – 2-dim array of size <cite>(n_sectors * n_regions,n_sectors * n_regions)</cite> representing the intermediate (transaction) matrix (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
+<li><p><strong>Z_C</strong> (<em>numpy.ndarray of float</em>) – 2-dim array of size <cite>(n_sectors, n_sectors * n_regions)</cite> representing the intermediate (transaction) matrix aggregated by inputs (see <a class="reference internal" href="../boario-math.html#boario-math"><span class="std std-ref">Mathematical background</span></a>).</p></li>
 <li><p><strong>Z_distrib</strong> (<em>numpy.ndarray of float</em>) – <cite>Z_0</cite> normalised by <cite>Z_C</cite>, i.e. representing for each input the share of the total ordered transiting from an industry to another.</p></li>
 <li><p><strong>Y_0</strong> (<em>numpy.ndarray of float</em>) – 2-dim array of size <cite>(n_sectors * n_regions,n_regions * n_fd_cat)</cite> representing the final demand matrix.</p></li>
 <li><p><strong>X_0</strong> (<em>numpy.ndarray of float</em>) – Array of size <cite>n_sectors * n_regions</cite> representing the initial gross production.</p></li>
@@ -306,8 +259,8 @@ model (based on Hallegatte2013 and Guan2020).</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.update_system_from_events">
-<code class="sig-name descname"><span class="pre">update_system_from_events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.update_system_from_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.update_system_from_events" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.update_system_from_events">
+<span class="sig-name descname"><span class="pre">update_system_from_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.update_system_from_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.update_system_from_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update MrioSystem variables according to given list of events</p>
 <p>Compute kapital loss for each industry affected as the sum of their total rebuilding demand (to each rebuilding sectors and for each events). This information is stored as a 1D array <code class="docutils literal notranslate"><span class="pre">kapital_lost</span></code> of size (n_sectors *  n_regions).
 Also compute the total rebuilding demand.</p>
@@ -321,8 +274,8 @@ Also compute the total rebuilding demand.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_rebuild_house_demand">
-<code class="sig-name descname"><span class="pre">calc_rebuild_house_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_rebuild_house_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_rebuild_house_demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_rebuild_house_demand">
+<span class="sig-name descname"><span class="pre">calc_rebuild_house_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_rebuild_house_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_rebuild_house_demand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute rebuild demand for final demand</p>
 <p>Compute and return rebuilding final demand for the given list of events
 by summing the final_demand_rebuild member of each event. Only events
@@ -346,8 +299,8 @@ rebuildable final demand stock from all events in the given list.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_rebuild_firm_demand">
-<code class="sig-name descname"><span class="pre">calc_rebuild_firm_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_rebuild_firm_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_rebuild_firm_demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_rebuild_firm_demand">
+<span class="sig-name descname"><span class="pre">calc_rebuild_firm_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_rebuild_firm_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_rebuild_firm_demand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute rebuild demand for intermediate demand</p>
 <p>Compute and return rebuilding intermediate demand for the given list of events
 by summing the industry_rebuild member of each event. Only events
@@ -369,8 +322,8 @@ rebuildable intermediate demand stock from all events in the given list.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_tot_rebuild_demand">
-<code class="sig-name descname"><span class="pre">calc_tot_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_tot_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_tot_rebuild_demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_tot_rebuild_demand">
+<span class="sig-name descname"><span class="pre">calc_tot_rebuild_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_tot_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_tot_rebuild_demand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute and update total rebuild demand.</p>
 <p>Compute and update total rebuilding demand for the given list of events. Only events
 tagged as rebuildable are accounted for.</p>
@@ -386,8 +339,8 @@ tagged as rebuildable are accounted for.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_production_cap">
-<code class="sig-name descname"><span class="pre">calc_production_cap</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_production_cap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_production_cap" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_production_cap">
+<span class="sig-name descname"><span class="pre">calc_production_cap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_production_cap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_production_cap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute and update production capacity.</p>
 <p>Compute and update production capacity from possible kapital damage and overproduction.</p>
 <div class="math">
@@ -400,8 +353,8 @@ tagged as rebuildable are accounted for.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_prod_reqby_demand">
-<code class="sig-name descname"><span class="pre">calc_prod_reqby_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_prod_reqby_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_prod_reqby_demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_prod_reqby_demand">
+<span class="sig-name descname"><span class="pre">calc_prod_reqby_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_prod_reqby_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_prod_reqby_demand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes and updates total demand</p>
 <p>Update total rebuild demand (and apply rebuilding characteristic time
 if <code class="docutils literal notranslate"><span class="pre">separate_rebuilding</span></code> is False, then sum/reduce rebuilding, orders
@@ -414,18 +367,15 @@ demand.</p>
 <li><p><strong>separate_rebuilding</strong> (<em>bool</em>) – A boolean specifying if rebuilding demand should be treated as a whole (true) or under the characteristic time/proportional scheme strategy.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)">None</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_production">
-<code class="sig-name descname"><span class="pre">calc_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_step</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_production" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_production">
+<span class="sig-name descname"><span class="pre">calc_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_production" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute and update actual production</p>
 <ol class="arabic simple">
 <li><p>Compute <code class="docutils literal notranslate"><span class="pre">production_opt</span></code> and <code class="docutils literal notranslate"><span class="pre">inventory_constraints</span></code> as :</p></li>
@@ -461,23 +411,20 @@ demand.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>current_step</strong> (<em>int</em>) – current step number</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>A boolean NDArray <cite>stock_constraint</cite> of the same shape as <cite>matrix_sock</cite> (ie <cite>(n_sectors,n_regions*n_sectors)</cite>), with True for any input not meeting the inventory constraints.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A boolean NDArray <cite>stock_constraint</cite> of the same shape as <cite>matrix_sock</cite> (ie <cite>(n_sectors,n_regions*n_sectors)</cite>), with True for any input not meeting the inventory constraints.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_inventory_constraints">
-<code class="sig-name descname"><span class="pre">calc_inventory_constraints</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">production</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_inventory_constraints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_inventory_constraints" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_inventory_constraints">
+<span class="sig-name descname"><span class="pre">calc_inventory_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">production</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_inventory_constraints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_inventory_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.distribute_production">
-<code class="sig-name descname"><span class="pre">distribute_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.distribute_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.distribute_production" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.distribute_production">
+<span class="sig-name descname"><span class="pre">distribute_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separate_rebuilding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.distribute_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.distribute_production" title="Permalink to this definition">¶</a></dt>
 <dd><p>Production distribution module</p>
 <ol class="arabic">
 <li><p>Computes rebuilding demand for each rebuildable events (applying the <cite>rebuild_tau</cite> characteristic time)</p></li>
@@ -541,8 +488,8 @@ scheme (with a characteristic time) else,</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_orders">
-<code class="sig-name descname"><span class="pre">calc_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_orders" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_orders">
+<span class="sig-name descname"><span class="pre">calc_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>TODO describe function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -555,58 +502,58 @@ scheme (with a characteristic time) else,</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.update_kapital_lost">
-<code class="sig-name descname"><span class="pre">update_kapital_lost</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Event</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.update_kapital_lost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.update_kapital_lost" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.update_kapital_lost">
+<span class="sig-name descname"><span class="pre">update_kapital_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="boario.event.html#boario.event.Event" title="boario.event.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.update_kapital_lost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.update_kapital_lost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.calc_overproduction">
-<code class="sig-name descname"><span class="pre">calc_overproduction</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_overproduction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.calc_overproduction">
+<span class="sig-name descname"><span class="pre">calc_overproduction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.calc_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.calc_overproduction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_stock_increasing">
-<code class="sig-name descname"><span class="pre">check_stock_increasing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_stock_increasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_stock_increasing" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_stock_increasing">
+<span class="sig-name descname"><span class="pre">check_stock_increasing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_stock_increasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_stock_increasing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_production_eq_strict">
-<code class="sig-name descname"><span class="pre">check_production_eq_strict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_production_eq_strict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_production_eq_strict" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_production_eq_strict">
+<span class="sig-name descname"><span class="pre">check_production_eq_strict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_production_eq_strict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_production_eq_strict" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_production_eq_soft">
-<code class="sig-name descname"><span class="pre">check_production_eq_soft</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_production_eq_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_production_eq_soft" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_production_eq_soft">
+<span class="sig-name descname"><span class="pre">check_production_eq_soft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_production_eq_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_production_eq_soft" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_stocks_monotony">
-<code class="sig-name descname"><span class="pre">check_stocks_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_stocks_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_stocks_monotony" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_stocks_monotony">
+<span class="sig-name descname"><span class="pre">check_stocks_monotony</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_stocks_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_stocks_monotony" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_initial_equilibrium">
-<code class="sig-name descname"><span class="pre">check_initial_equilibrium</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_initial_equilibrium"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_initial_equilibrium" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_initial_equilibrium">
+<span class="sig-name descname"><span class="pre">check_initial_equilibrium</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_initial_equilibrium"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_initial_equilibrium" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_equilibrium_soft">
-<code class="sig-name descname"><span class="pre">check_equilibrium_soft</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_equilibrium_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_equilibrium_soft" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_equilibrium_soft">
+<span class="sig-name descname"><span class="pre">check_equilibrium_soft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_equilibrium_soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_equilibrium_soft" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_equilibrium_monotony">
-<code class="sig-name descname"><span class="pre">check_equilibrium_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_equilibrium_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_equilibrium_monotony" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_equilibrium_monotony">
+<span class="sig-name descname"><span class="pre">check_equilibrium_monotony</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_equilibrium_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_equilibrium_monotony" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_monotony">
-<code class="sig-name descname"><span class="pre">check_monotony</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_monotony" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_monotony">
+<span class="sig-name descname"><span class="pre">check_monotony</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_monotony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_monotony" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.check_crash">
-<code class="sig-name descname"><span class="pre">check_crash</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prod_threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_crash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_crash" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.check_crash">
+<span class="sig-name descname"><span class="pre">check_crash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prod_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.check_crash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.check_crash" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check for economic crash</p>
 <p>This method look at the production vector and returns the number of
 industries which production is less than a certain share (default 20%) of the starting
@@ -621,13 +568,13 @@ production.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.reset_module">
-<code class="sig-name descname"><span class="pre">reset_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.reset_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.reset_module" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.reset_module">
+<span class="sig-name descname"><span class="pre">reset_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.reset_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.reset_module" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.update_params">
-<code class="sig-name descname"><span class="pre">update_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.update_params" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.update_params">
+<span class="sig-name descname"><span class="pre">update_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.update_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.update_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the parameters of the model.</p>
 <p>Replace each parameters with given new ones.</p>
 <div class="admonition warning">
@@ -642,8 +589,8 @@ production.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.reset_record_files">
-<code class="sig-name descname"><span class="pre">reset_record_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_stocks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.reset_record_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.reset_record_files" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.reset_record_files">
+<span class="sig-name descname"><span class="pre">reset_record_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_stocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.reset_record_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.reset_record_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset results memmaps</p>
 <p>This method creates/resets the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.memmap.html#numpy.memmap" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">memmaps</span></code></a> arrays used to track
 production, demand, overproduction, etc.</p>
@@ -658,53 +605,53 @@ production, demand, overproduction, etc.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_production">
-<code class="sig-name descname"><span class="pre">write_production</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_production" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_production">
+<span class="sig-name descname"><span class="pre">write_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_production"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_production" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_production_max">
-<code class="sig-name descname"><span class="pre">write_production_max</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_production_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_production_max" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_production_max">
+<span class="sig-name descname"><span class="pre">write_production_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_production_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_production_max" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_classic_demand">
-<code class="sig-name descname"><span class="pre">write_classic_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_classic_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_classic_demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_classic_demand">
+<span class="sig-name descname"><span class="pre">write_classic_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_classic_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_classic_demand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_rebuild_demand">
-<code class="sig-name descname"><span class="pre">write_rebuild_demand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_rebuild_demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_rebuild_demand">
+<span class="sig-name descname"><span class="pre">write_rebuild_demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_rebuild_demand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_rebuild_demand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_rebuild_prod">
-<code class="sig-name descname"><span class="pre">write_rebuild_prod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rebuild_prod_agg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_rebuild_prod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_rebuild_prod" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_rebuild_prod">
+<span class="sig-name descname"><span class="pre">write_rebuild_prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rebuild_prod_agg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_rebuild_prod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_rebuild_prod" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_overproduction">
-<code class="sig-name descname"><span class="pre">write_overproduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_overproduction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_overproduction">
+<span class="sig-name descname"><span class="pre">write_overproduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_overproduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_overproduction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_final_demand_unmet">
-<code class="sig-name descname"><span class="pre">write_final_demand_unmet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_demand_unmet</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_final_demand_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_final_demand_unmet" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_final_demand_unmet">
+<span class="sig-name descname"><span class="pre">write_final_demand_unmet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_demand_unmet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_final_demand_unmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_final_demand_unmet" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_stocks">
-<code class="sig-name descname"><span class="pre">write_stocks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_stocks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_stocks">
+<span class="sig-name descname"><span class="pre">write_stocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_stocks" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_limiting_stocks">
-<code class="sig-name descname"><span class="pre">write_limiting_stocks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">limiting_stock</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_limiting_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_limiting_stocks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_limiting_stocks">
+<span class="sig-name descname"><span class="pre">write_limiting_stocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">limiting_stock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NDArray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_limiting_stocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_limiting_stocks" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.write_index">
-<code class="sig-name descname"><span class="pre">write_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_index" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.write_index">
+<span class="sig-name descname"><span class="pre">write_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.write_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.write_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the indexes of the different dataframes of the model in a json file.</p>
 <p>In order to easily rebuild the dataframes from the ‘raw’ data, this
 method create a JSON file with all columns and indexes names, namely :</p>
@@ -722,17 +669,17 @@ method create a JSON file with all columns and indexes names, namely :</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="boario.model_base.ARIOBaseModel.change_inv_duration">
-<code class="sig-name descname"><span class="pre">change_inv_duration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_dur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_dur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.change_inv_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.change_inv_duration" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.ARIOBaseModel.change_inv_duration">
+<span class="sig-name descname"><span class="pre">change_inv_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_dur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_dur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/boario/model_base.html#ARIOBaseModel.change_inv_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.ARIOBaseModel.change_inv_duration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt id="boario.model_base.lexico_reindex">
-<code class="sig-name descname"><span class="pre">lexico_reindex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mrio</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pymrio.core.mriosystem.IOSystem</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pymrio.core.mriosystem.IOSystem</span><a class="reference internal" href="../_modules/boario/model_base.html#lexico_reindex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.lexico_reindex" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="boario.model_base.lexico_reindex">
+<span class="sig-name descname"><span class="pre">lexico_reindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mrio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IOSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IOSystem</span></span></span><a class="reference internal" href="../_modules/boario/model_base.html#lexico_reindex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#boario.model_base.lexico_reindex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reindex IOSystem lexicographicaly</p>
-<p>Sort indexes and columns of the dataframe of an <a class="reference external" href="https://pymrio.readthedocs.io/en/latest/index.html" title="(in pymrio v0.3.dev1)"><span class="xref std std-doc">IOSystem</span></a> by
+<p>Sort indexes and columns of the dataframe of a <code class="docutils literal notranslate"><span class="pre">pymrio</span></code> <cite>IOSystem &lt;https://pymrio.readthedocs.io/en/latest/intro.html&gt;</cite> by
 lexical order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -791,7 +738,7 @@ lexical order.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
     </div>
     
