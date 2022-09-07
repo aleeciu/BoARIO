@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Reference" href="api_references.html" />
-    <link rel="prev" title="Contributing" href="development.html" />
+    <link rel="prev" title="Set the MRIO table parameters" href="boario-mrio-params.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -107,6 +107,18 @@
  </a>
 </li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="boario-sim-params.html">
+  Set simulation parameters
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="boario-mrio-params.html">
+  Set the MRIO table parameters
+ </a>
+</li>
+
 <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
   How to define Events
@@ -134,7 +146,7 @@
       
       <div class="navbar-end-item">
         <p class="last-updated">
-Last updated on Sep 06, 2022.<br>
+Last updated on Sep 07, 2022.<br>
 </p>
       </div>
       
@@ -171,9 +183,44 @@ Last updated on Sep 06, 2022.<br>
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-affected-region-s">
+   Define affected region(s)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-damages-duration-and-occurrence">
+   Define damages, duration and occurrence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#affected-sectors-and-sector-damage-distribution">
+   Affected sectors and sector damage distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rebuilding-sectors">
+   Rebuilding sectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convenience">
+   Convenience
+  </a>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -195,7 +242,118 @@ Last updated on Sep 06, 2022.<br>
                 
   <section id="how-to-define-events">
 <span id="boario-events"></span><h1>How to define Events<a class="headerlink" href="#how-to-define-events" title="Permalink to this headline">¶</a></h1>
-<p>Soon !</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The BoARIO model is used to study the indirect economic impacts consequent to <cite>local</cite> event <a class="footnote-reference brackets" href="#local" id="id1">1</a>.
+At the moment, a shock is represented by a quantity of damages expressed in monetary value and leading to:</p>
+<ol class="arabic simple">
+<li><p>A destruction of capital leading to a reduction in production capacity <a class="footnote-reference brackets" href="#production" id="id2">2</a></p></li>
+<li><p>A rebuilding demand, corresponding to destroyed capital and addressed to a set of rebuilding sectors <a class="footnote-reference brackets" href="#demand" id="id3">3</a></p></li>
+</ol>
+<p>To define such an event, we hence need the following information:</p>
+<ol class="arabic simple">
+<li><p>A quantity of damages</p></li>
+<li><p>The region(s) affected</p></li>
+<li><p>The sector(s) affected</p></li>
+<li><p>The sector(s) considered to be rebuilding sectors</p></li>
+</ol>
+<p>In addition, it is also possible to define a duration (corresponding to the time before rebuilding can start)
+as well as time of occurrence (when studying interaction between multiple events).</p>
+<p>During a simulation BoARIO uses <a class="reference internal" href="api-doc/boario.event.html#boario.event.Event" title="boario.event.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a> objects, which are created via either python <code class="docutils literal notranslate"><span class="pre">dict</span></code> or JSON files.
+This page details the different keys and possible associated values.</p>
+</section>
+<section id="define-affected-region-s">
+<h2>Define affected region(s)<a class="headerlink" href="#define-affected-region-s" title="Permalink to this headline">¶</a></h2>
+<p>There are two <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs governing the affected region(s):</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;aff-regions&quot;</span> <span class="pre">:</span> <span class="pre">[list</span> <span class="pre">of</span> <span class="pre">affected</span> <span class="pre">regions]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;dmg-distrib-regions&quot;</span> <span class="pre">:</span> <span class="pre">[list</span> <span class="pre">of</span> <span class="pre">floats]</span></code></p></li>
+</ol>
+<p>The first list has to contain the <cite>region id(s)</cite> (at least one) of the affected regions. The id(s) have to correspond to valid indexes in the MRIO used.
+For example, Exiobase3 uses ISO-ALPHA2 codes (<code class="docutils literal notranslate"><span class="pre">FR</span></code> for France, <code class="docutils literal notranslate"><span class="pre">DE</span></code> for Germany, <code class="docutils literal notranslate"><span class="pre">CN</span></code> for China, etc.) and custom 2-letters code for world regions.</p>
+<p>The second list has to contain a same-length list of decimal values indicating how damages are distributed between multiple regions if there are.
+Note that the sum of the list has to equal 1.
+For convenience, in the case all affected regions share the damages equally, it is possible to replace the list by the <code class="docutils literal notranslate"><span class="pre">&quot;shared&quot;</span></code> keyword.</p>
+<p>The following would define an event affecting both France and Germany, and where France would receive 30% of the damages and Germany 70%:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;aff-regions&quot;</span><span class="p">:</span> <span class="p">[</span>
+             <span class="s2">&quot;FR&quot;</span><span class="p">,</span> <span class="s2">&quot;DE&quot;</span>
+             <span class="p">],</span>
+<span class="nt">&quot;dmg-distrib-regions&quot;</span><span class="p">:</span> <span class="p">[</span>
+             <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span>
+             <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Depending on the modeling goal, it is also possible to define two events, one for France, and one for Germany.</p>
+</section>
+<section id="define-damages-duration-and-occurrence">
+<h2>Define damages, duration and occurrence<a class="headerlink" href="#define-damages-duration-and-occurrence" title="Permalink to this headline">¶</a></h2>
+<p>The key for damages is <code class="docutils literal notranslate"><span class="pre">&quot;q_dmg&quot;</span></code>. Damages should be given in the same currency as the one used
+in the MRIO, without a decimal prefix, i.e. if the MRIO uses M€, damage have to be given in € <a class="footnote-reference brackets" href="#mrio-params" id="id4">4</a>.</p>
+<p>The key for duration is <code class="docutils literal notranslate"><span class="pre">&quot;duration&quot;</span></code>. Its value should be a number of days, and represent the period
+before rebuilding can start <a class="footnote-reference brackets" href="#demand" id="id5">3</a>.</p>
+<p>The key for occurrence is <code class="docutils literal notranslate"><span class="pre">&quot;occur&quot;</span></code>. Its value should be an integer comprised between 1 and the number of days simulated.
+When simulating only one event, this value is of limited use, although you may want to set it some days after the start
+for clearer visualisation (or in order to verify that the model remains stable before the shock). Note that when simulating more than
+one day per step <a class="footnote-reference brackets" href="#daystep" id="id6">5</a>, if the given value is not a multiple of the number of days simulated by step, the event will actually
+occur during the closest upper multiple.</p>
+</section>
+<section id="affected-sectors-and-sector-damage-distribution">
+<h2>Affected sectors and sector damage distribution<a class="headerlink" href="#affected-sectors-and-sector-damage-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Affected sectors are defined by the <code class="docutils literal notranslate"><span class="pre">&quot;aff-sectors&quot;</span> <span class="pre">:</span> <span class="pre">[list</span> <span class="pre">of</span> <span class="pre">affected</span> <span class="pre">sectors]</span></code> key:value pair.
+The list has to contain valid sector names in the MRIO used. It is also possible to replace the list
+by the <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> value, if all sectors are considered impacted.</p>
+<p>As different events (as well as contexts) may affect different sectors differently, it is possible to define how
+damages are distributed along the impacted sectors by either of the following:</p>
+<ol class="arabic simple">
+<li><p>Setting <code class="docutils literal notranslate"><span class="pre">&quot;dmg-distrib-sectors-type&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;gdp&quot;</span></code>, damages are distributed along the impacted sectors proportionally to their GDP contribution.</p></li>
+<li><p>Otherwise, setting the <code class="docutils literal notranslate"><span class="pre">&quot;dmg-distrib-sectors&quot;</span></code> to a list of decimal values comprised between 0 and 1 and summing to 1, where each value defines the share of the damages distributed to the corresponding sector in the <code class="docutils literal notranslate"><span class="pre">&quot;aff-sectors&quot;</span></code> list.</p></li>
+</ol>
+</section>
+<section id="rebuilding-sectors">
+<h2>Rebuilding sectors<a class="headerlink" href="#rebuilding-sectors" title="Permalink to this headline">¶</a></h2>
+<p>Rebuilding sectors are defined by the <code class="docutils literal notranslate"><span class="pre">&quot;rebuilding-sectors&quot;</span></code> parameter using the following format:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="nt">&quot;rebuilding-sectors&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;sector1&quot;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span>
+     <span class="nt">&quot;sector3&quot;</span><span class="p">:</span> <span class="mf">0.70</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&quot;sector1&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;sector3&quot;</span></code> are valid sector names in the MRIO used.
+In this case, the <code class="docutils literal notranslate"><span class="pre">sector1</span></code> will answer 30% of the rebuilding demand, and <code class="docutils literal notranslate"><span class="pre">&quot;sector3&quot;</span></code> the remaining 70%.
+Note that the demand is addressed to all industries corresponding to these sectors. How demand is distributed
+along the different regions of the MRIO is governed by the transaction matrix of the MRIO.</p>
+</section>
+<section id="convenience">
+<h2>Convenience<a class="headerlink" href="#convenience" title="Permalink to this headline">¶</a></h2>
+<p>For convenience of use :</p>
+<p>1. When dealing with multiple events, it is possible to set the <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> key to any value,
+which only purpose is to give an id to the event.
+2. When invoking the <a class="reference internal" href="api-doc/boario.simulation.html#boario.simulation.Simulation.read_events_from_list" title="boario.simulation.Simulation.read_events_from_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read_events_from_list()</span></code></a>, a <code class="docutils literal notranslate"><span class="pre">simulated_events.json</span></code> file
+is created in the results directory with the list of events dictionaries given.
+3. Multiple checks are done when initializing an <a class="reference internal" href="api-doc/boario.event.html#boario.event.Event" title="boario.event.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a> object and during simulation, raising errors if values are incorrect.
+However, it is highly possible that some cases are not covered. Don’t hesitate to <a class="reference external" href="mailto:pro&#37;&#52;&#48;sjuhel&#46;org">contact the developer</a> or better create an issue on the <a class="reference external" href="https://github.com/spjuhel/BoARIO">github repository</a></p>
+<dl class="footnote brackets">
+<dt class="label" id="local"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>At the moment events are local to the regional unit of the MRIO used (e.g. a country/world region in the case of Exiobase3).</p>
+</dd>
+<dt class="label" id="production"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>See <span class="xref std std-ref">&lt;link to prod cap lost in math background&gt;</span></p>
+</dd>
+<dt class="label" id="demand"><span class="brackets">3</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id5">2</a>)</span></dt>
+<dd><p>See <span class="xref std std-ref">&lt;link to rebuilding demand in math background&gt;</span></p>
+</dd>
+<dt class="label" id="mrio-params"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>This is inline with the <code class="docutils literal notranslate"><span class="pre">&quot;monetary_unit&quot;</span></code> parameter specified in the MRIO parameter file (see <a class="reference internal" href="boario-mrio-params.html#boario-mrio-params"><span class="std std-ref">Set the MRIO table parameters</span></a>)</p>
+</dd>
+<dt class="label" id="daystep"><span class="brackets"><a class="fn-backref" href="#id6">5</a></span></dt>
+<dd><p>See the <code class="docutils literal notranslate"><span class="pre">&quot;model_time_step&quot;</span></code> parameter in <a class="reference internal" href="boario-sim-params.html#boario-sim-params"><span class="std std-ref">Set simulation parameters</span></a>.</p>
+</dd>
+</dl>
+</section>
 </section>
 
 
@@ -204,11 +362,11 @@ Last updated on Sep 06, 2022.<br>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="development.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="boario-mrio-params.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Contributing</p>
+            <p class="prev-next-title">Set the MRIO table parameters</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="api_references.html" title="next page">
