@@ -1,6 +1,15 @@
+boario/archive.py
+*.lprof
+*.prof
+*.zip
+pyrightconfig.json
+shortlicence
+src/docs/source/_build
+testing
+
 snakejob.*
 *.~undo-tree~
-.envrc
+.envrc*
 .Rhistory
 .snakemake
 launch.json
