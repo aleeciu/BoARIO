@@ -202,6 +202,7 @@ class ARIOBaseModel(object):
 
 
         ######## INITIAL MRIO STATE (in step temporality) ###############
+        # AC: the operations below seem a bit different that what is said in the mathematical background https://spjuhel.github.io/BoARIO/boario-math.html
         self._matrix_id = np.eye(self.n_sectors)
         self._matrix_I_sum = np.tile(self._matrix_id, self.n_regions)
         self.Z_0 = pym_mrio.Z.to_numpy()
@@ -235,6 +236,7 @@ class ARIOBaseModel(object):
         with np.errstate(divide='ignore',invalid='ignore'):
             self.matrix_stock = ((np.tile(self.X_0, (self.n_sectors, 1)) * self.tech_mat) * self.inv_duration[:,np.newaxis])
         self.matrix_stock = np.nan_to_num(self.matrix_stock,nan=np.inf, posinf=np.inf)
+        # Initialize variables which will change during the simulation
         self.matrix_stock_0 = self.matrix_stock.copy()
         self.matrix_orders = self.Z_0.copy()
         self.production = self.X_0.copy()
