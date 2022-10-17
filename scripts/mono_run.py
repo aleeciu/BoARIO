@@ -28,12 +28,20 @@ module_path = os.path.abspath(os.path.join("./"))
 if module_path not in sys.path:
     sys.path.append(module_path)
 
+import boario
 from boario.simulation import Simulation
 import json
 import pathlib
 import logging
 import pickle
 import argparse
+
+def dist_is_editable():
+   """Is distribution an editable install?"""
+   for pth in boario.__path__:
+       if "site-packages" in pth:
+           return False
+   return True
 
 def get_git_describe() -> str:
     return subprocess.check_output(['git', 'describe', '--tags']).decode('ascii').strip()
@@ -113,7 +121,7 @@ def run(region, params, psi, inv_tau, stype, rtype, flood_dmg, mrios_path, outpu
         event_row = flood_gdp_df.loc[(flood_gdp_df['class'] == flood_dmg) & (flood_gdp_df['EXIO3_region'] == region)]
         if event_row.empty:
             raise ValueError("This tuple of region / flood class ({},{}) is does not have a representative event (it is likely a duplicate of another class)".format(region,flood_dmg))
-        dmg_as_gdp_share = float(event_row['dmg_as_gdp_share'])
+        dmg_as_gdp_share = float(event_row['dmg_as_2015_gva_share'])
         total_direct_dmg = dmg_as_gdp_share * gdp_df[region] #float(event_row['total_dmg'])
         duration = int(event_row['duration'])
         scriptLogger.info("Setting flood duration to {}".format(duration))
@@ -138,6 +146,7 @@ def run(region, params, psi, inv_tau, stype, rtype, flood_dmg, mrios_path, outpu
     sim = Simulation(sim_params, mrio_path, modeltype=sim_params['model_type'])
     if alt_inv_dur:
         sim.model.change_inv_duration(alt_inv_dur)
+    print(event)
     sim.read_events_from_list([event])
     try:
         scriptLogger.info("Model ready, looping")
@@ -169,6 +178,8 @@ if __name__ == "__main__":
     scriptLogger.addHandler(consoleHandler)
     scriptLogger.setLevel(logging.INFO)
     scriptLogger.propagate = False
-    scriptLogger.info("You are running the following version of BoARIO : {}".format(get_git_describe()))
+    scriptLogger.info("You are running the following version of BoARIO : {}".format(boario.__version__))
+    scriptLogger.info("You are using BoARIO in editable install mode : {}".format(dist_is_editable()))
+    scriptLogger.info("You are using BoARIO in editable install mode : {}".format(boario.__path__))
     scriptLogger.info("=============== STARTING RUN ================")
     run(args.region, args.params, args.psi, int(args.inv_tau), args.stype, args.rtype, args.flood_dmg, args.mrios_path, args.output_dir, args.flood_gdp_file, args.event_file, args.mrio_params, args.alt_inv_dur)

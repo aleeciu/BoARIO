@@ -236,6 +236,7 @@ Available types are {}
             (int(0),int(0),"rebuilding"):"equi"
         }
         self.n_temporal_units_simulated = 0
+        self._n_checks = 0
         self._monotony_checker = 0
         self.scheme = 'proportional'
         self.has_crashed = False
@@ -262,6 +263,7 @@ Available types are {}
         tmp.setLevel(logging.DEBUG)
         tmp.setFormatter(DEBUGFORMATTER)
         logger.addHandler(tmp)
+        logger.info("Events : {}".format(self.events))
         with (pathlib.Path(self.params["output_dir"]+"/"+self.params['results_storage'])/"simulated_events.json").open('w') as f:
             json.dump(self.events, f, indent=4, cls=EventEncoder)
         if progress:
@@ -320,7 +322,7 @@ Available types are {}
         with (pathlib.Path(self.params["output_dir"]+"/"+self.params['results_storage'])/"simulated_params.json").open('w') as f:
             json.dump(self.params, f, indent=4)
         with (pathlib.Path(self.params["output_dir"]+"/"+self.params['results_storage'])/"equilibrium_checks.json").open('w') as f:
-            json.dump(self.equi, f, indent=4)
+            json.dump({str(k): v for k, v in self.equi.items()}, f, indent=4)
         logger.info('Loop complete')
         if progress:
             bar.finish() # type: ignore (bar possibly unbound but actually not possible)
@@ -399,10 +401,11 @@ Available types are {}
                 logger.info("Temporal_Unit : {} ~ Event named {} that occured at {} in {} for {} damages is completely rebuilt".format(self.current_temporal_unit, e.name,e.occurence_time, e.aff_regions, e.q_damages))
         self.model.calc_orders(self.current_events)
         # TODO : Redo this properly
-
-        n_checks=0
-        if self.current_temporal_unit > min_steps_check and (self.current_temporal_unit > (n_checks+1)*check_period):
+        n_checks = self.current_temporal_unit // check_period
+        if (n_checks > self._n_checks):
             self.check_equilibrium(n_checks)
+            self._n_checks+=1
+
         self.current_temporal_unit += self.params['temporal_units_by_step']
         return 0
 
@@ -410,21 +413,21 @@ Available types are {}
         if np.greater_equal(self.model.production,self.model.X_0).all():
             self.equi[(n_checks,self.current_temporal_unit,"production")] = "greater"
         elif np.allclose(self.model.production,self.model.X_0,atol=0.01):
-            self.equi[(n_checks,self.current_temporal_unit,"production")] = "equiv"
+            self.equi[(n_checks,self.current_temporal_unit,"production")] = "equi"
         else:
-            self.equi[(n_checks,self.current_temporal_unit,"production")] = "not equiv"
+            self.equi[(n_checks,self.current_temporal_unit,"production")] = "not equi"
 
         if np.greater_equal(self.model.matrix_stock,self.model.matrix_stock_0).all():
             self.equi[(n_checks,self.current_temporal_unit,"stocks")] = "greater"
         elif np.allclose(self.model.production,self.model.X_0,atol=0.01):
-            self.equi[(n_checks,self.current_temporal_unit,"stocks")] = "equiv"
+            self.equi[(n_checks,self.current_temporal_unit,"stocks")] = "equi"
         else:
-            self.equi[(n_checks,self.current_temporal_unit,"stocks")] = "not equiv"
+            self.equi[(n_checks,self.current_temporal_unit,"stocks")] = "not equi"
 
         if not self.model.rebuild_demand.any():
             self.equi[(n_checks,self.current_temporal_unit,"rebuilding")] = "finished"
         else:
-            self.equi[(n_checks,self.current_temporal_unit,"production")] = "not finished"
+            self.equi[(n_checks,self.current_temporal_unit,"rebuilding")] = "not finished"
 
     def update_events(self):
         """Update events status
