@@ -41,7 +41,8 @@ def stock_df_from_memmap(memmap:np.memmap, indexes:dict, timesteps:int, timestep
 
 class Indicators(object):
 
-    record_files_list = ["classic_demand_record",
+    record_files_list = ["final_demand_record",
+                         "io_demand_record",
                          "final_demand_unmet_record",
                          "iotable_X_max_record",
                          "iotable_XVA_record",
@@ -76,8 +77,10 @@ class Indicators(object):
         self.prodmax_df = self.prodmax_df.interpolate()
         self.overprod_df = pd.DataFrame(data_dict["overprod"], columns=pd.MultiIndex.from_product([data_dict["regions"], data_dict["sectors"]], names=['region', 'sector']))
         self.overprod_df = self.overprod_df.interpolate()
-        self.c_demand_df = pd.DataFrame(data_dict["c_demand"], columns=pd.MultiIndex.from_product([data_dict["regions"], data_dict["sectors"]], names=['region', 'sector']))
-        self.c_demand_df = self.c_demand_df.interpolate()
+        self.final_demand_df = pd.DataFrame(data_dict["final_demand"], columns=pd.MultiIndex.from_product([data_dict["regions"], data_dict["sectors"]], names=['region', 'sector']))
+        self.final_demand_df = self.final_demand_df.interpolate()
+        self.io_demand_df = pd.DataFrame(data_dict["io_demand"], columns=pd.MultiIndex.from_product([data_dict["regions"], data_dict["sectors"]], names=['region', 'sector']))
+        self.io_demand_df = self.io_demand_df.interpolate()
         self.r_demand_df = pd.DataFrame(data_dict["r_demand"], columns=pd.MultiIndex.from_product([data_dict["regions"], data_dict["sectors"]], names=['region', 'sector']))
         self.r_demand_df = self.r_demand_df.interpolate()
         self.r_prod_df = pd.DataFrame(data_dict["r_prod"], columns=pd.MultiIndex.from_product([data_dict["regions"], data_dict["sectors"]], names=['region', 'sector']))
@@ -93,7 +96,8 @@ class Indicators(object):
         self.prod_df = self.prod_df.rename_axis('step')
         self.prodmax_df = self.prodmax_df.rename_axis('step')
         self.overprod_df = self.overprod_df.rename_axis('step')
-        self.c_demand_df = self.c_demand_df.rename_axis('step')
+        self.final_demand_df = self.final_demand_df.rename_axis('step')
+        self.io_demand_df = self.io_demand_df.rename_axis('step')
         self.r_demand_df = self.r_demand_df.rename_axis('step')
         self.r_prod_df = self.r_prod_df.rename_axis('step')
         self.fd_unmet_df = fd_unmet_df.rename_axis('step')
@@ -133,6 +137,13 @@ class Indicators(object):
         for e in data_dict["events"]:
             self.rebuilding_sectors.append(e['rebuilding_sectors'].keys())
             self.rebuilding_sectors = list(misc.flatten(self.rebuilding_sectors))
+
+        # As we dump the class __dict__ we have different names...
+        # TODO: Find a better fix than this !
+        if 'r_damages' in data_dict['events'][0]:
+            data_dict['events'][0]['r_dmg'] = data_dict['events'][0]['r_damages']
+        if 'q_damages' in data_dict['events'][0]:
+            data_dict['events'][0]['q_dmg'] = data_dict['events'][0]['q_damages']
 
         if 'r_dmg' in data_dict['events'][0]:
             gdp_dmg_share = data_dict['events'][0]['r_dmg']
@@ -181,7 +192,8 @@ class Indicators(object):
         data_dict["prod"] = sim.model.production_evolution
         data_dict["prodmax"] = sim.model.production_cap_evolution
         data_dict["overprod"] = sim.model.overproduction_evolution
-        data_dict["c_demand"] = sim.model.classic_demand_evolution
+        data_dict["final_demand"] = sim.model.final_demand_evolution
+        data_dict["io_demand"] = sim.model.io_demand_evolution
         data_dict["r_demand"] = sim.model.rebuild_demand_evolution
         data_dict["r_prod"] = sim.model.rebuild_production_evolution
         data_dict["fd_unmet"] = sim.model.final_demand_unmet_evolution
@@ -242,7 +254,8 @@ class Indicators(object):
         data_dict["prod"] = np.memmap(results_path/"iotable_XVA_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["prodmax"] = np.memmap(results_path/"iotable_X_max_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["overprod"] = np.memmap(results_path/"overprodvector_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
-        data_dict["c_demand"] = np.memmap(results_path/"classic_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
+        data_dict["final_demand"] = np.memmap(results_path/"final_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
+        data_dict["io_demand"] = np.memmap(results_path/"io_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["r_demand"] = np.memmap(results_path/"rebuild_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["r_prod"] = np.memmap(results_path/"rebuild_prod_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["fd_unmet"] = np.memmap(results_path/"final_demand_unmet_record", mode='r+', dtype='float64',shape=(t,indexes['n_regions']*indexes['n_sectors']))
@@ -291,7 +304,8 @@ class Indicators(object):
         data_dict["prod"] = np.memmap(results_path/"iotable_XVA_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["prodmax"] = np.memmap(results_path/"iotable_X_max_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["overprod"] = np.memmap(results_path/"overprodvector_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
-        data_dict["c_demand"] = np.memmap(results_path/"classic_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
+        data_dict["final_demand"] = np.memmap(results_path/"final_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
+        data_dict["io_demand"] = np.memmap(results_path/"io_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["r_demand"] = np.memmap(results_path/"rebuild_demand_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["r_prod"] = np.memmap(results_path/"rebuild_prod_record", mode='r+', dtype='float64',shape=(t,indexes['n_industries']))
         data_dict["fd_unmet"] = np.memmap(results_path/"final_demand_unmet_record", mode='r+', dtype='float64',shape=(t,indexes['n_regions']*indexes['n_sectors']))
@@ -311,7 +325,7 @@ class Indicators(object):
         self.indicators['aff_fd_unmet'] = self.df_loss[self.df_loss.region.isin(self.aff_regions)]['fdloss'].sum()
 
     def calc_rebuild_durations(self):
-        rebuilding = self.r_demand_df.reset_index().melt(id_vars ="step", var_name=['region','sector'], value_name="rebuild_demand").groupby('step').sum().ne(0).rebuild_demand.to_numpy()
+        rebuilding = self.r_demand_df.reset_index().melt(id_vars ="step", var_name=['region','sector'], value_name="rebuild_demand").groupby('step').sum(numeric_only=True).ne(0).rebuild_demand.to_numpy()
         self.indicators['rebuild_durations'] = [ sum( 1 for _ in group ) for key, group in itertools.groupby( rebuilding ) if key ]
 
     def calc_recovery_duration(self):
@@ -319,8 +333,8 @@ class Indicators(object):
 
     def calc_general_shortage(self):
         #TODO: replace hard values by soft.
-        n_regions = self.df_limiting.levels[0].size
-        n_sectors = self.df_limiting.levels[1].size
+        n_regions = self.df_limiting.columns.levels[0].size
+        n_sectors = self.df_limiting.columns.levels[1].size
         # have only steps in index (next step not possible with multiindex)
         a = self.df_limiting.unstack()
         # select only simulated steps (we can't store nan in bool or byte dtype array)
@@ -351,7 +365,7 @@ class Indicators(object):
     def calc_first_shortages(self):
         a = self.df_limiting.stack([0,1]) #type: ignore
         a = a.swaplevel(1,2).swaplevel(2,3)
-        b = a[a]
+        b = a[a>0]
         b = b[:10]
         res = list(b.index) #type:ignore
         self.indicators['10_first_shortages_(step,region,sector,stock_of)'] = res
@@ -391,13 +405,21 @@ class Indicators(object):
 
     def update_indicators(self):
         logger.info("(Re)computing all indicators")
+        logger.info("Tot fd unmet")
         self.calc_tot_fd_unmet()
+        logger.info("aff fd unmet")
         self.calc_aff_fd_unmet()
+        logger.info("rebuild durations")
         self.calc_rebuild_durations()
+        logger.info("recovery duration")
         self.calc_recovery_duration()
+        logger.info("general shortage")
         self.calc_general_shortage()
+        logger.info("tot prod change")
         self.calc_tot_prod_change()
+        logger.info("fd loss region")
         self.calc_fd_loss_region()
+        logger.info("first shortages")
         self.calc_first_shortages()
 
     def write_indicators(self):
@@ -434,7 +456,8 @@ class Indicators(object):
         self.prodmax_df.to_parquet(self.storage_path/"prodmax_df.parquet")
         self.overprod_df.to_parquet(self.storage_path/"overprod_df.parquet")
         self.fd_unmet_df.to_parquet(self.storage_path/"fd_unmet_df.parquet")
-        self.c_demand_df.to_parquet(self.storage_path/"c_demand_df.parquet")
+        self.final_demand_df.to_parquet(self.storage_path/"final_demand_df.parquet")
+        self.io_demand_df.to_parquet(self.storage_path/"io_demand_df.parquet")
         self.r_demand_df.to_parquet(self.storage_path/"r_demand_df.parquet")
         self.df_loss.to_parquet(self.storage_path/"treated_df_loss.parquet")
         if self.df_stocks is not None:

@@ -309,7 +309,8 @@ Available types are {}
 
         self.model.rebuild_demand_evolution.flush()
         self.model.final_demand_unmet_evolution.flush()
-        self.model.classic_demand_evolution.flush()
+        self.model.final_demand_evolution.flush()
+        self.model.io_demand_evolution.flush()
         self.model.production_evolution.flush()
         self.model.limiting_stocks_evolution.flush()
         self.model.rebuild_production_evolution.flush()
@@ -384,7 +385,8 @@ Available types are {}
                 self.model.calc_overproduction()
         self.model.write_overproduction(self.current_temporal_unit)
         self.model.write_rebuild_demand(self.current_temporal_unit)
-        self.model.write_classic_demand(self.current_temporal_unit)
+        self.model.write_final_demand(self.current_temporal_unit)
+        self.model.write_io_demand(self.current_temporal_unit)
         self.model.calc_production_cap()
         constraints = self.model.calc_production(self.current_temporal_unit)
         self.model.write_limiting_stocks(self.current_temporal_unit, constraints)
@@ -537,6 +539,11 @@ Available types are {}
             q_dmg_regions_sectors = q_dmg_regions * (shares[aff_regions_idx][:,aff_sectors_idx]/shares[aff_regions_idx][:,aff_sectors_idx].sum(axis=1)[:,np.newaxis])
         elif self.events[event_to_add_id].dmg_distrib_across_sectors is None:
             q_dmg_regions_sectors = q_dmg_regions
+        elif type(self.events[event_to_add_id].dmg_distrib_across_sectors) == dict:
+            aff_sectors_idx = np.searchsorted(self.model.sectors, list(self.events[event_to_add_id].dmg_distrib_across_sectors.keys()))
+            shares = np.zeros(shape=(self.model.n_regions,self.model.n_sectors))
+            shares[aff_regions_idx] = list(self.events[event_to_add_id].dmg_distrib_across_sectors.values())
+            q_dmg_regions_sectors = q_dmg_regions * (shares[aff_regions_idx][:,aff_sectors_idx]/shares[aff_regions_idx][:,aff_sectors_idx].sum(axis=1)[:,np.newaxis])
         elif type(self.events[event_to_add_id].dmg_distrib_across_sectors) == list:
             q_dmg_regions_sectors = q_dmg_regions * np.array(self.events[event_to_add_id].dmg_distrib_across_sectors)
         elif type(self.events[event_to_add_id].dmg_distrib_across_sectors) == str and self.events[event_to_add_id].dmg_distrib_across_sectors == 'GDP':
